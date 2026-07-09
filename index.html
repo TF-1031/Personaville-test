@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personaville</title>
+  <link rel="stylesheet" href="css/app.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Personaville</h1>
+      <p class="subtitle">Market persona offer database</p>
+    </div>
+    <div class="top-actions">
+      <label class="btn primary">
+        Build Database
+        <input id="workbookUpload" type="file" accept=".xlsx,.xls" hidden>
+      </label>
+      <button id="loadBundled" class="btn">Load Bundled DB</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <nav class="sidebar">
+      <button class="nav active" data-view="dashboard">Dashboard</button>
+      <button class="nav" data-view="personas">Personas</button>
+      <button class="nav" data-view="modifiers">Modifiers</button>
+      <button class="nav" data-view="health">Database Health</button>
+      <button class="nav" data-view="export">Export</button>
+      <button class="nav" data-view="settings">Settings</button>
+    </nav>
+
+    <section class="content">
+      <section id="dashboard" class="view active">
+        <div class="section-head">
+          <h2>Dashboard</h2>
+          <span id="dbStatus" class="pill gray">No database loaded</span>
+        </div>
+        <div id="kpis" class="kpis"></div>
+        <div class="toolbar">
+          <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, Reference ID..." />
+          <select id="pricingFilter"><option value="">All Pricing Sets</option></select>
+          <select id="familyFilter"><option value="">All Family Groups</option></select>
+        </div>
+        <div id="dashboardTiles" class="tiles"></div>
+      </section>
+
+      <section id="personas" class="view">
+        <div class="section-head">
+          <h2>Persona Library</h2>
+          <button id="clearSelection" class="btn small">Clear Detail</button>
+        </div>
+        <div class="split">
+          <div id="personaTiles" class="tiles"></div>
+          <aside id="detailPanel" class="detail empty">Select a persona tile to view details.</aside>
+        </div>
+      </section>
+
+      <section id="modifiers" class="view">
+        <div class="section-head"><h2>Modifier Library</h2></div>
+        <div id="modifierList" class="modifier-list"></div>
+      </section>
+
+      <section id="health" class="view">
+        <div class="section-head"><h2>Database Health</h2></div>
+        <div id="healthList" class="health-list"></div>
+      </section>
+
+      <section id="export" class="view">
+        <div class="section-head"><h2>Export Center</h2></div>
+        <p class="muted">Select a persona and print/export from the browser. PDF export uses your browser print dialog.</p>
+        <select id="exportPersona"></select>
+        <div class="export-actions">
+          <button id="printPersona" class="btn primary">Print Selected Persona</button>
+          <button id="copySummary" class="btn">Copy Text Summary</button>
+        </div>
+        <div id="printArea" class="print-card"></div>
+      </section>
+
+      <section id="settings" class="view">
+        <div class="section-head"><h2>Settings</h2></div>
+        <div class="settings-card">
+          <h3>Folder Setup</h3>
+          <pre>Personaville/
+├── index.html
+├── database/persona-db.xlsx
+├── database/persona-db.json
+├── icons/
+├── exports/
+└── backups/</pre>
+          <p>The bundled JSON lets the site open immediately. Upload <code>database/persona-db.xlsx</code> with Build Database after edits.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="js/database.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
