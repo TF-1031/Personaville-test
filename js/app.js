@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       const instructions = document.getElementById("downloadInstructions");
       if(instructions) instructions.hidden = true;
       renderAll();
-      setView("dashboard");
+      setView("publish");
     }catch(err){
-      alert("Could not build database from workbook: " + err.message);
+      alert("Could not load database from workbook: " + err.message);
     }
   });
   document.getElementById("downloadUpdatedJson").addEventListener("click", downloadUpdatedJson);
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       await loadBundledDatabase();
       renderAll();
     }catch(err){
-      alert("Could not load bundled database: " + err.message + "\\nIf opening from local file, use Build Database instead.");
+      alert("Could not load published database: " + err.message + "\\nIf opening from local file, use Upload Workbook instead.");
     }
   });
   document.getElementById("globalSearch").addEventListener("input", renderTiles);
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("printPersona").addEventListener("click", ()=>window.print());
   document.getElementById("copySummary").addEventListener("click", copySelectedSummary);
 
-  // Try bundled database on load. If local browser blocks fetch, user can still upload workbook.
+  // Try published database on load. If local browser blocks fetch, user can still upload workbook.
   try{
     await loadBundledDatabase();
     renderAll();

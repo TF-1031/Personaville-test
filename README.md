@@ -17,7 +17,7 @@ Personaville is a static, workbook-driven offer database for reviewing, validati
 - [Pricing Schedule Architecture](#pricing-schedule-architecture)
 - [Modifier Architecture](#modifier-architecture)
 - [Disclaimer Architecture](#disclaimer-architecture)
-- [Build Database Workflow](#build-database-workflow)
+- [Upload Workbook Workflow](#upload-workbook-workflow)
 - [Publish Workflow](#publish-workflow)
 - [Download Updated JSON Workflow](#download-updated-json-workflow)
 - [GitHub Pages Deployment](#github-pages-deployment)
@@ -74,20 +74,20 @@ Personaville v1.0 has three layers:
 - `js/database.js` owns the global `DB` state object, workbook parsing, bundled JSON loading, normalization, relationship enhancement, pricing helpers, and health checks.
 - The app can load either:
   - `database/persona-db.json` through `fetch()`; or
-  - a user-selected workbook through the Build Database file input.
+  - a user-selected workbook through the Upload Workbook file input.
 - Loaded rows are normalized into arrays keyed by workbook sheet names.
 
 ### 3. Client-Side Rendering Layer
 
 - `js/render.js` renders dashboards, persona tiles, detail panels, modifiers, health rows, export previews, and printable cards.
-- `js/app.js` wires navigation and top-level browser events, including Build Database, Load Bundled Database, Download Updated JSON, print, and copy-summary actions.
+- `js/app.js` wires navigation and top-level browser events, including Upload Workbook, Load Published Database, Download Updated JSON, print, and copy-summary actions.
 
 ### Data Flow
 
 ```text
 Excel workbook (.xlsx)
         │
-        │ Build Database in browser via SheetJS
+        │ Upload Workbook in browser via SheetJS
         ▼
 Raw workbook sheet arrays
         │
@@ -186,7 +186,7 @@ At runtime, the app uses a global `DB` object with these major properties:
 - `icons` — rows from `09_Icons` with resolved paths.
 - `health` — rows from `12_DataHealth`.
 - `settings` — rows from `01_Settings`.
-- `loadedFromWorkbook` — `true` only after Build Database loads a workbook.
+- `loadedFromWorkbook` — `true` only after Upload Workbook loads a workbook.
 - `downloadableRaw` — cloned raw workbook payload used for Download Updated JSON.
 
 ---
@@ -350,12 +350,12 @@ The browser health checks verify that persona disclaimer IDs resolve to existing
 
 ---
 
-## Build Database Workflow
+## Upload Workbook Workflow
 
-Use Build Database when the workbook has changed and you want to validate the edited data in the browser.
+Use Upload Workbook when the workbook has changed and you want to validate the edited data in the browser.
 
 1. Open the Personaville site in Chrome or Edge.
-2. Click **Build Database**.
+2. Click **Upload Workbook**.
 3. Select `database/persona-db.xlsx` or another edited workbook copy.
 4. The browser parses the workbook with SheetJS.
 5. The app applies the workbook data to runtime `DB` state.
@@ -365,8 +365,8 @@ Use Build Database when the workbook has changed and you want to validate the ed
 
 Important notes:
 
-- Build Database updates browser memory only.
-- Build Database does **not** automatically edit `database/persona-db.json` in the repository.
+- Upload Workbook updates browser memory only.
+- Upload Workbook does **not** automatically edit `database/persona-db.json` in the repository.
 - The downloaded JSON must be committed to publish data changes.
 - SheetJS is loaded from a CDN in v1.0; workbook parsing needs network access unless the library is already cached.
 
@@ -396,7 +396,7 @@ git checkout -b update-personaville-data
 # 3. Replace the generated JSON and, when applicable, workbook/assets
 # database/persona-db.json
 # database/persona-db.xlsx
-# icons/*
+# assets/icons/*
 
 # 4. Review changes
 git status
@@ -415,7 +415,7 @@ git commit -m "Update Personaville database"
 
 ## Download Updated JSON Workflow
 
-The **Download Updated JSON** button is available only after Build Database successfully loads a workbook.
+The **Download Updated JSON** button is available only after Upload Workbook successfully loads a workbook.
 
 When clicked:
 
@@ -442,7 +442,7 @@ Personaville is GitHub Pages-friendly because the app is static.
 - `js/render.js`
 - `database/persona-db.json`
 - `database/persona-db.xlsx` for maintainer access, if desired
-- `icons/*`
+- `assets/icons/*`
 
 ### Deployment Behavior
 
@@ -485,8 +485,10 @@ Personaville/
 ├── database/
 │   ├── persona-db.xlsx          # Canonical editable workbook
 │   └── persona-db.json          # Deployable generated JSON database
-├── icons/
+├── assets/icons/
 │   └── *.png                    # Persona and modifier icon assets
+├── assets/images/
+│   └── .keep                    # Reserved for future images, including personavillehero.png
 ├── exports/                     # Optional export staging folder
 ├── backups/                     # Optional manual backup folder
 └── tests/
@@ -529,7 +531,7 @@ Suggested capture with a persona that has modifiers and a multi-row pricing sche
 
 ![Modifier Library screenshot placeholder](docs/screenshots/modifier-library-placeholder.png)
 
-Suggested capture after verifying icons load from the `icons/` folder.
+Suggested capture after verifying icons load from the `assets/icons/` folder.
 
 ### Database Health
 
@@ -604,7 +606,7 @@ Potential v2.0 work should focus on making the publication pipeline more automat
 
 - Static Personaville web app with Dashboard, Personas, Modifiers, Database Health, Export, and Settings views.
 - Bundled JSON database loading from `database/persona-db.json`.
-- In-browser workbook parsing through Build Database.
+- In-browser workbook parsing through Upload Workbook.
 - Download Updated JSON workflow for publishing workbook-derived data.
 - Runtime relationship enhancement for personas, speeds, schedules, modifiers, disclaimers, and icons.
 - Search and filters for persona library.

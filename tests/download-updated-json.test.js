@@ -11,6 +11,11 @@ vm.createContext(context);
 vm.runInContext(fs.readFileSync('js/database.js', 'utf8'), context);
 
 const workbookRaw = JSON.parse(fs.readFileSync('database/persona-db.json', 'utf8'));
+
+assert.strictEqual(context.resolveIconPath('icon-Standard.png'), 'assets/icons/icon-Standard.png');
+assert.strictEqual(context.resolveIconPath('assets/icons/icon-Standard.png'), 'assets/icons/icon-Standard.png');
+assert.strictEqual(context.resolveIconPath('icons/icon-Standard.png'), 'assets/icons/icon-Standard.png');
+assert.strictEqual(context.resolveIconPath('./assets/icons/icon-Standard.png'), 'assets/icons/icon-Standard.png');
 const correctedSchedule = workbookRaw['07_PricingSchedules'].find(row => row.ScheduleID === 'SCH_091');
 assert(correctedSchedule, 'fixture should include SCH_091');
 correctedSchedule.DisplayLabel = 'SCH_091 uploaded workbook correction';

@@ -17,12 +17,13 @@ let DB = {
   downloadableRaw: null
 };
 
-const ICON_DIR = "icons/";
+const ICON_DIR = "assets/icons/";
 function normalizeIconFile(file){
   const value = String(file || "").trim();
   if(!value) return "";
   if(/^https?:\/\//i.test(value) || value.startsWith("/")) return value;
-  return value.replace(/^\.\//, "").replace(/^(icons\/)+/i, "");
+  const relative = value.replace(/^\.\//, "");
+  return relative.replace(/^(?:assets\/icons\/|icons\/)+/i, "");
 }
 function resolveIconPath(file){
   const normalized = normalizeIconFile(file);
@@ -147,7 +148,7 @@ function currentBuildSummary(){
   };
 }
 function updatedDatabaseJson(){
-  if(!DB.loadedFromWorkbook || !DB.downloadableRaw) throw new Error("Build Database must successfully load a workbook before downloading updated JSON.");
+  if(!DB.loadedFromWorkbook || !DB.downloadableRaw) throw new Error("Upload Workbook must successfully load a workbook before downloading updated JSON.");
   return JSON.stringify(DB.downloadableRaw, null, 2) + "\n";
 }
 function hasBlockingHealthErrors(){

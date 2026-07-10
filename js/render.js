@@ -85,8 +85,8 @@ function renderPublishPanel(){
   const downloaded = !document.getElementById("downloadInstructions")?.hidden;
   const ready = built && healthReady();
   const steps = [
-    ["Select Workbook", DB.loadedFromWorkbook],
-    ["Build Database", DB.loadedFromWorkbook],
+    ["Upload Workbook", DB.loadedFromWorkbook],
+    ["Load workbook into browser memory", DB.loadedFromWorkbook],
     ["Review Database Health", built],
     ["Download Updated JSON", downloaded],
     ["Replace database/persona-db.json in GitHub", downloaded],
@@ -115,7 +115,7 @@ function renderBuildSummary(){
   const summary = currentBuildSummary();
   box.hidden = false;
   box.innerHTML = "";
-  box.appendChild(el("div",{class:"build-summary-title"},["Build Database completed successfully"]));
+  box.appendChild(el("div",{class:"build-summary-title"},["Upload Workbook completed successfully"]));
   box.appendChild(el("div",{class:"build-summary-grid"},[
     summaryMetric("personas", summary.personas),
     summaryMetric("speed options", summary.speedOptions),
@@ -328,7 +328,7 @@ function renderModifiers(){
   if(!box) return;
   box.innerHTML="";
   if(!DB.modifiers.length){
-    box.appendChild(emptyState("No modifiers are available.", "Load the bundled database or build from a workbook to review modifiers."));
+    box.appendChild(emptyState("No modifiers are available.", "Load the published database or upload a workbook to review modifiers."));
     return;
   }
   DB.modifiers.forEach(m => {
@@ -349,7 +349,7 @@ function renderHealth(){
   box.innerHTML="";
   const rows = buildHealth();
   if(!rows.length){
-    box.appendChild(emptyState("No health checks are available.", "Load the bundled database or build from a workbook to review database health."));
+    box.appendChild(emptyState("No health checks are available.", "Load the published database or upload a workbook to review database health."));
     return;
   }
   rows.forEach((h, index) => {
