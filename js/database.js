@@ -154,11 +154,42 @@ function workbookHealthRecords(row){
 }
 
 const HEALTH_STATUSES = new Set(["OK", "WARN", "BAD", "ERROR", "FAIL"]);
+const WORKBOOK_HEALTH_COLUMNS = ["Section", "Check", "Status", "Count", "Details"];
+function normalizedHealthCell(value){
+  return String(value ?? "").trim().toLowerCase();
+}
+function isWorkbookHealthColumnHeader(row){
+  return WORKBOOK_HEALTH_COLUMNS.every(column => normalizedHealthCell(row[column]) === column.toLowerCase());
+}
+function isWorkbookDetailHeader(row, expectedColumns){
+  return expectedColumns.every(([field, label]) => normalizedHealthCell(row[field]) === label.toLowerCase());
+}
+function isWorkbookSectionLabel(row){
+  const values = WORKBOOK_HEALTH_COLUMNS.map(column => String(row[column] ?? "").trim());
+  return Boolean(values[0]) && values.slice(1).every(value => !value);
+}
+function isIgnoredWorkbookHealthRow(row){
+  return isWorkbookHealthColumnHeader(row) ||
+    isWorkbookSectionLabel(row) ||
+    isWorkbookDetailHeader(row, [
+      ["Section", "IntroFreeScheduleID"],
+      ["Check", "ReferenceID"],
+      ["Status", "PersonaID"],
+      ["Count", "SpeedOption"],
+      ["Details", "FirstPaidPrice"]
+    ]);
+}
 function isWorkbookHealthSummary(row){
-  return HEALTH_STATUSES.has(String(row.Status || "").trim().toUpperCase()) && String(row.Check || "").trim();
+  return !isIgnoredWorkbookHealthRow(row) && HEALTH_STATUSES.has(String(row.Status || "").trim().toUpperCase()) && String(row.Check || "").trim();
 }
 function isIntroFreeDetailHeader(row){
-  return String(row.Section || "").trim() === "IntroFreeScheduleID" && String(row.Check || "").trim() === "ReferenceID";
+  return isWorkbookDetailHeader(row, [
+    ["Section", "IntroFreeScheduleID"],
+    ["Check", "ReferenceID"],
+    ["Status", "PersonaID"],
+    ["Count", "SpeedOption"],
+    ["Details", "FirstPaidPrice"]
+  ]);
 }
 function isIntroFreeDetailRecord(row){
   return String(row.Section || "").trim().startsWith("SCH_") && String(row.Check || "").trim();
