@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #140b1b;
+}
+
+.personaville-hero {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #21102c;
+}
+
+.personaville-hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.personaville-play {
+  position: absolute;
+  right: clamp(14px, 2vw, 30px);
+  bottom: clamp(14px, 2vw, 30px);
+
+  width: clamp(56px, 5vw, 76px);
+  aspect-ratio: 1;
+  padding: 0;
+
+  border: 2px solid rgba(255, 255, 255, 0.38);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      #dfbce7 0%,
+      #ae62bd 28%,
+      #8d3b91 63%,
+      #57205f 100%
+    );
+
+  color: #24102f;
+  font: 800 clamp(11px, 1.1vw, 15px)/1 Arial, sans-serif;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+  box-shadow:
+    0 8px 0 #35133c,
+    0 12px 20px rgba(0, 0, 0, 0.5),
+    inset 0 4px 5px rgba(255, 255, 255, 0.36);
+
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    filter 120ms ease;
+}
+
+.personaville-play:hover {
+  filter: brightness(1.12);
+}
+
+.personaville-play:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+.personaville-play:active {
+  transform: translateY(5px);
+  box-shadow:
+    0 3px 0 #35133c,
+    0 6px 12px rgba(0, 0, 0, 0.45),
+    inset 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.personaville-play.is-playing {
+  color: #fff;
+  box-shadow:
+    0 8px 0 #35133c,
+    0 0 12px rgba(203, 117, 221, 0.95),
+    0 0 30px rgba(141, 59, 145, 0.9),
+    inset 0 4px 5px rgba(255, 255, 255, 0.45);
+}
+
+.personaville-play.has-error {
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .personaville-play {
+    right: 12px;
+    bottom: 12px;
+    width: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .personaville-play {
+    transition: none;
+  }
+}
