@@ -4,10 +4,11 @@ let selectedPersona = null;
 function el(tag, attrs={}, children=[]){
   const node = document.createElement(tag);
   Object.entries(attrs).forEach(([k,v])=>{
+    if(v===null || v===undefined || v===false) return;
     if(k==="class") node.className=v;
     else if(k==="html") node.innerHTML=v;
     else if(k.startsWith("on")) node.addEventListener(k.slice(2), v);
-    else node.setAttribute(k,v);
+    else node.setAttribute(k,v===true ? "" : v);
   });
   [].concat(children).forEach(ch=>{
     if(ch===null || ch===undefined) return;
@@ -15,6 +16,30 @@ function el(tag, attrs={}, children=[]){
   });
   return node;
 }
+
+function iconImage(path, alt, context={}, fallbackText="1:1"){
+  if(!path) return el("span",{class:"icon-fallback"},[fallbackText]);
+  return el("img",{
+    src:path,
+    alt:alt || "",
+    loading:"lazy",
+    onerror:(event)=>{
+      recordIconLoadFailure(path, context);
+      event.currentTarget.parentNode.replaceChildren(el("span",{class:"icon-fallback"},[fallbackText]));
+      renderHealth();
+    }
+  });
+}
+function iconSlot(path, alt, context){
+  return el("div",{class:"icon-slot"},[iconImage(path, alt, context)]);
+}
+function modifierChip(m){
+  return el("span",{class:"chip mod"},[
+    m.IconPath ? iconImage(m.IconPath, "", {type:"Modifier", id:m.ModifierID, name:m.ModifierName, file:m.IconFile}, "") : null,
+    m.ModifierName
+  ]);
+}
+
 function renderAll(){
   renderKpis();
   fillFilters();
@@ -66,7 +91,7 @@ function personaTile(p){
   const chips=[];
   if(truthy(p.EquipInc)) chips.push(el("span",{class:"chip feature"},["✓ Equip Inc"]));
   if(truthy(p.SymSpeed)) chips.push(el("span",{class:"chip feature"},["✓ Sym Speed"]));
-  (p.modifiers||[]).forEach(m => chips.push(el("span",{class:"chip mod"},[m.ModifierName])));
+  (p.modifiers||[]).forEach(m => chips.push(modifierChip(m)));
   const rows = (p.speeds||[]).map(s => el("tr",{},[
     el("td",{class:"so"},[s.SpeedOption || ""]),
     el("td",{},[s.DisplaySpeed || ""]),
@@ -79,7 +104,7 @@ function personaTile(p){
         el("h3",{},[p.PersonaName || "Untitled"]),
         el("div",{class:"meta"},[`Family Group: ${p.FamilyGroup || "—"} • ${p.PricingSet || ""}`])
       ]),
-      el("div",{class:"icon-slot"},["1:1"])
+      iconSlot(p.IconPath, `${p.PersonaName || "Persona"} icon`, {type:"Persona", id:p.PersonaID, name:p.PersonaName, file:p.PromoIcon})
     ]),
     el("div",{class:"chips"},chips.length?chips:[el("span",{class:"chip gray"},["No modifiers"])]),
     el("table",{class:"speed-table"},[
@@ -110,12 +135,15 @@ function renderDetail(p){
   panel.className="detail";
   const mods = (p.modifiers||[]).map(m=>m.ModifierName).join(" | ") || "None";
   panel.innerHTML="";
-  panel.appendChild(el("h3",{},[p.PersonaName]));
+  panel.appendChild(el("div",{class:"detail-title"},[
+    iconSlot(p.IconPath, `${p.PersonaName || "Persona"} icon`, {type:"Persona", id:p.PersonaID, name:p.PersonaName, file:p.PromoIcon}),
+    el("h3",{},[p.PersonaName])
+  ]));
   panel.appendChild(el("div",{class:"meta"},[`Persona ID: ${p.PersonaID} • Family Group: ${p.FamilyGroup}`]));
   const chips = el("div",{class:"chips"},[]);
   if(truthy(p.EquipInc)) chips.appendChild(el("span",{class:"chip feature"},["✓ Equip Inc"]));
   if(truthy(p.SymSpeed)) chips.appendChild(el("span",{class:"chip feature"},["✓ Sym Speed"]));
-  (p.modifiers||[]).forEach(m=>chips.appendChild(el("span",{class:"chip mod"},[m.ModifierName])));
+  (p.modifiers||[]).forEach(m=>chips.appendChild(modifierChip(m)));
   panel.appendChild(chips);
   panel.appendChild(el("div",{class:"detail-section"},[
     el("strong",{},["Ratecard modifiers: "]), mods
@@ -156,7 +184,10 @@ function renderModifiers(){
   DB.modifiers.forEach(m => {
     const used = DB.personaModifiers.filter(pm=>pm.ModifierID===m.ModifierID && truthy(pm.Active)).length;
     box.appendChild(el("div",{class:"modifier"},[
-      el("h3",{},[m.ModifierName]),
+      el("div",{class:"modifier-title"},[
+        iconSlot(m.IconPath, `${m.ModifierName || "Modifier"} icon`, {type:"Modifier", id:m.ModifierID, name:m.ModifierName, file:m.IconFile}),
+        el("h3",{},[m.ModifierName])
+      ]),
       el("div",{class:"meta"},[`${m.Category || "Modifier"} • Used by ${used} personas`]),
       el("p",{class:"muted"},[m.Description || ""])
     ]));
@@ -166,15 +197,61 @@ function renderHealth(){
   const box = document.getElementById("healthList");
   if(!box) return;
   box.innerHTML="";
-  buildHealth().forEach(h => {
+  buildHealth().forEach((h, index) => {
     const st = String(h.Status||"").toUpperCase();
-    box.appendChild(el("div",{class:"health-row"},[
+    const failed = st && st !== "OK";
+    const records = h.Records || [];
+    const detailId = `health-detail-${index}`;
+    const row = el("button",{
+      class:`health-row ${failed ? "failed" : ""}`,
+      type:"button",
+      "aria-expanded":"false",
+      "aria-controls":detailId,
+      disabled:failed ? null : "disabled",
+      onclick:()=>toggleHealthDetails(detailId, row)
+    },[
       el("div",{class:"muted"},[h.Section || ""]),
       el("div",{},[h.Check || ""]),
       el("div",{class:st==="OK"?"status-ok":st==="WARN"?"status-warn":"status-bad"},[st || "—"]),
-      el("div",{},[String(h.Count ?? "")])
+      el("div",{},[String(h.Count ?? "")]),
+      el("div",{class:"health-details muted", title:h.Details || ""},[failed ? "Click to inspect offending records" : (h.Details || "—")])
+    ]);
+    box.appendChild(row);
+    box.appendChild(healthDetailPanel(h, records, detailId));
+  });
+}
+function toggleHealthDetails(detailId, row){
+  const panel = document.getElementById(detailId);
+  if(!panel || row.disabled) return;
+  const open = panel.hidden;
+  panel.hidden = !open;
+  row.setAttribute("aria-expanded", String(open));
+}
+function healthDetailPanel(h, records, id){
+  const failed = String(h.Status||"").toUpperCase() !== "OK";
+  const panel = el("div",{class:"health-detail-panel", id},[]);
+  panel.hidden = true;
+  if(!failed){
+    return panel;
+  }
+  panel.appendChild(el("h3",{},[`${h.Check || "Health check"} details`]));
+  panel.appendChild(el("p",{class:"muted"},[records.length ? `${records.length} offending record${records.length===1?"":"s"}.` : "No record-level details were provided for this failed check."]));
+  if(!records.length){
+    panel.appendChild(el("pre",{},[h.Details || "No details available."]));
+    return panel;
+  }
+  records.forEach(record => {
+    const fields = record.Fields || {};
+    panel.appendChild(el("div",{class:"health-record"},[
+      el("div",{class:"health-record-title"},[record.Record || "Unknown record"]),
+      el("div",{class:"health-record-reason"},[record.Reason || "No reason provided."]),
+      el("dl",{class:"health-record-fields"},Object.entries(fields).flatMap(([key,value]) => [
+        el("dt",{},[key]),
+        el("dd",{},[String(value ?? "")])
+      ]))
     ]));
   });
+  return panel;
 }
 function fillExportPicker(){
   const sel = document.getElementById("exportPersona");
@@ -189,12 +266,15 @@ function renderPrintArea(){
   const area = document.getElementById("printArea");
   if(!p || !area) return;
   area.innerHTML="";
-  area.appendChild(el("h2",{},[p.PersonaName]));
+  area.appendChild(el("div",{class:"print-title"},[
+    iconSlot(p.IconPath, `${p.PersonaName || "Persona"} icon`, {type:"Persona", id:p.PersonaID, name:p.PersonaName, file:p.PromoIcon}),
+    el("h2",{},[p.PersonaName])
+  ]));
   area.appendChild(el("div",{class:"meta"},[`Family Group: ${p.FamilyGroup} • Pricing Set: ${p.PricingSet}`]));
   const chips = el("div",{class:"chips"},[]);
   if(truthy(p.EquipInc)) chips.appendChild(el("span",{class:"chip feature"},["✓ Equip Inc"]));
   if(truthy(p.SymSpeed)) chips.appendChild(el("span",{class:"chip feature"},["✓ Sym Speed"]));
-  (p.modifiers||[]).forEach(m=>chips.appendChild(el("span",{class:"chip mod"},[m.ModifierName])));
+  (p.modifiers||[]).forEach(m=>chips.appendChild(modifierChip(m)));
   area.appendChild(chips);
   p.speeds.forEach(s => area.appendChild(speedDetail(s)));
   area.appendChild(el("div",{class:"detail-section disclaimer"},[p.disclaimer?.DisclaimerText || ""]));

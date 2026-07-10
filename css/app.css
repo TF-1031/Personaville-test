@@ -34,7 +34,11 @@ h2{margin:0;font-size:22px;color:#15364a}
 .tile-head{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start}
 .tile h3{margin:0;font-size:17px;color:#15364a}
 .meta{color:var(--muted);font-size:12px;margin-top:3px}
-.icon-slot{width:34px;height:34px;border:1px dashed #b9c6d0;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:11px;background:#f8fafc}
+.icon-slot{width:34px;height:34px;border:1px solid #d7e2ea;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:11px;background:#f8fafc;overflow:hidden;flex:0 0 auto}
+.icon-slot img{width:100%;height:100%;object-fit:contain;display:block}
+.icon-fallback{font-size:10px;font-weight:800;color:#94a3b8}
+.detail-title,.modifier-title,.print-title{display:flex;align-items:center;gap:10px}
+.chip img{width:14px;height:14px;object-fit:contain;margin-right:4px;vertical-align:middle}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
 .chip{font-size:11px;font-weight:800;padding:4px 7px;border-radius:999px;line-height:1;border:1px solid transparent;white-space:nowrap}
 .chip.feature{background:var(--green);color:var(--greenText);border-color:#b7e3c8}
@@ -60,7 +64,19 @@ h2{margin:0;font-size:22px;color:#15364a}
 .modifier{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
 .modifier h3{margin:0 0 6px}
 .health-list{display:grid;gap:8px}
-.health-row{display:grid;grid-template-columns:120px 1fr 80px 70px;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;align-items:center}
+.health-row{display:grid;grid-template-columns:120px 1fr 80px 70px minmax(220px,2fr);gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;align-items:center;text-align:left;color:inherit;font:inherit;width:100%}
+.health-row.failed{cursor:pointer}
+.health-row.failed:hover,.health-row.failed:focus{border-color:#98b4c4;box-shadow:0 0 0 3px rgba(18,91,127,.12);outline:none}
+.health-row:disabled{cursor:default}
+.health-details{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.health-detail-panel{background:#fff;border:1px solid var(--line);border-radius:12px;margin:-4px 0 8px 24px;padding:14px;box-shadow:var(--shadow)}
+.health-detail-panel h3{margin:0 0 6px;color:#15364a}
+.health-record{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+.health-record-title{font-weight:900;color:#15364a}
+.health-record-reason{margin-top:4px}
+.health-record-fields{display:grid;grid-template-columns:minmax(120px,auto) 1fr;gap:4px 10px;margin:8px 0 0;font-size:12px}
+.health-record-fields dt{font-weight:800;color:var(--muted)}
+.health-record-fields dd{margin:0}
 .status-ok{color:#13734a;font-weight:900}.status-warn{color:#a05a00;font-weight:900}.status-bad{color:#b42318;font-weight:900}
 .export-actions{display:flex;gap:10px;margin:14px 0}
 .print-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;max-width:810px;min-height:600px;box-shadow:var(--shadow)}
