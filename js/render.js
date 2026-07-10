@@ -198,7 +198,7 @@ function personaTile(p){
   if(truthy(p.SymSpeed)) chips.push(el("span",{class:"chip feature"},["✓ Sym Speed"]));
   (p.modifiers||[]).forEach(m => chips.push(modifierChip(m)));
   const rows = (p.speeds||[]).map(s => el("tr",{},[
-    el("td",{class:"so"},[s.SpeedOption || ""]),
+    el("td",{class:"so", "aria-label":s.SpeedOption || "Speed option"},["•"]),
     el("td",{},[s.DisplaySpeed || ""]),
     el("td",{class:"price schedule-summary"},[pricingSummaryNode(s)]),
     el("td",{},[money(s.RegularRate)])
