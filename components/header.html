@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personaville</title>
+
+  <link rel="stylesheet" href="css/personaville.css">
+  <script src="js/personaville.js" defer></script>
+</head>
+<body>
+
+  <header id="personaville-header" class="personaville-hero">
+    <img
+      class="personaville-hero__image"
+      src="images/personaville-header.png"
+      alt="Welcome to Persona Ville. What's your dilemma?"
+    >
+
+    <button
+      id="playButton"
+      class="personaville-play"
+      type="button"
+      aria-label="Play Personaville music"
+      aria-pressed="false"
+      title="Play music"
+    >
+      PLAY
+    </button>
+
+    <audio id="bgMusic" loop preload="metadata">
+      <source
+        src="audio/8bit-Personaville-loop.mp3"
+        type="audio/mpeg"
+      >
+    </audio>
+  </header>
+
+</body>
+</html>
