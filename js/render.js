@@ -165,19 +165,50 @@ function fillFilters(){
   getUnique(DB.personas,"FamilyGroup").forEach(v=>ff.appendChild(el("option",{value:v},[v])));
   pf.value=curP; ff.value=curF;
 }
+function personaFiltersActive(){
+  const query = document.getElementById("globalSearch")?.value || "";
+  const family = document.getElementById("familyFilter")?.value || "";
+  const pricing = document.getElementById("pricingFilter")?.value || "";
+  return Boolean(query.trim() || family || pricing);
+}
 function visiblePersonas(){
   const query = document.getElementById("globalSearch")?.value || "";
   const family = document.getElementById("familyFilter")?.value || "";
   const pricing = document.getElementById("pricingFilter")?.value || "";
+  if(!personaFiltersActive()) return [];
   return searchPersonas(query, family, pricing);
 }
+function resetPersonaDetail(){
+  selectedPersona=null;
+  const p=document.getElementById("detailPanel");
+  if(!p) return;
+  p.className="detail empty";
+  p.textContent="Select a persona tile to view details.";
+}
+function clearPersonaFilters(){
+  const search = document.getElementById("globalSearch");
+  const family = document.getElementById("familyFilter");
+  const pricing = document.getElementById("pricingFilter");
+  if(search) search.value = "";
+  if(family) family.value = "";
+  if(pricing) pricing.value = "";
+  resetPersonaDetail();
+  renderTiles();
+}
 function renderTiles(){
+  const active = personaFiltersActive();
   const personas = visiblePersonas();
+  const count = document.getElementById("personaResultCount");
+  if(count) count.textContent = `${personas.length} persona${personas.length === 1 ? "" : "s"} found`;
   const d1 = document.getElementById("dashboardTiles");
   const d2 = document.getElementById("personaTiles");
   [d1,d2].forEach(box => {
     if(!box) return;
     box.innerHTML="";
+    if(!active){
+      box.appendChild(emptyState("Search or choose a filter to view personas."));
+      return;
+    }
     if(!personas.length){
       box.appendChild(emptyState("No personas match the current filters.", "Try clearing search or selecting a different pricing set or family group."));
       return;

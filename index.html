@@ -41,16 +41,30 @@
           <h2>Persona Library</h2>
           <button id="clearSelection" class="btn small" type="button">Clear Detail</button>
         </div>
-        <div class="toolbar">
-          <label class="sr-only" for="globalSearch">Search personas</label>
-          <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, or reference ID" autocomplete="off" />
-          <label class="sr-only" for="pricingFilter">Filter by pricing set</label>
-          <select id="pricingFilter"><option value="">All Pricing Sets</option></select>
-          <label class="sr-only" for="familyFilter">Filter by family group</label>
-          <select id="familyFilter"><option value="">All Family Groups</option></select>
-        </div>
-        <div class="split">
-          <div id="personaTiles" class="tiles" aria-live="polite"></div>
+        <div class="persona-library-layout">
+          <aside class="filter-panel" aria-labelledby="personaFilterHeading">
+            <h3 id="personaFilterHeading">Filters</h3>
+            <div class="filter-control">
+              <label for="globalSearch">Search</label>
+              <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, or reference ID" autocomplete="off" />
+            </div>
+            <div class="filter-control">
+              <label for="pricingFilter">Pricing Set</label>
+              <select id="pricingFilter"><option value="">All Pricing Sets</option></select>
+            </div>
+            <div class="filter-control">
+              <label for="familyFilter">Family Group</label>
+              <select id="familyFilter"><option value="">All Family Groups</option></select>
+            </div>
+            <button id="clearFilters" class="btn" type="button">Clear Filters</button>
+          </aside>
+          <section class="persona-results" aria-labelledby="personaResultsHeading">
+            <div class="results-head">
+              <h3 id="personaResultsHeading">Results</h3>
+              <span id="personaResultCount" class="pill gray" aria-live="polite">0 personas found</span>
+            </div>
+            <div id="personaTiles" class="tiles" aria-live="polite"></div>
+          </section>
           <aside id="detailPanel" class="detail empty">Select a persona tile to view details.</aside>
         </div>
       </section>

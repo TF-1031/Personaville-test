@@ -39,12 +39,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("globalSearch").addEventListener("input", renderTiles);
   document.getElementById("familyFilter").addEventListener("change", renderTiles);
   document.getElementById("pricingFilter").addEventListener("change", renderTiles);
-  document.getElementById("clearSelection").addEventListener("click", ()=>{
-    selectedPersona=null;
-    const p=document.getElementById("detailPanel");
-    p.className="detail empty";
-    p.textContent="Select a persona tile to view details.";
-  });
+  document.getElementById("clearSelection").addEventListener("click", resetPersonaDetail);
+  document.getElementById("clearFilters").addEventListener("click", clearPersonaFilters);
   document.getElementById("exportPersona").addEventListener("change", renderPrintArea);
   document.getElementById("selectAllVisible").addEventListener("click", selectAllVisiblePersonas);
   document.getElementById("clearExportSelection").addEventListener("click", clearExportSelection);
