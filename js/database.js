@@ -9,7 +9,9 @@ let DB = {
   disclaimers: [],
   icons: [],
   health: [],
-  iconFailures: []
+  iconFailures: [],
+  loadedFromWorkbook: false,
+  downloadableRaw: null
 };
 
 const ICON_DIR = "icons/";
@@ -78,18 +80,31 @@ async function loadBundledDatabase(){
   const res = await fetch("database/persona-db.json");
   if(!res.ok) throw new Error("Could not load database/persona-db.json");
   const data = await res.json();
-  applyRawDatabase(data);
+  applyRawDatabase(data, {source:"bundled"});
 }
-function applyRawDatabase(raw){
-  DB.raw = raw;
-  DB.personas = raw[SHEET_MAP.personas] || [];
-  DB.speedOptions = raw[SHEET_MAP.speedOptions] || [];
-  DB.schedules = raw[SHEET_MAP.schedules] || [];
-  DB.modifiers = raw[SHEET_MAP.modifiers] || [];
-  DB.personaModifiers = raw[SHEET_MAP.personaModifiers] || [];
-  DB.disclaimers = raw[SHEET_MAP.disclaimers] || [];
-  DB.icons = raw[SHEET_MAP.icons] || [];
-  DB.health = raw[SHEET_MAP.health] || [];
+function cloneDatabasePayload(raw){
+  return JSON.parse(JSON.stringify(raw || {}));
+}
+function normalizeDatabasePayload(raw){
+  const normalized = {};
+  Object.keys(raw || {}).forEach(key => {
+    normalized[key] = Array.isArray(raw[key]) ? raw[key].map(row => ({...row})) : raw[key];
+  });
+  return normalized;
+}
+function applyRawDatabase(raw, options={}){
+  const normalized = normalizeDatabasePayload(raw);
+  DB.raw = normalized;
+  DB.loadedFromWorkbook = options.source === "workbook";
+  DB.downloadableRaw = DB.loadedFromWorkbook ? cloneDatabasePayload(normalized) : null;
+  DB.personas = normalized[SHEET_MAP.personas] || [];
+  DB.speedOptions = normalized[SHEET_MAP.speedOptions] || [];
+  DB.schedules = normalized[SHEET_MAP.schedules] || [];
+  DB.modifiers = normalized[SHEET_MAP.modifiers] || [];
+  DB.personaModifiers = normalized[SHEET_MAP.personaModifiers] || [];
+  DB.disclaimers = normalized[SHEET_MAP.disclaimers] || [];
+  DB.icons = normalized[SHEET_MAP.icons] || [];
+  DB.health = normalized[SHEET_MAP.health] || [];
   DB.iconFailures = [];
   enhanceDatabase();
 }
@@ -101,7 +116,29 @@ async function loadWorkbookFile(file){
   workbook.SheetNames.forEach(name => {
     raw[name] = rowsFromSheet(workbook.Sheets[name]);
   });
-  applyRawDatabase(raw);
+  applyRawDatabase(raw, {source:"workbook"});
+}
+function currentBuildSummary(){
+  const healthRows = buildHealth();
+  const healthErrors = healthRows.filter(row => ["BAD", "ERROR", "FAIL"].includes(String(row.Status || "").toUpperCase()));
+  const healthWarnings = healthRows.filter(row => String(row.Status || "").toUpperCase() === "WARN");
+  return {
+    personas: DB.personas.length,
+    speedOptions: DB.speedOptions.length,
+    pricingSchedules: DB.schedules.length,
+    disclaimers: DB.disclaimers.length,
+    modifiers: DB.modifiers.length,
+    icons: DB.icons.length,
+    healthErrors: healthErrors.length,
+    healthWarnings: healthWarnings.length
+  };
+}
+function updatedDatabaseJson(){
+  if(!DB.loadedFromWorkbook || !DB.downloadableRaw) throw new Error("Build Database must successfully load a workbook before downloading updated JSON.");
+  return JSON.stringify(DB.downloadableRaw, null, 2) + "\n";
+}
+function hasBlockingHealthErrors(){
+  return currentBuildSummary().healthErrors > 0;
 }
 function pricingRowIdentity(row){
   return [
