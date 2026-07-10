@@ -9,8 +9,11 @@ let DB = {
   disclaimers: [],
   icons: [],
   health: [],
+  settings: [],
   iconFailures: [],
   loadedFromWorkbook: false,
+  sourceFilename: "",
+  lastBuildAt: "",
   downloadableRaw: null
 };
 
@@ -48,6 +51,7 @@ const SHEET_MAP = {
   disclaimers: "08_Disclaimers",
   icons: "09_Icons",
   health: "12_DataHealth",
+  settings: "01_Settings",
   summary: "00_Summary"
 };
 
@@ -80,7 +84,7 @@ async function loadBundledDatabase(){
   const res = await fetch("database/persona-db.json");
   if(!res.ok) throw new Error("Could not load database/persona-db.json");
   const data = await res.json();
-  applyRawDatabase(data, {source:"bundled"});
+  applyRawDatabase(data, {source:"bundled", filename:"database/persona-db.json"});
 }
 function cloneDatabasePayload(raw){
   return JSON.parse(JSON.stringify(raw || {}));
@@ -105,6 +109,9 @@ function applyRawDatabase(raw, options={}){
   DB.disclaimers = normalized[SHEET_MAP.disclaimers] || [];
   DB.icons = normalized[SHEET_MAP.icons] || [];
   DB.health = normalized[SHEET_MAP.health] || [];
+  DB.settings = normalized[SHEET_MAP.settings] || [];
+  DB.sourceFilename = options.filename || (DB.loadedFromWorkbook ? "Uploaded workbook" : "database/persona-db.json");
+  DB.lastBuildAt = DB.loadedFromWorkbook ? new Date().toISOString() : databaseSetting("GeneratedOn") || "";
   DB.iconFailures = [];
   enhanceDatabase();
 }
@@ -116,12 +123,17 @@ async function loadWorkbookFile(file){
   workbook.SheetNames.forEach(name => {
     raw[name] = rowsFromSheet(workbook.Sheets[name]);
   });
-  applyRawDatabase(raw, {source:"workbook"});
+  applyRawDatabase(raw, {source:"workbook", filename:file?.name || "Uploaded workbook"});
+}
+function databaseSetting(name){
+  const row = (DB.settings || []).find(item => String(item.Setting || "").toLowerCase() === String(name || "").toLowerCase());
+  return row?.Value ?? "";
 }
 function currentBuildSummary(){
   const healthRows = buildHealth();
   const healthErrors = healthRows.filter(row => ["BAD", "ERROR", "FAIL"].includes(String(row.Status || "").toUpperCase()));
   const healthWarnings = healthRows.filter(row => String(row.Status || "").toUpperCase() === "WARN");
+  const healthOk = healthRows.filter(row => String(row.Status || "").toUpperCase() === "OK");
   return {
     personas: DB.personas.length,
     speedOptions: DB.speedOptions.length,
@@ -129,6 +141,7 @@ function currentBuildSummary(){
     disclaimers: DB.disclaimers.length,
     modifiers: DB.modifiers.length,
     icons: DB.icons.length,
+    healthOk: healthOk.length,
     healthErrors: healthErrors.length,
     healthWarnings: healthWarnings.length
   };
