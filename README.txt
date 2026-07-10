@@ -24,4 +24,5 @@ Notes:
 - Icons are expected in the icons/ folder. Missing icons are handled gracefully.
 
 Next steps:
-- See NEXT_STEPS.md for the prioritized site review checklist.
+- See ROADMAP.md for the Personaville project roadmap.
+- NEXT_STEPS.md points to the active roadmap location.
