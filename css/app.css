@@ -31,6 +31,10 @@ h2{margin:0;font-size:22px;color:#15364a}
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
 .tile{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:14px;cursor:pointer;transition:.15s ease}
 .tile:hover{transform:translateY(-1px);border-color:#98b4c4}
+.tile.selected{border-color:var(--blue);box-shadow:0 0 0 3px rgba(18,91,127,.12),var(--shadow)}
+.tile-select{display:flex;justify-content:flex-end;margin-bottom:6px}
+.select-persona{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#15364a;cursor:pointer}
+.select-persona input{width:16px;height:16px;accent-color:var(--blue)}
 .tile-head{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start}
 .tile h3{margin:0;font-size:17px;color:#15364a}
 .meta{color:var(--muted);font-size:12px;margin-top:3px}
@@ -78,14 +82,20 @@ h2{margin:0;font-size:22px;color:#15364a}
 .health-record-fields dt{font-weight:800;color:var(--muted)}
 .health-record-fields dd{margin:0}
 .status-ok{color:#13734a;font-weight:900}.status-warn{color:#a05a00;font-weight:900}.status-bad{color:#b42318;font-weight:900}
-.export-actions{display:flex;gap:10px;margin:14px 0}
+.export-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.export-controls label{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.export-actions{display:flex;gap:10px;margin:14px 0;flex-wrap:wrap}
+.print-stack{display:grid;gap:16px}
 .print-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;max-width:810px;min-height:600px;box-shadow:var(--shadow)}
+.print-card.empty-state{min-height:0}
 .disclaimer{font-size:9px;line-height:1.35;text-align:justify;text-align-last:left;color:#3d4852}
 pre{background:#f3f5f7;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto}
 .settings-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
 @media print{
-  body{background:#fff}.topbar,.sidebar,.section-head,.toolbar,.export-actions,#exportPersona{display:none!important}
+  body{background:#fff}.topbar,.sidebar,.section-head,.toolbar,.export-actions,.export-controls,.empty-state{display:none!important}
   .app{display:block}.content{padding:0}.view{display:none!important}#export{display:block!important}
-  .print-card{box-shadow:none;border:0;border-radius:0;width:8in;min-height:10.5in;margin:0;padding:.35in}
+  .print-stack{display:block}
+  .print-card{box-shadow:none;border:0;border-radius:0;width:8in;min-height:10.5in;margin:0;padding:.35in;break-after:page;page-break-after:always}
+  .print-card:last-child{break-after:auto;page-break-after:auto}
 }
 @media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{flex-direction:row;overflow:auto}.split{grid-template-columns:1fr}.detail{position:static}.kpis{grid-template-columns:repeat(2,1fr)}}
