@@ -173,6 +173,9 @@ function fillFilters(){
   }
   if(familyBox){
     familyBox.innerHTML="";
+    familyBox.appendChild(el("button",{class:"choice-pill family-choice family-clear-choice", type:"button", onclick:clearFamilyGroupFilter},[
+      el("span",{},["All Family Groups"])
+    ]));
     getUnique(DB.personas,"FamilyGroup").forEach((family, index)=>{
       const id = `familyFilter-${index}`;
       familyBox.appendChild(el("label",{class:"choice-pill family-choice"},[
@@ -221,6 +224,10 @@ function resetPersonaDetail(){
   p.className="detail empty";
   p.innerHTML="";
   p.appendChild(emptyState("Select a persona to view details."));
+}
+function clearFamilyGroupFilter(){
+  document.querySelectorAll('#familyFilter input[type="checkbox"]').forEach(input => { input.checked = false; });
+  renderTiles();
 }
 function clearPersonaFilters(){
   const search = document.getElementById("globalSearch");
