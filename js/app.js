@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     p.textContent="Select a persona tile to view details.";
   });
   document.getElementById("exportPersona").addEventListener("change", renderPrintArea);
+  document.getElementById("selectAllVisible").addEventListener("click", selectAllVisiblePersonas);
+  document.getElementById("clearExportSelection").addEventListener("click", clearExportSelection);
   document.getElementById("printPersona").addEventListener("click", ()=>window.print());
   document.getElementById("copySummary").addEventListener("click", copySelectedSummary);
 

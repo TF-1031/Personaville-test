@@ -1,5 +1,6 @@
 
 let selectedPersona = null;
+const exportSelection = new Set();
 
 function el(tag, attrs={}, children=[]){
   const node = document.createElement(tag);
@@ -74,11 +75,14 @@ function fillFilters(){
   getUnique(DB.personas,"FamilyGroup").forEach(v=>ff.appendChild(el("option",{value:v},[v])));
   pf.value=curP; ff.value=curF;
 }
-function renderTiles(){
+function visiblePersonas(){
   const query = document.getElementById("globalSearch")?.value || "";
   const family = document.getElementById("familyFilter")?.value || "";
   const pricing = document.getElementById("pricingFilter")?.value || "";
-  const personas = searchPersonas(query, family, pricing);
+  return searchPersonas(query, family, pricing);
+}
+function renderTiles(){
+  const personas = visiblePersonas();
   const d1 = document.getElementById("dashboardTiles");
   const d2 = document.getElementById("personaTiles");
   [d1,d2].forEach(box => {
@@ -88,6 +92,7 @@ function renderTiles(){
   });
 }
 function personaTile(p){
+  const checked = exportSelection.has(p.PersonaID);
   const chips=[];
   if(truthy(p.EquipInc)) chips.push(el("span",{class:"chip feature"},["✓ Equip Inc"]));
   if(truthy(p.SymSpeed)) chips.push(el("span",{class:"chip feature"},["✓ Sym Speed"]));
@@ -98,7 +103,13 @@ function personaTile(p){
     el("td",{class:"price"},[firstPriceNode(s)]),
     el("td",{},[money(s.RegularRate)])
   ]));
-  return el("article",{class:"tile", onclick:()=>selectPersona(p)},[
+  return el("article",{class:`tile ${checked ? "selected" : ""}`, "data-persona-id":p.PersonaID, onclick:()=>selectPersona(p)},[
+    el("div",{class:"tile-select"},[
+      el("label",{class:"select-persona", onclick:event=>event.stopPropagation()},[
+        el("input",{type:"checkbox", value:p.PersonaID, checked, "aria-label":`Select ${p.PersonaName || "persona"} for export`, onchange:event=>toggleExportPersona(p.PersonaID, event.currentTarget.checked)}),
+        el("span",{},["Export"])
+      ])
+    ]),
     el("div",{class:"tile-head"},[
       el("div",{},[
         el("h3",{},[p.PersonaName || "Untitled"]),
@@ -258,32 +269,100 @@ function fillExportPicker(){
   if(!sel) return;
   sel.innerHTML="";
   DB.personas.forEach(p => sel.appendChild(el("option",{value:p.PersonaID},[p.PersonaName])));
+  syncExportSelectionUI();
   renderPrintArea();
 }
-function renderPrintArea(){
+function selectedExportPersonas(){
+  return [...exportSelection]
+    .map(id => DB.personas.find(p => p.PersonaID === id))
+    .filter(Boolean);
+}
+function currentExportPersona(){
   const sel = document.getElementById("exportPersona");
-  const p = DB.personas.find(x=>x.PersonaID===sel.value) || DB.personas[0];
+  return DB.personas.find(x=>x.PersonaID===sel?.value) || DB.personas[0];
+}
+function toggleExportPersona(personaID, checked){
+  if(checked) exportSelection.add(personaID);
+  else exportSelection.delete(personaID);
+  syncExportSelectionUI();
+  renderPrintArea();
+  renderTiles();
+}
+function selectAllVisiblePersonas(){
+  visiblePersonas().forEach(p => exportSelection.add(p.PersonaID));
+  syncExportSelectionUI();
+  renderPrintArea();
+  renderTiles();
+}
+function clearExportSelection(){
+  exportSelection.clear();
+  syncExportSelectionUI();
+  renderPrintArea();
+  renderTiles();
+}
+function syncExportSelectionUI(){
+  const count = exportSelection.size;
+  const label = count === 1 ? "1 selected" : `${count} selected`;
+  const countEl = document.getElementById("selectedCount");
+  if(countEl) countEl.textContent = label;
+  document.querySelectorAll(".select-persona input[type='checkbox']").forEach(input => {
+    input.checked = exportSelection.has(input.closest("article")?.dataset?.personaId || input.value);
+  });
+}
+function renderPrintArea(){
   const area = document.getElementById("printArea");
-  if(!p || !area) return;
+  if(!area) return;
   area.innerHTML="";
-  area.appendChild(el("div",{class:"print-title"},[
+  const selected = selectedExportPersonas();
+  if(selected.length){
+    selected.forEach(p => area.appendChild(printablePersonaCard(p)));
+    return;
+  }
+  const p = currentExportPersona();
+  if(!p){
+    area.appendChild(el("div",{class:"print-card empty-state"},["No personas are available to export."]));
+    return;
+  }
+  area.appendChild(el("div",{class:"print-card empty-state"},[
+    el("strong",{},["No personas selected for multi-export."]),
+    el("p",{class:"muted"},["Use the tile checkboxes or Select All Visible to print multiple personas. The single-persona preview remains below."])
+  ]));
+  area.appendChild(printablePersonaCard(p));
+}
+function printablePersonaCard(p){
+  const card = el("section",{class:"print-card"},[]);
+  card.appendChild(el("div",{class:"print-title"},[
     iconSlot(p.IconPath, `${p.PersonaName || "Persona"} icon`, {type:"Persona", id:p.PersonaID, name:p.PersonaName, file:p.PromoIcon}),
     el("h2",{},[p.PersonaName])
   ]));
-  area.appendChild(el("div",{class:"meta"},[`Family Group: ${p.FamilyGroup} • Pricing Set: ${p.PricingSet}`]));
+  card.appendChild(el("div",{class:"meta"},[`Family Group: ${p.FamilyGroup} • Pricing Set: ${p.PricingSet}`]));
   const chips = el("div",{class:"chips"},[]);
   if(truthy(p.EquipInc)) chips.appendChild(el("span",{class:"chip feature"},["✓ Equip Inc"]));
   if(truthy(p.SymSpeed)) chips.appendChild(el("span",{class:"chip feature"},["✓ Sym Speed"]));
   (p.modifiers||[]).forEach(m=>chips.appendChild(modifierChip(m)));
-  area.appendChild(chips);
-  p.speeds.forEach(s => area.appendChild(speedDetail(s)));
-  area.appendChild(el("div",{class:"detail-section disclaimer"},[p.disclaimer?.DisclaimerText || ""]));
+  card.appendChild(chips);
+  p.speeds.forEach(s => card.appendChild(speedDetail(s)));
+  card.appendChild(healthSummaryNode(p));
+  card.appendChild(el("div",{class:"detail-section disclaimer"},[p.disclaimer?.DisclaimerText || ""]));
+  return card;
+}
+function healthSummaryNode(p){
+  const personaRecords = buildHealth().flatMap(row => row.Records || []).filter(record => record.Fields?.PersonaID === p.PersonaID);
+  const message = personaRecords.length ? `${personaRecords.length} health note${personaRecords.length===1?"":"s"} reference this persona.` : "No persona-specific health notes.";
+  return el("div",{class:"detail-section"},[
+    el("strong",{},["Health summary"]),
+    el("p",{class:"muted"},[message])
+  ]);
 }
 function copySelectedSummary(){
-  const sel = document.getElementById("exportPersona");
-  const p = DB.personas.find(x=>x.PersonaID===sel.value);
-  if(!p) return;
-  const lines=[p.PersonaName,`Family Group: ${p.FamilyGroup}`,`Pricing Set: ${p.PricingSet}`,""];
-  p.speeds.forEach(s=>lines.push(`${s.SpeedOption} ${s.DisplaySpeed} - ${money(s.FirstPaidPrice)} - Reg. ${money(s.RegularRate)}`));
+  const personas = selectedExportPersonas();
+  const list = personas.length ? personas : [currentExportPersona()].filter(Boolean);
+  if(!list.length) return;
+  const lines=[];
+  list.forEach((p, index)=>{
+    if(index) lines.push("", "---", "");
+    lines.push(p.PersonaName,`Family Group: ${p.FamilyGroup}`,`Pricing Set: ${p.PricingSet}`,"");
+    p.speeds.forEach(s=>lines.push(`${s.SpeedOption} ${s.DisplaySpeed} - ${money(s.FirstPaidPrice)} - Reg. ${money(s.RegularRate)}`));
+  });
   navigator.clipboard.writeText(lines.join("\n"));
 }

@@ -70,13 +70,19 @@
 
       <section id="export" class="view">
         <div class="section-head"><h2>Export Center</h2></div>
-        <p class="muted">Select a persona and print/export from the browser. PDF export uses your browser print dialog.</p>
-        <select id="exportPersona"></select>
+        <p class="muted">Select one or more personas and print/export from the browser. PDF export uses your browser print dialog.</p>
+        <div class="export-controls">
+          <label for="exportPersona">Single persona preview</label>
+          <select id="exportPersona"></select>
+          <span id="selectedCount" class="pill gray" aria-live="polite">0 selected</span>
+        </div>
         <div class="export-actions">
-          <button id="printPersona" class="btn primary">Print Selected Persona</button>
+          <button id="selectAllVisible" class="btn">Select All Visible</button>
+          <button id="clearExportSelection" class="btn">Clear Selection</button>
+          <button id="printPersona" class="btn primary">Print Selected</button>
           <button id="copySummary" class="btn">Copy Text Summary</button>
         </div>
-        <div id="printArea" class="print-card"></div>
+        <div id="printArea" class="print-stack"></div>
       </section>
 
       <section id="settings" class="view">
