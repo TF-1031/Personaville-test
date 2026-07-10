@@ -314,7 +314,7 @@ function speedDetail(s){
     ]);
   });
   return el("div",{class:"detail-section"},[
-    el("h4",{},[`${s.SpeedOption} ${s.DisplaySpeed}`]),
+    el("h4",{class:"speed-detail-heading"},[s.DisplaySpeed || s.SpeedOption || "Speed option"]),
     el("div",{class:"meta"},[`Reference ID: ${s.ReferenceID} • Up: ${s.UploadSpeed || s.UploadMbps || "—"} • Reg. Rate: ${money(s.RegularRate)}`]),
     el("div",{class:"schedule-grid"},cards)
   ]);
