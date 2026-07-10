@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     if(!file) return;
     try{
       await loadWorkbookFile(file);
+      const instructions = document.getElementById("downloadInstructions");
+      if(instructions) instructions.hidden = true;
       renderAll();
       setView("dashboard");
     }catch(err){
@@ -66,6 +68,7 @@ function downloadUpdatedJson(){
     URL.revokeObjectURL(url);
     const instructions = document.getElementById("downloadInstructions");
     if(instructions) instructions.hidden = false;
+    renderPublishPanel();
   }catch(err){
     alert(err.message);
   }

@@ -39,21 +39,31 @@
           <h2>Dashboard</h2>
           <span id="dbStatus" class="pill gray">No database loaded</span>
         </div>
-        <div id="kpis" class="kpis"></div>
+        <div id="sourceBanner" class="source-banner"></div>
+        <div id="kpis" class="kpis dashboard-overview"></div>
+        <div id="publishPanel" class="publish-panel"></div>
         <div id="buildSummary" class="build-summary" hidden></div>
         <div id="downloadInstructions" class="download-instructions" hidden>Replace database/persona-db.json in GitHub with this downloaded file.</div>
-        <div class="toolbar">
-          <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, Reference ID..." />
-          <select id="pricingFilter"><option value="">All Pricing Sets</option></select>
-          <select id="familyFilter"><option value="">All Family Groups</option></select>
+        <div class="publishing-tips">
+          <h3>Publishing Tips</h3>
+          <ul>
+            <li>Build Database only loads data into memory.</li>
+            <li>Download Updated JSON creates the file to upload.</li>
+            <li>Replace <code>database/persona-db.json</code> in GitHub.</li>
+            <li>GitHub Pages will publish the updated site.</li>
+          </ul>
         </div>
-        <div id="dashboardTiles" class="tiles"></div>
       </section>
 
       <section id="personas" class="view">
         <div class="section-head">
           <h2>Persona Library</h2>
           <button id="clearSelection" class="btn small">Clear Detail</button>
+        </div>
+        <div class="toolbar">
+          <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, Reference ID..." />
+          <select id="pricingFilter"><option value="">All Pricing Sets</option></select>
+          <select id="familyFilter"><option value="">All Family Groups</option></select>
         </div>
         <div class="split">
           <div id="personaTiles" class="tiles"></div>

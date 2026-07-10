@@ -48,11 +48,59 @@ function renderAll(){
   renderModifiers();
   renderHealth();
   renderBuildSummary();
+  renderSourceBanner();
+  renderPublishPanel();
   fillExportPicker();
   document.getElementById("dbStatus").textContent = "Database loaded";
   document.getElementById("dbStatus").className = "pill gray";
   const download = document.getElementById("downloadUpdatedJson");
   if(download) download.disabled = !DB.loadedFromWorkbook;
+}
+function appVersion(){
+  return "Personaville v1.0";
+}
+function formattedLastBuild(){
+  if(!DB.lastBuildAt) return "Not available";
+  const parsed = new Date(DB.lastBuildAt);
+  if(!Number.isNaN(parsed.getTime())) return parsed.toLocaleString();
+  return DB.lastBuildAt;
+}
+function renderSourceBanner(){
+  const box = document.getElementById("sourceBanner");
+  if(!box) return;
+  const source = DB.loadedFromWorkbook ? "Uploaded Workbook" : "Bundled JSON";
+  box.className = `source-banner ${DB.loadedFromWorkbook ? "workbook" : "bundled"}`;
+  box.innerHTML = "";
+  box.appendChild(el("span",{class:"source-dot"},["●"]));
+  box.appendChild(el("strong",{},[`Using ${source}`]));
+  box.appendChild(el("span",{},[` • ${DB.sourceFilename || "No database loaded"}`]));
+}
+function healthReady(){
+  return currentBuildSummary().healthErrors === 0;
+}
+function renderPublishPanel(){
+  const box = document.getElementById("publishPanel");
+  if(!box) return;
+  const built = Boolean(DB.personas.length || DB.speedOptions.length || DB.loadedFromWorkbook);
+  const downloaded = !document.getElementById("downloadInstructions")?.hidden;
+  const ready = built && healthReady();
+  const steps = [
+    ["Select Workbook", DB.loadedFromWorkbook],
+    ["Build Database", DB.loadedFromWorkbook],
+    ["Review Database Health", built],
+    ["Download Updated JSON", downloaded],
+    ["Replace database/persona-db.json in GitHub", downloaded],
+    ["GitHub Pages publishes automatically", downloaded]
+  ];
+  box.innerHTML = "";
+  box.appendChild(el("div",{class:"publish-head"},[
+    el("div",{},[el("h3",{},["Publish Workflow"]), el("p",{class:"muted"},["Follow these steps after updating the workbook."])]),
+    el("div",{class:`publish-ready ${ready ? "ok" : "warn"}`},[ready ? "✔ Ready to Publish" : "⚠ Resolve Database Health issues before publishing."])
+  ]));
+  box.appendChild(el("ol",{class:"publish-steps"},steps.map(([label, done]) => el("li",{class:done ? "done" : ""},[
+    el("span",{class:"step-check"},[done ? "✓" : ""]),
+    el("span",{},[label])
+  ]))));
 }
 function renderBuildSummary(){
   const box = document.getElementById("buildSummary");
@@ -67,7 +115,7 @@ function renderBuildSummary(){
   const summary = currentBuildSummary();
   box.hidden = false;
   box.innerHTML = "";
-  box.appendChild(el("div",{class:"build-summary-title"},["Workbook build summary"]));
+  box.appendChild(el("div",{class:"build-summary-title"},["Build Database completed successfully"]));
   box.appendChild(el("div",{class:"build-summary-grid"},[
     summaryMetric("personas", summary.personas),
     summaryMetric("speed options", summary.speedOptions),
@@ -86,16 +134,24 @@ function summaryMetric(label, value, status=""){
   ]);
 }
 function renderKpis(){
+  const summary = currentBuildSummary();
+  const healthText = `${summary.healthOk} OK • ${summary.healthWarnings} Warnings • ${summary.healthErrors} Errors`;
   const kpis = [
-    ["Market Personas", DB.personas.length],
-    ["Customer Price Variants", DB.speedOptions.length],
+    ["Current Personaville Version", appVersion()],
+    ["Database Filename", DB.sourceFilename || "No database loaded"],
+    ["Last Build", formattedLastBuild()],
+    ["Personas", DB.personas.length],
+    ["Speed Options", DB.speedOptions.length],
     ["Pricing Schedule Rows", DB.schedules.length],
-    ["Reusable Modifiers", DB.modifiers.length]
+    ["Modifiers", DB.modifiers.length],
+    ["Disclaimers", DB.disclaimers.length],
+    ["Icons", DB.icons.length],
+    ["Database Health", healthText]
   ];
   const box = document.getElementById("kpis");
   box.innerHTML="";
-  kpis.forEach(([label,num]) => box.appendChild(el("div",{class:"kpi"},[
-    el("div",{class:"num"},[String(num)]),
+  kpis.forEach(([label,value]) => box.appendChild(el("div",{class:"kpi status-card"},[
+    el("div",{class:"num"},[String(value)]),
     el("div",{class:"label"},[label])
   ])));
 }
