@@ -47,9 +47,43 @@ function renderAll(){
   renderTiles();
   renderModifiers();
   renderHealth();
+  renderBuildSummary();
   fillExportPicker();
   document.getElementById("dbStatus").textContent = "Database loaded";
   document.getElementById("dbStatus").className = "pill gray";
+  const download = document.getElementById("downloadUpdatedJson");
+  if(download) download.disabled = !DB.loadedFromWorkbook;
+}
+function renderBuildSummary(){
+  const box = document.getElementById("buildSummary");
+  if(!box) return;
+  if(!DB.loadedFromWorkbook){
+    box.hidden = true;
+    box.innerHTML = "";
+    const instructions = document.getElementById("downloadInstructions");
+    if(instructions) instructions.hidden = true;
+    return;
+  }
+  const summary = currentBuildSummary();
+  box.hidden = false;
+  box.innerHTML = "";
+  box.appendChild(el("div",{class:"build-summary-title"},["Workbook build summary"]));
+  box.appendChild(el("div",{class:"build-summary-grid"},[
+    summaryMetric("personas", summary.personas),
+    summaryMetric("speed options", summary.speedOptions),
+    summaryMetric("pricing schedules", summary.pricingSchedules),
+    summaryMetric("disclaimers", summary.disclaimers),
+    summaryMetric("modifiers", summary.modifiers),
+    summaryMetric("icons", summary.icons),
+    summaryMetric("health errors", summary.healthErrors, summary.healthErrors ? "bad" : "ok"),
+    summaryMetric("health warnings", summary.healthWarnings, summary.healthWarnings ? "warn" : "ok")
+  ]));
+}
+function summaryMetric(label, value, status=""){
+  return el("div",{class:`summary-metric ${status}`},[
+    el("div",{class:"summary-value"},[String(value)]),
+    el("div",{class:"summary-label"},[label])
+  ]);
 }
 function renderKpis(){
   const kpis = [

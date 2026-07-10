@@ -19,6 +19,7 @@
         <input id="workbookUpload" type="file" accept=".xlsx,.xls" hidden>
       </label>
       <button id="loadBundled" class="btn">Load Bundled DB</button>
+      <button id="downloadUpdatedJson" class="btn" disabled>Download Updated JSON</button>
     </div>
   </header>
 
@@ -39,6 +40,8 @@
           <span id="dbStatus" class="pill gray">No database loaded</span>
         </div>
         <div id="kpis" class="kpis"></div>
+        <div id="buildSummary" class="build-summary" hidden></div>
+        <div id="downloadInstructions" class="download-instructions" hidden>Replace database/persona-db.json in GitHub with this downloaded file.</div>
         <div class="toolbar">
           <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, Reference ID..." />
           <select id="pricingFilter"><option value="">All Pricing Sets</option></select>

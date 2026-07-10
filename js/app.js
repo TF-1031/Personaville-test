@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     try{
       await loadWorkbookFile(file);
       renderAll();
+      setView("dashboard");
     }catch(err){
       alert("Could not build database from workbook: " + err.message);
     }
   });
+  document.getElementById("downloadUpdatedJson").addEventListener("click", downloadUpdatedJson);
   document.getElementById("loadBundled").addEventListener("click", async ()=>{
     try{
       await loadBundledDatabase();
@@ -46,3 +48,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.warn(err);
   }
 });
+
+function downloadUpdatedJson(){
+  try{
+    if(hasBlockingHealthErrors()){
+      const ok = window.confirm("Database health includes BAD/Error rows. Download persona-db.json anyway?");
+      if(!ok) return;
+    }
+    const blob = new Blob([updatedDatabaseJson()], {type:"application/json"});
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.href = url;
+    link.download = "persona-db.json";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    const instructions = document.getElementById("downloadInstructions");
+    if(instructions) instructions.hidden = false;
+  }catch(err){
+    alert(err.message);
+  }
+}
