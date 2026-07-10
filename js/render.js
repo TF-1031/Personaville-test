@@ -156,42 +156,78 @@ function renderKpis(){
   ])));
 }
 function fillFilters(){
-  const pf = document.getElementById("pricingFilter");
-  const ff = document.getElementById("familyFilter");
-  const curP=pf.value, curF=ff.value;
-  pf.innerHTML='<option value="">All Pricing Sets</option>';
-  ff.innerHTML='<option value="">All Family Groups</option>';
-  getUnique(DB.personas,"PricingSet").forEach(v=>pf.appendChild(el("option",{value:v},[v])));
-  getUnique(DB.personas,"FamilyGroup").forEach(v=>ff.appendChild(el("option",{value:v},[v])));
-  pf.value=curP; ff.value=curF;
+  const pricingBox = document.getElementById("pricingFilter");
+  const familyBox = document.getElementById("familyFilter");
+  const currentPricing = selectedPricingFilter();
+  const currentFamilies = selectedFamilyFilters();
+  if(pricingBox){
+    pricingBox.innerHTML="";
+    ["All", "Standard", "3 Months Free", "3 Year Price Lock"].forEach((label, index) => {
+      const value = index === 0 ? "" : label;
+      const id = `pricingFilter-${index}`;
+      pricingBox.appendChild(el("label",{class:"choice-pill"},[
+        el("input",{type:"radio", name:"pricingFilter", id, value, checked:value === currentPricing}),
+        el("span",{},[label])
+      ]));
+    });
+  }
+  if(familyBox){
+    familyBox.innerHTML="";
+    getUnique(DB.personas,"FamilyGroup").forEach((family, index)=>{
+      const id = `familyFilter-${index}`;
+      familyBox.appendChild(el("label",{class:"choice-pill family-choice"},[
+        el("input",{type:"checkbox", id, value:family, checked:currentFamilies.includes(family)}),
+        el("span",{},[family])
+      ]));
+    });
+  }
+  updateFilterSummary();
+}
+function selectedPricingFilter(){
+  return document.querySelector('input[name="pricingFilter"]:checked')?.value || "";
+}
+function selectedFamilyFilters(){
+  return [...document.querySelectorAll('#familyFilter input[type="checkbox"]:checked')].map(input=>input.value);
 }
 function personaFiltersActive(){
   const query = document.getElementById("globalSearch")?.value || "";
-  const family = document.getElementById("familyFilter")?.value || "";
-  const pricing = document.getElementById("pricingFilter")?.value || "";
-  return Boolean(query.trim() || family || pricing);
+  const families = selectedFamilyFilters();
+  const pricing = selectedPricingFilter();
+  return Boolean(query.trim() || families.length || pricing);
 }
 function visiblePersonas(){
   const query = document.getElementById("globalSearch")?.value || "";
-  const family = document.getElementById("familyFilter")?.value || "";
-  const pricing = document.getElementById("pricingFilter")?.value || "";
+  const families = selectedFamilyFilters();
+  const pricing = selectedPricingFilter();
   if(!personaFiltersActive()) return [];
-  return searchPersonas(query, family, pricing);
+  return searchPersonas(query, families, pricing);
+}
+function updateFilterSummary(){
+  const summary = document.getElementById("activeFilterSummary");
+  if(!summary) return;
+  const query = (document.getElementById("globalSearch")?.value || "").trim();
+  const pricing = selectedPricingFilter();
+  const families = selectedFamilyFilters();
+  const parts = [];
+  if(pricing) parts.push(`Pricing: ${pricing}`);
+  if(families.length) parts.push(`Families: ${families.join(", ")}`);
+  if(query) parts.push(`Search: “${query}”`);
+  summary.textContent = parts.length ? parts.join(" • ") : "No filters applied";
 }
 function resetPersonaDetail(){
   selectedPersona=null;
   const p=document.getElementById("detailPanel");
   if(!p) return;
   p.className="detail empty";
-  p.textContent="Select a persona tile to view details.";
+  p.innerHTML="";
+  p.appendChild(emptyState("Select a persona to view details."));
 }
 function clearPersonaFilters(){
   const search = document.getElementById("globalSearch");
-  const family = document.getElementById("familyFilter");
-  const pricing = document.getElementById("pricingFilter");
   if(search) search.value = "";
-  if(family) family.value = "";
-  if(pricing) pricing.value = "";
+  document.querySelectorAll('#familyFilter input[type="checkbox"]').forEach(input => { input.checked = false; });
+  const allPricing = document.querySelector('input[name="pricingFilter"][value=""]');
+  if(allPricing) allPricing.checked = true;
   resetPersonaDetail();
   renderTiles();
 }
@@ -199,18 +235,21 @@ function renderTiles(){
   const active = personaFiltersActive();
   const personas = visiblePersonas();
   const count = document.getElementById("personaResultCount");
-  if(count) count.textContent = `${personas.length} persona${personas.length === 1 ? "" : "s"} found`;
+  if(count) count.textContent = personas.length ? `${personas.length} persona${personas.length === 1 ? "" : "s"} found` : "No personas found";
+  updateFilterSummary();
   const d1 = document.getElementById("dashboardTiles");
   const d2 = document.getElementById("personaTiles");
   [d1,d2].forEach(box => {
     if(!box) return;
     box.innerHTML="";
     if(!active){
-      box.appendChild(emptyState("Search or choose a filter to view personas."));
+      box.appendChild(emptyState("Search or choose a filter to view personas.", "Use Pricing Set, Family Group, or Search to narrow the library."));
       return;
     }
     if(!personas.length){
-      box.appendChild(emptyState("No personas match the current filters.", "Try clearing search or selecting a different pricing set or family group."));
+      const empty = emptyState("No personas match the current filters.");
+      empty.appendChild(el("button",{class:"btn small empty-action", type:"button", onclick:clearPersonaFilters},["Clear Filters"]));
+      box.appendChild(empty);
       return;
     }
     personas.forEach(p => box.appendChild(personaTile(p)));

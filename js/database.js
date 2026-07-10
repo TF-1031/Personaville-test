@@ -468,8 +468,9 @@ function getUnique(arr, key){
 }
 function searchPersonas(query, family, pricing){
   const q = (query || "").toLowerCase().trim();
+  const families = Array.isArray(family) ? family : (family ? [family] : []);
   return DB.personas.filter(p => {
-    if(family && p.FamilyGroup !== family) return false;
+    if(families.length && !families.includes(p.FamilyGroup)) return false;
     if(pricing && p.PricingSet !== pricing) return false;
     if(!q) return true;
     const blob = [
