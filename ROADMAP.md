@@ -11,16 +11,16 @@ This roadmap organizes the agreed Personaville work into documentation-only plan
 
 ## Milestone 1: Clarify the database loading experience
 
-- Show a visible loading state while the bundled database is being fetched.
+- Show a visible loading state while the published database is being fetched.
 - Display a persistent, user-facing error if `database/persona-db.json` cannot be loaded.
-- Keep the existing manual `Build Database` and `Load Bundled DB` actions.
+- Keep the existing manual `Upload Workbook` and `Load Published Database` actions.
 - Explain when users should rebuild from the workbook versus reload the bundled JSON.
 - Add helpful empty states for dashboard, library, modifier, health, and export views before data is available.
 - Add no-results messages when search or filters match no personas.
 
 ## Milestone 2: Improve persona presentation and health visibility
 
-- Render real promo, modifier, and feature icons from the `icons/` folder.
+- Render real promo, modifier, and feature icons from the `assets/icons/` folder.
 - Provide descriptive alt text for meaningful icons.
 - Keep graceful missing-image fallbacks so incomplete icon data does not break the UI.
 - Expand the health view so WARN and BAD rows include actionable details.
@@ -45,7 +45,7 @@ This roadmap organizes the agreed Personaville work into documentation-only plan
 ## Milestone 5: Add automated confidence checks
 
 - Add smoke checks that verify `index.html`, CSS, JavaScript, JSON, workbook, and icon assets are present and fetchable.
-- Add a browser smoke test that loads the page, waits for the bundled database, and confirms the expected persona count appears.
+- Add a browser smoke test that loads the page, waits for the published database, and confirms the expected persona count appears.
 - Run validation checks as part of the documented publishing process.
 - Keep test output understandable for non-developer maintainers.
 

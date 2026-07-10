@@ -13,14 +13,6 @@
       <h1>Personaville</h1>
       <p class="subtitle">Market persona offer database</p>
     </div>
-    <div class="top-actions">
-      <label class="btn primary" title="Upload the edited Excel workbook to build the in-browser database.">
-        Build Database
-        <input id="workbookUpload" type="file" accept=".xlsx,.xls" hidden aria-label="Upload workbook to build database">
-      </label>
-      <button id="loadBundled" class="btn" title="Reload the bundled persona-db.json file.">Load Bundled Database</button>
-      <button id="downloadUpdatedJson" class="btn" disabled title="Available after Build Database loads a workbook.">Download Updated JSON</button>
-    </div>
   </header>
 
   <main class="app">
@@ -29,6 +21,7 @@
       <button class="nav" data-view="personas" type="button">Personas</button>
       <button class="nav" data-view="modifiers" type="button">Modifiers</button>
       <button class="nav" data-view="health" type="button">Database Health</button>
+      <button class="nav" data-view="publish" type="button">Publish</button>
       <button class="nav" data-view="export" type="button">Export</button>
       <button class="nav" data-view="settings" type="button">Settings</button>
     </nav>
@@ -41,18 +34,6 @@
         </div>
         <div id="sourceBanner" class="source-banner" role="status" aria-live="polite"></div>
         <div id="kpis" class="kpis dashboard-overview" aria-label="Database summary metrics"></div>
-        <div id="publishPanel" class="publish-panel"></div>
-        <div id="buildSummary" class="build-summary" hidden></div>
-        <div id="downloadInstructions" class="download-instructions" hidden>Replace database/persona-db.json in GitHub with this downloaded file.</div>
-        <div class="publishing-tips">
-          <h3>Publishing Tips</h3>
-          <ul>
-            <li>Build Database only loads data into memory.</li>
-            <li>Download Updated JSON creates the file to upload.</li>
-            <li>Replace <code>database/persona-db.json</code> in GitHub.</li>
-            <li>GitHub Pages will publish the updated site.</li>
-          </ul>
-        </div>
       </section>
 
       <section id="personas" class="view">
@@ -84,6 +65,44 @@
         <div id="healthList" class="health-list" aria-live="polite"></div>
       </section>
 
+
+      <section id="publish" class="view">
+        <div class="section-head"><h2>Publish</h2></div>
+        <div class="publish-controls" aria-labelledby="publishControlsHeading">
+          <h3 id="publishControlsHeading">Publishing Controls</h3>
+          <div class="publish-action-grid">
+            <div class="publish-action-card">
+              <label class="btn primary" title="Upload the edited Excel workbook into browser memory.">
+                Upload Workbook
+                <input id="workbookUpload" type="file" accept=".xlsx,.xls" hidden aria-label="Upload workbook into browser memory">
+              </label>
+              <p class="muted">Upload an .xlsx or .xls persona database workbook.</p>
+              <p class="sr-only">The selected workbook is loaded into browser memory only; it is not uploaded to a server or written back to the repository.</p>
+            </div>
+            <div class="publish-action-card">
+              <button id="loadBundled" class="btn" type="button" title="Reload database/persona-db.json from the published site.">Load Published Database</button>
+              <p class="muted">Reload database/persona-db.json from the published site.</p>
+            </div>
+            <div class="publish-action-card">
+              <button id="downloadUpdatedJson" class="btn" type="button" disabled title="Available after Upload Workbook loads a workbook.">Download Updated JSON</button>
+              <p class="muted">Available after an uploaded workbook loads successfully.</p>
+            </div>
+          </div>
+        </div>
+        <div id="publishPanel" class="publish-panel"></div>
+        <div id="buildSummary" class="build-summary" hidden></div>
+        <div id="downloadInstructions" class="download-instructions" hidden>Replace database/persona-db.json in GitHub with this downloaded file.</div>
+        <div class="publishing-tips">
+          <h3>Publishing Tips</h3>
+          <ul>
+            <li>Upload Workbook only loads data into browser memory.</li>
+            <li>Download Updated JSON creates the file to upload.</li>
+            <li>Replace <code>database/persona-db.json</code> in GitHub.</li>
+            <li>GitHub Pages will publish the updated site.</li>
+          </ul>
+        </div>
+      </section>
+
       <section id="export" class="view">
         <div class="section-head"><h2>Export Center</h2></div>
         <p class="muted">Select one or more personas and print/export from the browser. PDF export uses your browser print dialog.</p>
@@ -109,10 +128,11 @@
 ├── index.html
 ├── database/persona-db.xlsx
 ├── database/persona-db.json
-├── icons/
+├── assets/icons/
+├── assets/images/
 ├── exports/
 └── backups/</pre>
-          <p>The bundled JSON lets the site open immediately. Upload <code>database/persona-db.xlsx</code> with Build Database after edits.</p>
+          <p>The bundled JSON lets the site open immediately. Upload <code>database/persona-db.xlsx</code> with Upload Workbook on the Publish page after edits.</p>
         </div>
       </section>
     </section>

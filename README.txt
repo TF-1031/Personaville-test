@@ -8,20 +8,21 @@ Folder layout:
 - js/app.js
 - js/database.js
 - js/render.js
-- icons/
+- assets/icons/
+- assets/images/
 - exports/
 - backups/
 
 How to use:
 1. Open index.html in Chrome or Edge.
 2. The bundled JSON may load automatically.
-3. If it does not, click Build Database and select database/persona-db.xlsx.
-4. Edit the workbook, save it, then use Build Database again.
+3. If it does not, click Upload Workbook and select database/persona-db.xlsx.
+4. Edit the workbook, save it, then use Upload Workbook again.
 5. Use Export Center to print a selected persona.
 
 Notes:
 - Workbook upload uses SheetJS from CDN. If internet is unavailable, bundled JSON still lets the app display the current database in most browser/server setups.
-- Icons are expected in the icons/ folder. Missing icons are handled gracefully.
+- Icons are expected in the assets/icons/ folder. Missing icons are handled gracefully.
 
 Next steps:
 - See ROADMAP.md for the Personaville project roadmap.
