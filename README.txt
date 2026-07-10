@@ -22,3 +22,6 @@ How to use:
 Notes:
 - Workbook upload uses SheetJS from CDN. If internet is unavailable, bundled JSON still lets the app display the current database in most browser/server setups.
 - Icons are expected in the icons/ folder. Missing icons are handled gracefully.
+
+Roadmap:
+- See ROADMAP.md for the Personaville project roadmap.
