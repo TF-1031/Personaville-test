@@ -142,6 +142,8 @@ function healthDetailsFromRecords(records){
   return records.map(r => `${r.Record}: ${r.Reason}`).join(", ");
 }
 function workbookHealthRecords(row){
+  const status = String(row.Status || "").trim().toUpperCase();
+  if(status === "OK") return [];
   const details = String(row.Details || "").trim();
   if(!details) return [];
   return details.split(/,\s*/).filter(Boolean).map((detail, index) => healthRecord(
@@ -150,6 +152,199 @@ function workbookHealthRecords(row){
     {Source:"12_DataHealth", Section:row.Section || "Workbook", Status:row.Status || ""}
   ));
 }
+
+const HEALTH_STATUSES = new Set(["OK", "WARN", "BAD", "ERROR", "FAIL"]);
+function isWorkbookHealthSummary(row){
+  return HEALTH_STATUSES.has(String(row.Status || "").trim().toUpperCase()) && String(row.Check || "").trim();
+}
+function isIntroFreeDetailHeader(row){
+  return String(row.Section || "").trim() === "IntroFreeScheduleID" && String(row.Check || "").trim() === "ReferenceID";
+}
+function isIntroFreeDetailRecord(row){
+  return String(row.Section || "").trim().startsWith("SCH_") && String(row.Check || "").trim();
+}
+function workbookDetailRecord(row, detailType){
+  if(detailType === "IntroFreeScheduleID"){
+    return healthRecord(
+      `${row.Section || "Unknown schedule"}/${row.Check || "Unknown reference"}`,
+      "Workbook detail record for an Intro Free schedule; this is supporting detail, not a separate health check.",
+      {
+        IntroFreeScheduleID:row.Section || "",
+        ReferenceID:row.Check || "",
+        PersonaID:row.Status || "",
+        SpeedOptionID:row.Count || "",
+        FirstPaidPrice:row.Details ?? ""
+      }
+    );
+  }
+  return healthRecord(
+    row.Section || row.Check || "Workbook detail",
+    "Workbook detail record; this is supporting detail, not a separate health check.",
+    {Source:"12_DataHealth", Section:row.Section || "", Check:row.Check || "", Status:row.Status || "", Count:row.Count ?? "", Details:row.Details ?? ""}
+  );
+}
+function attachRecordsToWorkbookCheck(rows, checkMatcher, records){
+  if(!records.length) return;
+  const target = rows.find(checkMatcher);
+  if(!target) return;
+  target.Records = [...(target.Records || []), ...records];
+  const summary = healthDetailsFromRecords(target.Records);
+  target.Details = target.Details ? `${target.Details}; ${summary}` : summary;
+}
+function normalizedWorkbookHealthRows(){
+  const summaryRows = [];
+  const introFreeRecords = [];
+  let detailType = "";
+  (DB.health || []).forEach(row => {
+    if(isWorkbookHealthSummary(row)){
+      summaryRows.push({...row, Section:row.Section || "Workbook", Records:workbookHealthRecords(row)});
+      detailType = "";
+      return;
+    }
+    if(isIntroFreeDetailHeader(row)){
+      detailType = "IntroFreeScheduleID";
+      return;
+    }
+    if(detailType === "IntroFreeScheduleID" && isIntroFreeDetailRecord(row)){
+      introFreeRecords.push(workbookDetailRecord(row, detailType));
+    }
+  });
+  attachRecordsToWorkbookCheck(
+    summaryRows,
+    row => /intro free/i.test(String(row.Check || "")),
+    introFreeRecords
+  );
+  return summaryRows;
+}
+function monthsFromScheduleRow(row){
+  const label = String(row.DisplayLabel || "");
+  const monthText = label.match(/Months?\s+(.+)/i);
+  const months = new Set();
+  if(/36\s+Months/i.test(label)){
+    for(let month=1; month<=36; month++) months.add(month);
+    return months;
+  }
+  if(monthText){
+    monthText[1].split(/,\s*/).forEach(part => {
+      const range = part.match(/^(\d+)\s*-\s*(\d+)$/);
+      const single = part.match(/^(\d+)$/);
+      if(range){
+        const start = Number(range[1]);
+        const end = Number(range[2]);
+        for(let month=start; month<=end; month++) months.add(month);
+      }else if(single){
+        months.add(Number(single[1]));
+      }
+    });
+  }
+  if(months.size) return months;
+  const start = Number(row.StartMonth || 0);
+  const end = Number(row.EndMonth || start);
+  for(let month=start; month<=end; month++) months.add(month);
+  return months;
+}
+function intersectingMonths(a, b){
+  return [...a].filter(month => b.has(month)).sort((x,y)=>x-y);
+}
+
+
+const COVERAGE_PERIODS = [
+  {Label:"Months 1-12", Start:1, End:12},
+  {Label:"Months 13-24", Start:13, End:24},
+  {Label:"Months 25-36", Start:25, End:36}
+];
+function formatMonthRanges(months){
+  const sorted = [...new Set(months)].sort((a,b)=>a-b);
+  const ranges = [];
+  let start = null;
+  let previous = null;
+  sorted.forEach(month => {
+    if(start === null){
+      start = month;
+      previous = month;
+      return;
+    }
+    if(month === previous + 1){
+      previous = month;
+      return;
+    }
+    ranges.push(start === previous ? `Month ${start}` : `Months ${start}-${previous}`);
+    start = month;
+    previous = month;
+  });
+  if(start !== null){
+    ranges.push(start === previous ? `Month ${start}` : `Months ${start}-${previous}`);
+  }
+  return ranges;
+}
+function scheduleCoverageMonths(rows){
+  return rows.reduce((months, row) => {
+    monthsFromScheduleRow(row).forEach(month => months.add(month));
+    return months;
+  }, new Set());
+}
+function scheduleRangeSummary(rows){
+  return rows.map(row => row.DisplayLabel || healthMonthLabel(row)).filter(Boolean).join(" | ");
+}
+function isStandalone40OneGigException(speed, rows){
+  const isOneGig = String(speed.DisplaySpeed || "").trim().toLowerCase() === "1 gig" || Number(speed.DownloadMbps || 0) === 1000;
+  const isFortyDollar = Number(speed.FirstPaidPrice || 0) === 40 || rows.some(row => Number(row.Price || 0) === 40);
+  const hasCoverageAfter24 = rows.some(row => [...monthsFromScheduleRow(row)].some(month => month >= 25 && month <= 36));
+  return isOneGig && isFortyDollar && !hasCoverageAfter24;
+}
+function isThirtySixMonthCoverageCandidate(persona, speed, rows){
+  if(!persona || !speed || !rows.length) return false;
+  const pricingSet = displayPricingSet(persona.PricingSet);
+  if(/3\s*year\s*price\s*lock/i.test(pricingSet)){
+    return !isStandalone40OneGigException(speed, rows);
+  }
+  return rows.some(row => [...monthsFromScheduleRow(row)].some(month => month >= 25 && month <= 36));
+}
+function missingCoverageLabels(coverageMonths){
+  return COVERAGE_PERIODS.flatMap(period => {
+    const missing = [];
+    for(let month=period.Start; month<=period.End; month++){
+      if(!coverageMonths.has(month)) missing.push(month);
+    }
+    return missing.length ? formatMonthRanges(missing) : [];
+  });
+}
+
+
+function sameMonthSet(actual, expected){
+  const a = [...actual].sort((x,y)=>x-y);
+  const e = [...expected].sort((x,y)=>x-y);
+  return a.length === e.length && a.every((month, index) => month === e[index]);
+}
+function paidRows(rows){
+  return rows.filter(row => !truthy(row.DisplayAsFree));
+}
+function rowHasValidMonthLabel(row){
+  const label = String(row.DisplayLabel || "").trim();
+  if(!label) return false;
+  if(/36\s+Months/i.test(label)) return true;
+  if(!/^Months?\s+/i.test(label)) return false;
+  const parsed = monthsFromScheduleRow(row);
+  return [...parsed].some(month => month >= 1 && month <= 36);
+}
+function sortedScheduleRows(rows){
+  return dedupePricingRows(rows).sort((a,b)=>Number(a.Sequence||0)-Number(b.Sequence||0));
+}
+
+
+function expectedModifierIDsForPersona(persona, speeds){
+  const expected = new Set();
+  const pricingSet = displayPricingSet(persona?.PricingSet || "");
+  if(/3\s*Months\s*Free/i.test(pricingSet)) expected.add("MOD_002");
+  if(/3\s*Year\s*Price\s*Lock/i.test(pricingSet)) expected.add("MOD_003");
+  if((speeds || []).some(speed =>
+    truthy(speed.Active) &&
+    Number(speed.FirstPaidPrice || 0) === 40 &&
+    (String(speed.DisplaySpeed || "").trim().toLowerCase() === "1 gig" || Number(speed.DownloadMbps || 0) === 1000)
+  )) expected.add("MOD_001");
+  return expected;
+}
+
 function enhanceDatabase(){
   const speedsByPersona = groupBy(DB.speedOptions.filter(s => truthy(s.Active)), "PersonaID");
   const modsById = Object.fromEntries(DB.modifiers.map(m => [m.ModifierID, m]));
@@ -237,14 +432,25 @@ function buildHealth(){
   Object.entries(schedulesByExactKey).forEach(([scheduleID, scheduleRows]) => {
     const byRef = groupBy(scheduleRows, "ReferenceID");
     Object.entries(byRef).forEach(([referenceID, refRows]) => {
-      const sorted = dedupePricingRows(refRows).sort((a,b)=>Number(a.StartMonth||0)-Number(b.StartMonth||0));
-      for(let i=1; i<sorted.length; i++){
-        if(Number(sorted[i].StartMonth||0) <= Number(sorted[i-1].EndMonth||0)){
-          overlapRecords.push(healthRecord(
-            `${scheduleID}/${referenceID}`,
-            `${sorted[i].DisplayLabel || healthMonthLabel(sorted[i])} starts before ${sorted[i-1].DisplayLabel || healthMonthLabel(sorted[i-1])} ends.`,
-            {ScheduleID:scheduleID, ReferenceID:referenceID, PreviousRange:sorted[i-1].DisplayLabel || healthMonthLabel(sorted[i-1]), CurrentRange:sorted[i].DisplayLabel || healthMonthLabel(sorted[i])}
-          ));
+      const sorted = dedupePricingRows(refRows).sort((a,b)=>Number(a.Sequence||0)-Number(b.Sequence||0));
+      for(let i=0; i<sorted.length; i++){
+        for(let j=i+1; j<sorted.length; j++){
+          const sharedMonths = intersectingMonths(monthsFromScheduleRow(sorted[i]), monthsFromScheduleRow(sorted[j]));
+          if(sharedMonths.length){
+            overlapRecords.push(healthRecord(
+              `${scheduleID}/${referenceID}`,
+              `${sorted[j].DisplayLabel || healthMonthLabel(sorted[j])} overlaps ${sorted[i].DisplayLabel || healthMonthLabel(sorted[i])} in month${sharedMonths.length===1?"":"s"} ${sharedMonths.join(", ")}.`,
+              {
+                ScheduleID:scheduleID,
+                ReferenceID:referenceID,
+                FirstRange:sorted[i].DisplayLabel || healthMonthLabel(sorted[i]),
+                SecondRange:sorted[j].DisplayLabel || healthMonthLabel(sorted[j]),
+                OverlappingMonths:sharedMonths.join(", "),
+                FirstDisplayAsFree:String(sorted[i].DisplayAsFree || ""),
+                SecondDisplayAsFree:String(sorted[j].DisplayAsFree || "")
+              }
+            ));
+          }
         }
       }
     });
@@ -258,19 +464,27 @@ function buildHealth(){
     Records:overlapRecords
   });
 
-  const refPricingSets = {};
-  DB.speedOptions.forEach(speed => {
+  const speedScheduleKeys = {};
+  DB.speedOptions.filter(speed => truthy(speed.Active)).forEach(speed => {
+    const key = `${speed.PersonaID || ""}|${speed.SpeedOptionID || speed.SpeedOption || ""}|${speed.ReferenceID || ""}`;
+    if(!speedScheduleKeys[key]) speedScheduleKeys[key] = {speed, scheduleIDs:new Set(), pricingSets:new Set()};
+    speedScheduleKeys[key].scheduleIDs.add(speed.ScheduleID || "");
     const persona = personaById[speed.PersonaID];
-    if(!persona) return;
-    if(!refPricingSets[speed.ReferenceID]) refPricingSets[speed.ReferenceID] = new Set();
-    refPricingSets[speed.ReferenceID].add(displayPricingSet(persona.PricingSet));
+    if(persona) speedScheduleKeys[key].pricingSets.add(displayPricingSet(persona.PricingSet));
   });
-  const mixedRefs = Object.entries(refPricingSets).filter(([,sets]) => sets.size > 1);
-  const mixedRefRecords = mixedRefs.map(([ref,sets]) => healthRecord(
-    ref,
-    `ReferenceID is shared across pricing sets: ${[...sets].join(" / ")}. Schedules must be matched by ScheduleID + ReferenceID to avoid promotion mixing.`,
-    {ReferenceID:ref, PricingSets:[...sets].join(" / ")}
-  ));
+  const mixedRefRecords = Object.values(speedScheduleKeys)
+    .filter(entry => [...entry.scheduleIDs].filter(Boolean).length > 1)
+    .map(entry => healthRecord(
+      `${entry.speed.PersonaID} ${entry.speed.ReferenceID}`,
+      "A single persona speed resolves to more than one ScheduleID, which can mix promotion schedules.",
+      {
+        PersonaID:entry.speed.PersonaID,
+        SpeedOptionID:entry.speed.SpeedOptionID || entry.speed.SpeedOption || "",
+        ReferenceID:entry.speed.ReferenceID || "",
+        ScheduleIDs:[...entry.scheduleIDs].filter(Boolean).join(" / "),
+        PricingSets:[...entry.pricingSets].filter(Boolean).join(" / ")
+      }
+    ));
   rows.push({
     Section:"Pricing",
     Check:"Mixed Promotion Reference IDs",
@@ -278,6 +492,241 @@ function buildHealth(){
     Count:mixedRefRecords.length,
     Details:healthDetailsFromRecords(mixedRefRecords),
     Records:mixedRefRecords
+  });
+
+  const invalidLabelRecords = [];
+  DB.schedules.forEach(row => {
+    if(rowHasValidMonthLabel(row)) return;
+    invalidLabelRecords.push(healthRecord(
+      `${row.ScheduleID || "Unknown schedule"}/${row.ReferenceID || "Unknown reference"}`,
+      "Pricing schedule row does not have a parseable month range label or structured StartMonth/EndMonth coverage.",
+      {ScheduleID:row.ScheduleID || "", ReferenceID:row.ReferenceID || "", Sequence:row.Sequence || "", StartMonth:row.StartMonth ?? "", EndMonth:row.EndMonth ?? "", DisplayLabel:row.DisplayLabel || "", Price:row.Price ?? ""}
+    ));
+  });
+  rows.push({
+    Section:"Pricing",
+    Check:"Invalid Month Labels",
+    Status:invalidLabelRecords.length?"WARN":"OK",
+    Count:invalidLabelRecords.length,
+    Details:healthDetailsFromRecords(invalidLabelRecords),
+    Records:invalidLabelRecords
+  });
+
+  const brokenReferenceRecords = [];
+  const speedSchedulePairs = new Set(DB.speedOptions.map(speed => `${speed.ScheduleID || ""}|${speed.ReferenceID || ""}`));
+  const personaIds = new Set(DB.personas.map(persona => persona.PersonaID).filter(Boolean));
+  const modifierIds = new Set(DB.modifiers.map(modifier => modifier.ModifierID).filter(Boolean));
+  const disclaimerIds = new Set(DB.disclaimers.map(disclaimer => disclaimer.DisclaimerID).filter(Boolean));
+  DB.speedOptions.forEach(speed => {
+    if(!personaIds.has(speed.PersonaID)){
+      brokenReferenceRecords.push(healthRecord(
+        `${speed.PersonaID || "Unknown persona"} ${speed.ReferenceID || "Unknown reference"}`,
+        "Speed option references a PersonaID that does not exist.",
+        {PersonaID:speed.PersonaID || "", ReferenceID:speed.ReferenceID || "", ScheduleID:speed.ScheduleID || ""}
+      ));
+    }
+  });
+  DB.schedules.forEach(row => {
+    if(!speedSchedulePairs.has(`${row.ScheduleID || ""}|${row.ReferenceID || ""}`)){
+      brokenReferenceRecords.push(healthRecord(
+        `${row.ScheduleID || "Unknown schedule"}/${row.ReferenceID || "Unknown reference"}`,
+        "Pricing schedule row has no matching speed option for its exact ScheduleID + ReferenceID.",
+        {ScheduleID:row.ScheduleID || "", ReferenceID:row.ReferenceID || "", DisplayLabel:row.DisplayLabel || ""}
+      ));
+    }
+  });
+  DB.personaModifiers.forEach(row => {
+    if(!personaIds.has(row.PersonaID) || !modifierIds.has(row.ModifierID)){
+      brokenReferenceRecords.push(healthRecord(
+        `${row.PersonaID || "Unknown persona"}/${row.ModifierID || "Unknown modifier"}`,
+        "Persona modifier row references a missing persona or modifier.",
+        {PersonaID:row.PersonaID || "", ModifierID:row.ModifierID || "", PersonaExists:String(personaIds.has(row.PersonaID)), ModifierExists:String(modifierIds.has(row.ModifierID))}
+      ));
+    }
+  });
+  DB.personas.forEach(persona => {
+    if(persona.DisclaimerID && !disclaimerIds.has(persona.DisclaimerID)){
+      brokenReferenceRecords.push(healthRecord(
+        persona.PersonaName || persona.PersonaID,
+        "Persona references a DisclaimerID that does not exist.",
+        {PersonaID:persona.PersonaID || "", DisclaimerID:persona.DisclaimerID || ""}
+      ));
+    }
+  });
+  rows.push({
+    Section:"Relationships",
+    Check:"Broken References",
+    Status:brokenReferenceRecords.length?"WARN":"OK",
+    Count:brokenReferenceRecords.length,
+    Details:healthDetailsFromRecords(brokenReferenceRecords),
+    Records:brokenReferenceRecords
+  });
+
+  const duplicateModifierRows = Object.entries(
+    DB.personaModifiers.reduce((acc, row) => {
+      const key = `${row.PersonaID || ""}|${row.ModifierID || ""}`;
+      acc[key] = (acc[key] || 0) + 1;
+      return acc;
+    }, {})
+  ).filter(([,count]) => count > 1);
+  const duplicateModifierRecords = duplicateModifierRows.map(([key, count]) => {
+    const [personaID, modifierID] = key.split("|");
+    return healthRecord(
+      `${personaID}/${modifierID}`,
+      `Persona modifier relationship appears ${count} times.`,
+      {PersonaID:personaID, ModifierID:modifierID, DuplicateRows:count}
+    );
+  });
+  rows.push({
+    Section:"Relationships",
+    Check:"Duplicate Persona Modifiers",
+    Status:duplicateModifierRecords.length?"WARN":"OK",
+    Count:duplicateModifierRecords.length,
+    Details:healthDetailsFromRecords(duplicateModifierRecords),
+    Records:duplicateModifierRecords
+  });
+
+  const missingModifierRecords = [];
+  const activeModifierRowsByPersona = groupBy(DB.personaModifiers.filter(row => truthy(row.Active)), "PersonaID");
+  const speedsByPersonaForAudit = groupBy(DB.speedOptions.filter(speed => truthy(speed.Active)), "PersonaID");
+  DB.personas.filter(persona => String(persona.Status || "").toLowerCase() === "active").forEach(persona => {
+    const expectedModifierIDs = expectedModifierIDsForPersona(persona, speedsByPersonaForAudit[persona.PersonaID] || []);
+    const activeModifierIDs = new Set((activeModifierRowsByPersona[persona.PersonaID] || []).map(row => row.ModifierID));
+    const missing = [...expectedModifierIDs].filter(modifierID => !activeModifierIDs.has(modifierID));
+    if(missing.length){
+      missingModifierRecords.push(healthRecord(
+        persona.PersonaName || persona.PersonaID,
+        "Active persona is missing one or more expected ratecard modifier relationships.",
+        {PersonaID:persona.PersonaID || "", PersonaName:persona.PersonaName || "", MissingModifierIDs:missing.join(" / ")}
+      ));
+    }
+  });
+  rows.push({
+    Section:"Relationships",
+    Check:"Missing Modifiers",
+    Status:missingModifierRecords.length?"WARN":"OK",
+    Count:missingModifierRecords.length,
+    Details:healthDetailsFromRecords(missingModifierRecords),
+    Records:missingModifierRecords
+  });
+
+  const priceProgressionRecords = [];
+  DB.speedOptions.filter(speed => truthy(speed.Active)).forEach(speed => {
+    const rowsForSpeed = sortedScheduleRows(getSchedulesForSpeed(speed));
+    const chargeRows = paidRows(rowsForSpeed).filter(row => row.Price !== null && row.Price !== undefined && row.Price !== "");
+    for(let i=1; i<chargeRows.length; i++){
+      const previousPrice = Number(chargeRows[i-1].Price);
+      const currentPrice = Number(chargeRows[i].Price);
+      if(Number.isNaN(previousPrice) || Number.isNaN(currentPrice)) continue;
+      if(currentPrice < previousPrice){
+        const persona = personaById[speed.PersonaID];
+        priceProgressionRecords.push(healthRecord(
+          `${speed.PersonaID} ${speed.SpeedOption || ""} ${speed.ScheduleID || ""}`,
+          "Paid pricing decreases across later schedule rows.",
+          {PersonaID:speed.PersonaID || "", PersonaName:persona?.PersonaName || "", SpeedOptionID:speed.SpeedOptionID || speed.SpeedOption || "", ScheduleID:speed.ScheduleID || "", ReferenceID:speed.ReferenceID || "", PreviousLabel:chargeRows[i-1].DisplayLabel || "", PreviousPrice:chargeRows[i-1].Price ?? "", CurrentLabel:chargeRows[i].DisplayLabel || "", CurrentPrice:chargeRows[i].Price ?? ""}
+        ));
+      }
+    }
+  });
+  rows.push({
+    Section:"Pricing",
+    Check:"Invalid Price Progression",
+    Status:priceProgressionRecords.length?"WARN":"OK",
+    Count:priceProgressionRecords.length,
+    Details:healthDetailsFromRecords(priceProgressionRecords),
+    Records:priceProgressionRecords
+  });
+
+  const priceLockRecords = [];
+  const introFreeRecords = [];
+  const flatRecords = [];
+  const stepRecords = [];
+  DB.speedOptions.filter(speed => truthy(speed.Active)).forEach(speed => {
+    const persona = personaById[speed.PersonaID];
+    const rowsForSpeed = sortedScheduleRows(getSchedulesForSpeed(speed));
+    const pricingType = String(speed.PricingType || "").trim().toLowerCase();
+    const pricingSet = displayPricingSet(persona?.PricingSet || "");
+    const coverage = scheduleCoverageMonths(rowsForSpeed);
+    const baseFields = {PersonaID:speed.PersonaID || "", PersonaName:persona?.PersonaName || "", SpeedOptionID:speed.SpeedOptionID || speed.SpeedOption || "", ScheduleID:speed.ScheduleID || "", ReferenceID:speed.ReferenceID || "", ExistingMonthRanges:scheduleRangeSummary(rowsForSpeed)};
+
+    if(/3\s*year\s*price\s*lock/i.test(pricingSet) && !isStandalone40OneGigException(speed, rowsForSpeed)){
+      const missingRanges = missingCoverageLabels(coverage);
+      if(missingRanges.length){
+        priceLockRecords.push(healthRecord(
+          `${speed.PersonaID} ${speed.SpeedOption || ""} ${speed.ScheduleID || ""}`,
+          `3-Year Price Lock schedule is missing ${missingRanges.join("; ")}.`,
+          {...baseFields, MissingMonthRanges:missingRanges.join("; ")}
+        ));
+      }
+    }
+
+    if(pricingType === "intro free"){
+      const freeMonths = scheduleCoverageMonths(rowsForSpeed.filter(row => truthy(row.DisplayAsFree)));
+      const firstYearPaidMonths = scheduleCoverageMonths(rowsForSpeed.filter(row => !truthy(row.DisplayAsFree) && [...monthsFromScheduleRow(row)].some(month => month >= 1 && month <= 12)));
+      if(!sameMonthSet(freeMonths, [1,6,12]) || !sameMonthSet(firstYearPaidMonths, [2,3,4,5,7,8,9,10,11])){
+        introFreeRecords.push(healthRecord(
+          `${speed.PersonaID} ${speed.SpeedOption || ""} ${speed.ScheduleID || ""}`,
+          "Intro Free schedule must cover free months 1, 6, and 12 with paid months 2-5 and 7-11 in the first year.",
+          {...baseFields, FreeMonths:formatMonthRanges(freeMonths).join("; "), FirstYearPaidMonths:formatMonthRanges(firstYearPaidMonths).join("; ")}
+        ));
+      }
+    }
+
+    if(pricingType === "flat"){
+      if(rowsForSpeed.length !== 1 || !rowsForSpeed.every(row => !truthy(row.DisplayAsFree))){
+        flatRecords.push(healthRecord(
+          `${speed.PersonaID} ${speed.SpeedOption || ""} ${speed.ScheduleID || ""}`,
+          "Flat pricing should resolve to one non-free schedule row.",
+          {...baseFields, RowCount:rowsForSpeed.length}
+        ));
+      }
+    }
+
+    if(pricingType === "step pricing"){
+      const chargeRows = paidRows(rowsForSpeed);
+      if(chargeRows.length < 2){
+        stepRecords.push(healthRecord(
+          `${speed.PersonaID} ${speed.SpeedOption || ""} ${speed.ScheduleID || ""}`,
+          "Step Pricing should resolve to at least two paid schedule rows.",
+          {...baseFields, PaidRowCount:chargeRows.length}
+        ));
+      }
+    }
+  });
+  rows.push({Section:"Pricing", Check:"Invalid 3-Year Price Lock Structure", Status:priceLockRecords.length?"WARN":"OK", Count:priceLockRecords.length, Details:healthDetailsFromRecords(priceLockRecords), Records:priceLockRecords});
+  rows.push({Section:"Pricing", Check:"Invalid Intro Free Structure", Status:introFreeRecords.length?"WARN":"OK", Count:introFreeRecords.length, Details:healthDetailsFromRecords(introFreeRecords), Records:introFreeRecords});
+  rows.push({Section:"Pricing", Check:"Invalid Flat Pricing Structure", Status:flatRecords.length?"WARN":"OK", Count:flatRecords.length, Details:healthDetailsFromRecords(flatRecords), Records:flatRecords});
+  rows.push({Section:"Pricing", Check:"Invalid Step Pricing Structure", Status:stepRecords.length?"WARN":"OK", Count:stepRecords.length, Details:healthDetailsFromRecords(stepRecords), Records:stepRecords});
+
+
+  const coverageRecords = [];
+  DB.speedOptions.filter(speed => truthy(speed.Active)).forEach(speed => {
+    const persona = personaById[speed.PersonaID];
+    const rowsForSpeed = getSchedulesForSpeed(speed);
+    if(!isThirtySixMonthCoverageCandidate(persona, speed, rowsForSpeed)) return;
+    const missingRanges = missingCoverageLabels(scheduleCoverageMonths(rowsForSpeed));
+    if(!missingRanges.length) return;
+    coverageRecords.push(healthRecord(
+      `${speed.PersonaID} ${speed.SpeedOptionID || speed.SpeedOption || ""} ${speed.ScheduleID || ""}`,
+      `Schedule is intended to cover 36 months but is missing ${missingRanges.join("; ")}.`,
+      {
+        PersonaID:speed.PersonaID || "",
+        PersonaName:persona?.PersonaName || "",
+        SpeedOptionID:speed.SpeedOptionID || speed.SpeedOption || "",
+        ScheduleID:speed.ScheduleID || "",
+        ReferenceID:speed.ReferenceID || "",
+        ExistingMonthRanges:scheduleRangeSummary(rowsForSpeed),
+        MissingMonthRanges:missingRanges.join("; ")
+      }
+    ));
+  });
+  rows.push({
+    Section:"Pricing",
+    Check:"36-Month Promotion Coverage",
+    Status:coverageRecords.length?"WARN":"OK",
+    Count:coverageRecords.length,
+    Details:healthDetailsFromRecords(coverageRecords),
+    Records:coverageRecords
   });
 
   const missingSchedule = DB.speedOptions.filter(speed => !DB.schedules.some(row =>
@@ -362,6 +811,6 @@ function buildHealth(){
     Records:iconRecords
   });
 
-  const workbookRows = (DB.health || []).map(h => ({...h, Section:h.Section || "Workbook", Records:workbookHealthRecords(h)}));
+  const workbookRows = normalizedWorkbookHealthRows();
   return rows.concat(workbookRows);
 }
