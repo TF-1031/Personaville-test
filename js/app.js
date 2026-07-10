@@ -1,7 +1,16 @@
 
 function setView(name){
-  document.querySelectorAll(".nav").forEach(n=>n.classList.toggle("active", n.dataset.view===name));
+  document.querySelectorAll(".nav").forEach(n=>{
+    const active = n.dataset.view===name;
+    n.classList.toggle("active", active);
+    n.setAttribute("aria-current", active ? "page" : "false");
+  });
   document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active", v.id===name));
+  const heading = document.getElementById(name)?.querySelector("h2");
+  if(heading){
+    heading.setAttribute("tabindex", "-1");
+    heading.focus({preventScroll:true});
+  }
 }
 document.addEventListener("DOMContentLoaded", async () => {
   document.querySelectorAll(".nav").forEach(btn => btn.addEventListener("click", () => setView(btn.dataset.view)));

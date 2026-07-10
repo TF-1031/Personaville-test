@@ -8,29 +8,29 @@
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar" role="banner">
     <div>
       <h1>Personaville</h1>
       <p class="subtitle">Market persona offer database</p>
     </div>
     <div class="top-actions">
-      <label class="btn primary">
+      <label class="btn primary" title="Upload the edited Excel workbook to build the in-browser database.">
         Build Database
-        <input id="workbookUpload" type="file" accept=".xlsx,.xls" hidden>
+        <input id="workbookUpload" type="file" accept=".xlsx,.xls" hidden aria-label="Upload workbook to build database">
       </label>
-      <button id="loadBundled" class="btn">Load Bundled DB</button>
-      <button id="downloadUpdatedJson" class="btn" disabled>Download Updated JSON</button>
+      <button id="loadBundled" class="btn" title="Reload the bundled persona-db.json file.">Load Bundled Database</button>
+      <button id="downloadUpdatedJson" class="btn" disabled title="Available after Build Database loads a workbook.">Download Updated JSON</button>
     </div>
   </header>
 
   <main class="app">
-    <nav class="sidebar">
-      <button class="nav active" data-view="dashboard">Dashboard</button>
-      <button class="nav" data-view="personas">Personas</button>
-      <button class="nav" data-view="modifiers">Modifiers</button>
-      <button class="nav" data-view="health">Database Health</button>
-      <button class="nav" data-view="export">Export</button>
-      <button class="nav" data-view="settings">Settings</button>
+    <nav class="sidebar" aria-label="Primary navigation">
+      <button class="nav active" data-view="dashboard" type="button">Dashboard</button>
+      <button class="nav" data-view="personas" type="button">Personas</button>
+      <button class="nav" data-view="modifiers" type="button">Modifiers</button>
+      <button class="nav" data-view="health" type="button">Database Health</button>
+      <button class="nav" data-view="export" type="button">Export</button>
+      <button class="nav" data-view="settings" type="button">Settings</button>
     </nav>
 
     <section class="content">
@@ -39,8 +39,8 @@
           <h2>Dashboard</h2>
           <span id="dbStatus" class="pill gray">No database loaded</span>
         </div>
-        <div id="sourceBanner" class="source-banner"></div>
-        <div id="kpis" class="kpis dashboard-overview"></div>
+        <div id="sourceBanner" class="source-banner" role="status" aria-live="polite"></div>
+        <div id="kpis" class="kpis dashboard-overview" aria-label="Database summary metrics"></div>
         <div id="publishPanel" class="publish-panel"></div>
         <div id="buildSummary" class="build-summary" hidden></div>
         <div id="downloadInstructions" class="download-instructions" hidden>Replace database/persona-db.json in GitHub with this downloaded file.</div>
@@ -58,27 +58,30 @@
       <section id="personas" class="view">
         <div class="section-head">
           <h2>Persona Library</h2>
-          <button id="clearSelection" class="btn small">Clear Detail</button>
+          <button id="clearSelection" class="btn small" type="button">Clear Detail</button>
         </div>
         <div class="toolbar">
-          <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, Reference ID..." />
+          <label class="sr-only" for="globalSearch">Search personas</label>
+          <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, or reference ID" autocomplete="off" />
+          <label class="sr-only" for="pricingFilter">Filter by pricing set</label>
           <select id="pricingFilter"><option value="">All Pricing Sets</option></select>
+          <label class="sr-only" for="familyFilter">Filter by family group</label>
           <select id="familyFilter"><option value="">All Family Groups</option></select>
         </div>
         <div class="split">
-          <div id="personaTiles" class="tiles"></div>
+          <div id="personaTiles" class="tiles" aria-live="polite"></div>
           <aside id="detailPanel" class="detail empty">Select a persona tile to view details.</aside>
         </div>
       </section>
 
       <section id="modifiers" class="view">
         <div class="section-head"><h2>Modifier Library</h2></div>
-        <div id="modifierList" class="modifier-list"></div>
+        <div id="modifierList" class="modifier-list" aria-live="polite"></div>
       </section>
 
       <section id="health" class="view">
         <div class="section-head"><h2>Database Health</h2></div>
-        <div id="healthList" class="health-list"></div>
+        <div id="healthList" class="health-list" aria-live="polite"></div>
       </section>
 
       <section id="export" class="view">
@@ -90,10 +93,10 @@
           <span id="selectedCount" class="pill gray" aria-live="polite">0 selected</span>
         </div>
         <div class="export-actions">
-          <button id="selectAllVisible" class="btn">Select All Visible</button>
-          <button id="clearExportSelection" class="btn">Clear Selection</button>
-          <button id="printPersona" class="btn primary">Print Selected</button>
-          <button id="copySummary" class="btn">Copy Text Summary</button>
+          <button id="selectAllVisible" class="btn" type="button">Select All Visible</button>
+          <button id="clearExportSelection" class="btn" type="button">Clear Selection</button>
+          <button id="printPersona" class="btn primary" type="button">Print Selected</button>
+          <button id="copySummary" class="btn" type="button">Copy Text Summary</button>
         </div>
         <div id="printArea" class="print-stack"></div>
       </section>

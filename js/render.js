@@ -178,8 +178,18 @@ function renderTiles(){
   [d1,d2].forEach(box => {
     if(!box) return;
     box.innerHTML="";
+    if(!personas.length){
+      box.appendChild(emptyState("No personas match the current filters.", "Try clearing search or selecting a different pricing set or family group."));
+      return;
+    }
     personas.forEach(p => box.appendChild(personaTile(p)));
   });
+}
+function emptyState(title, message){
+  return el("div",{class:"empty-state-panel", role:"status"},[
+    el("strong",{},[title]),
+    message ? el("p",{class:"muted"},[message]) : null
+  ]);
 }
 function personaTile(p){
   const checked = exportSelection.has(p.PersonaID);
@@ -193,7 +203,20 @@ function personaTile(p){
     el("td",{class:"price schedule-summary"},[pricingSummaryNode(s)]),
     el("td",{},[money(s.RegularRate)])
   ]));
-  return el("article",{class:`tile ${checked ? "selected" : ""}`, "data-persona-id":p.PersonaID, onclick:()=>selectPersona(p)},[
+  return el("article",{
+    class:`tile ${checked ? "selected" : ""}`,
+    "data-persona-id":p.PersonaID,
+    role:"button",
+    tabindex:"0",
+    "aria-label":`View details for ${p.PersonaName || "persona"}`,
+    onclick:()=>selectPersona(p),
+    onkeydown:event=>{
+      if(event.key === "Enter" || event.key === " "){
+        event.preventDefault();
+        selectPersona(p);
+      }
+    }
+  },[
     el("div",{class:"tile-select"},[
       el("label",{class:"select-persona", onclick:event=>event.stopPropagation()},[
         el("input",{type:"checkbox", value:p.PersonaID, checked, "aria-label":`Select ${p.PersonaName || "persona"} for export`, onchange:event=>toggleExportPersona(p.PersonaID, event.currentTarget.checked)}),
@@ -225,7 +248,7 @@ function pricingSummaryRow(row){
   const label = row.DisplayLabel || monthLabel(row);
   if(truthy(row.DisplayAsFree)){
     return el("div",{class:"pricing-summary-row"},[
-      el("span",{class:"pricing-summary-price free"},["FREE"]),
+      el("span",{class:"pricing-summary-price free"},["Free"]),
       el("span",{class:"pricing-summary-months"},[label])
     ]);
   }
@@ -274,11 +297,18 @@ function speedDetail(s){
   const cards = (s.schedules||[]).map(sc => {
     let amount;
     if(truthy(sc.DisplayAsFree)){
-      amount = `<span class="free">FREE</span> <span class="strike">${money(sc.StrikeThroughPrice || s.FirstPaidPrice)}</span>`;
+      amount = [
+        el("span",{class:"free"},["Free"]),
+        el("span",{class:"strike"},[money(sc.StrikeThroughPrice || s.FirstPaidPrice)])
+      ];
     } else {
       amount = money(sc.Price);
     }
-    return el("div",{class:"schedule-card", html:`<div class="label">${sc.DisplayLabel || monthLabel(sc)}</div><div class="amount">${amount}</div>`});
+    const amountChildren = Array.isArray(amount) ? amount : [amount];
+    return el("div",{class:"schedule-card"},[
+      el("div",{class:"label"},[sc.DisplayLabel || monthLabel(sc)]),
+      el("div",{class:"amount"},amountChildren)
+    ]);
   });
   return el("div",{class:"detail-section"},[
     el("h4",{},[`${s.SpeedOption} ${s.DisplaySpeed}`]),
@@ -294,6 +324,10 @@ function renderModifiers(){
   const box = document.getElementById("modifierList");
   if(!box) return;
   box.innerHTML="";
+  if(!DB.modifiers.length){
+    box.appendChild(emptyState("No modifiers are available.", "Load the bundled database or build from a workbook to review modifiers."));
+    return;
+  }
   DB.modifiers.forEach(m => {
     const used = DB.personaModifiers.filter(pm=>pm.ModifierID===m.ModifierID && truthy(pm.Active)).length;
     box.appendChild(el("div",{class:"modifier"},[
@@ -310,7 +344,12 @@ function renderHealth(){
   const box = document.getElementById("healthList");
   if(!box) return;
   box.innerHTML="";
-  buildHealth().forEach((h, index) => {
+  const rows = buildHealth();
+  if(!rows.length){
+    box.appendChild(emptyState("No health checks are available.", "Load the bundled database or build from a workbook to review database health."));
+    return;
+  }
+  rows.forEach((h, index) => {
     const st = String(h.Status||"").toUpperCase();
     const failed = st && st !== "OK";
     const records = h.Records || [];
@@ -370,6 +409,9 @@ function fillExportPicker(){
   const sel = document.getElementById("exportPersona");
   if(!sel) return;
   sel.innerHTML="";
+  if(!DB.personas.length){
+    sel.appendChild(el("option",{value:""},["No personas available"]));
+  }
   DB.personas.forEach(p => sel.appendChild(el("option",{value:p.PersonaID},[p.PersonaName])));
   syncExportSelectionUI();
   renderPrintArea();
@@ -467,4 +509,6 @@ function copySelectedSummary(){
     p.speeds.forEach(s=>lines.push(`${s.SpeedOption} ${s.DisplaySpeed} - ${money(s.FirstPaidPrice)} - Reg. ${money(s.RegularRate)}`));
   });
   navigator.clipboard.writeText(lines.join("\n"));
+  const countEl = document.getElementById("selectedCount");
+  if(countEl) countEl.textContent = "Summary copied";
 }
