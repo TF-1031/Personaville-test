@@ -100,7 +100,7 @@ function personaTile(p){
   const rows = (p.speeds||[]).map(s => el("tr",{},[
     el("td",{class:"so"},[s.SpeedOption || ""]),
     el("td",{},[s.DisplaySpeed || ""]),
-    el("td",{class:"price"},[firstPriceNode(s)]),
+    el("td",{class:"price schedule-summary"},[pricingSummaryNode(s)]),
     el("td",{},[money(s.RegularRate)])
   ]));
   return el("article",{class:`tile ${checked ? "selected" : ""}`, "data-persona-id":p.PersonaID, onclick:()=>selectPersona(p)},[
@@ -119,20 +119,32 @@ function personaTile(p){
     ]),
     el("div",{class:"chips"},chips.length?chips:[el("span",{class:"chip gray"},["No modifiers"])]),
     el("table",{class:"speed-table"},[
-      el("thead",{},[el("tr",{},[el("th",{},["Option"]),el("th",{},["Speed"]),el("th",{},["First Price"]),el("th",{},["Reg. Rate"])])]),
+      el("thead",{},[el("tr",{},[el("th",{},["Option"]),el("th",{},["Speed"]),el("th",{},["Pricing"]),el("th",{},["Reg. Rate"])])]),
       el("tbody",{},rows)
     ])
   ]);
 }
-function firstPriceNode(s){
-  const free = (s.schedules||[]).find(x => truthy(x.DisplayAsFree));
-  if(free) return el("span",{},[
-    el("span",{class:"free"},["FREE"]),
-    " ",
-    el("span",{class:"strike"},[money(free.StrikeThroughPrice || s.FirstPaidPrice)])
-  ]);
-  return money(s.FirstPaidPrice);
+function pricingSummaryNode(s){
+  const rows = s.schedules || [];
+  if(!rows.length) return el("span",{},[money(s.FirstPaidPrice)]);
+  if(rows.length === 1 && !truthy(rows[0].DisplayAsFree)) return el("span",{},[money(rows[0].Price ?? s.FirstPaidPrice)]);
+
+  return el("div",{class:"pricing-summary-list"},rows.map(pricingSummaryRow));
 }
+function pricingSummaryRow(row){
+  const label = row.DisplayLabel || monthLabel(row);
+  if(truthy(row.DisplayAsFree)){
+    return el("div",{class:"pricing-summary-row"},[
+      el("span",{class:"pricing-summary-price free"},["FREE"]),
+      el("span",{class:"pricing-summary-months"},[label])
+    ]);
+  }
+  return el("div",{class:"pricing-summary-row"},[
+    el("span",{class:"pricing-summary-price"},[money(row.Price)]),
+    el("span",{class:"pricing-summary-months"},[label])
+  ]);
+}
+
 function selectPersona(p){
   selectedPersona = p;
   renderDetail(p);
