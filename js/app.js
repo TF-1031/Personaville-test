@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("pricingFilter").addEventListener("change", renderTiles);
   document.getElementById("clearSelection").addEventListener("click", resetPersonaDetail);
   document.getElementById("clearFilters").addEventListener("click", clearPersonaFilters);
+  document.getElementById("clearFamilyGroup").addEventListener("click", clearFamilyGroupFilter);
   document.getElementById("exportPersona").addEventListener("change", renderPrintArea);
   document.getElementById("selectAllVisible").addEventListener("click", selectAllVisiblePersonas);
   document.getElementById("clearExportSelection").addEventListener("click", clearExportSelection);
