@@ -22,3 +22,6 @@ How to use:
 Notes:
 - Workbook upload uses SheetJS from CDN. If internet is unavailable, bundled JSON still lets the app display the current database in most browser/server setups.
 - Icons are expected in the icons/ folder. Missing icons are handled gracefully.
+
+Next steps:
+- See NEXT_STEPS.md for the prioritized site review checklist.
