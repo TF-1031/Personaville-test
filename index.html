@@ -46,16 +46,18 @@
             <h3 id="personaFilterHeading">Filters</h3>
             <div class="filter-control">
               <label for="globalSearch">Search</label>
-              <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, or reference ID" autocomplete="off" />
+              <input id="globalSearch" class="search" placeholder="Search persona, speed, modifier, or reference ID" autocomplete="off" aria-describedby="searchHelp" />
+              <p id="searchHelp" class="filter-help">Searches persona name, displayed speed, modifier, and Reference ID.</p>
             </div>
-            <div class="filter-control">
-              <label for="pricingFilter">Pricing Set</label>
-              <select id="pricingFilter"><option value="">All Pricing Sets</option></select>
-            </div>
-            <div class="filter-control">
-              <label for="familyFilter">Family Group</label>
-              <select id="familyFilter"><option value="">All Family Groups</option></select>
-            </div>
+            <fieldset class="filter-control filter-fieldset">
+              <legend>Pricing Set</legend>
+              <div id="pricingFilter" class="choice-group segmented" role="radiogroup" aria-label="Pricing Set"></div>
+            </fieldset>
+            <fieldset class="filter-control filter-fieldset">
+              <legend>Family Group</legend>
+              <div id="familyFilter" class="choice-group family-choices" aria-label="Family Group"></div>
+            </fieldset>
+            <div id="activeFilterSummary" class="active-filter-summary" aria-live="polite">No filters applied</div>
             <button id="clearFilters" class="btn" type="button">Clear Filters</button>
           </aside>
           <section class="persona-results" aria-labelledby="personaResultsHeading">
@@ -63,9 +65,9 @@
               <h3 id="personaResultsHeading">Results</h3>
               <span id="personaResultCount" class="pill gray" aria-live="polite">0 personas found</span>
             </div>
-            <div id="personaTiles" class="tiles" aria-live="polite"></div>
+            <div id="personaTiles" class="tiles persona-grid" aria-live="polite"></div>
           </section>
-          <aside id="detailPanel" class="detail empty">Select a persona tile to view details.</aside>
+          <aside id="detailPanel" class="detail empty"><div class="empty-state-panel"><strong>Select a persona to view details.</strong></div></aside>
         </div>
       </section>
 
