@@ -245,7 +245,7 @@ function normalizedWorkbookHealthRows(){
     row => /intro free/i.test(String(row.Check || "")),
     introFreeRecords
   );
-  return summaryRows;
+  return summaryRows.filter(row => String(row.Check || "").trim() !== "Personas missing ModifiedBy");
 }
 function monthsFromScheduleRow(row){
   const label = String(row.DisplayLabel || "");
@@ -437,6 +437,22 @@ function buildHealth(){
   rows.push({Section:"Summary",Check:"Market Personas",Status:"OK",Count:DB.personas.length,Details:"Rows in 05_Personas"});
   rows.push({Section:"Summary",Check:"Speed Options",Status:"OK",Count:DB.speedOptions.length,Details:"Rows in 06_SpeedOptions"});
   rows.push({Section:"Summary",Check:"Pricing Schedules",Status:"OK",Count:DB.schedules.length,Details:"Rows in 07_PricingSchedules"});
+
+  const missingModifiedByRecords = DB.personas
+    .filter(persona => !String(persona.ModifiedBy ?? "").trim())
+    .map(persona => healthRecord(
+      persona.PersonaName || persona.PersonaID,
+      "Persona does not have a ModifiedBy value from the imported 05_Personas sheet.",
+      {PersonaID:persona.PersonaID || "", PersonaName:persona.PersonaName || "", ModifiedBy:persona.ModifiedBy ?? ""}
+    ));
+  rows.push({
+    Section:"Audit",
+    Check:"Personas missing ModifiedBy",
+    Status:missingModifiedByRecords.length?"WARN":"OK",
+    Count:missingModifiedByRecords.length,
+    Details:healthDetailsFromRecords(missingModifiedByRecords),
+    Records:missingModifiedByRecords
+  });
 
   const duplicatePricingKeys = {};
   DB.schedules.forEach(row => {
