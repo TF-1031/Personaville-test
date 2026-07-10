@@ -1,4 +1,34 @@
 {
+  "README": [
+    {
+      "Persona Offer Database v6": "Purpose",
+      "__EMPTY": "Clean relational workbook generated from the 30 disclaimer rows in datafiller-1.csv."
+    },
+    {
+      "Persona Offer Database v6": "Source of truth",
+      "__EMPTY": "05_Personas plus 06_SpeedOptions plus 07_PricingSchedules."
+    },
+    {
+      "Persona Offer Database v6": "HTML workflow",
+      "__EMPTY": "Upload this workbook in the dashboard and click Build Database."
+    },
+    {
+      "Persona Offer Database v6": "Important",
+      "__EMPTY": "Personas are created directly from the disclaimer source rows, not generated from family/pricing combinations."
+    },
+    {
+      "Persona Offer Database v6": "Free pricing",
+      "__EMPTY": "DisplayAsFree=TRUE means render as FREE and strike through StrikeThroughPrice."
+    },
+    {
+      "Persona Offer Database v6": "Speed labels",
+      "__EMPTY": "Speed options display as SO_1, SO_2, etc."
+    },
+    {
+      "Persona Offer Database v6": "Reference IDs",
+      "__EMPTY": "Search for ReferenceID values like Core-SO_3."
+    }
+  ],
   "00_Summary": [
     {
       "Metric": "Source disclaimer rows",
@@ -208,9 +238,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_001",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_002",
@@ -224,9 +254,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "TRUE",
       "DisclaimerID": "DISC_002",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_003",
@@ -240,9 +270,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_003",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_004",
@@ -256,9 +286,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_004",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_005",
@@ -272,9 +302,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_005",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_006",
@@ -288,9 +318,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_006",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_007",
@@ -304,9 +334,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_007",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_008",
@@ -320,9 +350,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_008",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_009",
@@ -336,9 +366,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_009",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_010",
@@ -352,9 +382,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "TRUE",
       "DisclaimerID": "DISC_010",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_011",
@@ -368,9 +398,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "TRUE",
       "DisclaimerID": "DISC_011",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_012",
@@ -384,9 +414,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "TRUE",
       "DisclaimerID": "DISC_012",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_013",
@@ -400,9 +430,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_013",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_014",
@@ -416,9 +446,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_014",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_015",
@@ -432,9 +462,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_015",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_016",
@@ -448,9 +478,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_016",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_017",
@@ -464,9 +494,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_017",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_018",
@@ -480,9 +510,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_018",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_019",
@@ -496,9 +526,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_019",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_020",
@@ -512,9 +542,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "TRUE",
       "DisclaimerID": "DISC_020",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_021",
@@ -528,9 +558,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "TRUE",
       "DisclaimerID": "DISC_021",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_022",
@@ -544,9 +574,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "TRUE",
       "DisclaimerID": "DISC_022",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_023",
@@ -560,9 +590,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_023",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_024",
@@ -576,9 +606,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_024",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_025",
@@ -592,9 +622,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_025",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_026",
@@ -608,9 +638,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_026",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_027",
@@ -624,9 +654,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_027",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_028",
@@ -640,9 +670,9 @@
       "EquipInc": "FALSE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_028",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_029",
@@ -656,9 +686,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_029",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     },
     {
       "PersonaID": "PM_030",
@@ -672,9 +702,9 @@
       "EquipInc": "TRUE",
       "SymSpeed": "FALSE",
       "DisclaimerID": "DISC_030",
-      "Notes": null,
-      "ModifiedBy": null,
-      "ModifiedDate": null
+      "Notes": "",
+      "ModifiedBy": "FarrellT",
+      "ModifiedDate": 46213
     }
   ],
   "06_SpeedOptions": [
@@ -2054,7 +2084,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_001",
@@ -2065,7 +2095,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_002",
@@ -2076,7 +2106,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 64.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_003",
@@ -2087,7 +2117,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_003",
@@ -2098,7 +2128,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_003",
@@ -2109,7 +2139,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_004",
@@ -2120,7 +2150,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 94.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_005",
@@ -2131,7 +2161,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_005",
@@ -2142,7 +2172,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_006",
@@ -2153,7 +2183,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_006",
@@ -2164,7 +2194,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_006",
@@ -2175,7 +2205,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_007",
@@ -2186,7 +2216,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 74.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_008",
@@ -2197,7 +2227,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_008",
@@ -2208,7 +2238,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_009",
@@ -2219,7 +2249,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 59.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_010",
@@ -2230,7 +2260,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_010",
@@ -2241,7 +2271,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_010",
@@ -2252,7 +2282,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_011",
@@ -2263,7 +2293,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 94.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_012",
@@ -2274,7 +2304,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_012",
@@ -2285,7 +2315,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_013",
@@ -2296,7 +2326,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 59.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_014",
@@ -2307,7 +2337,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_014",
@@ -2318,7 +2348,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_014",
@@ -2329,7 +2359,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_015",
@@ -2340,7 +2370,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 94.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_016",
@@ -2351,7 +2381,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_016",
@@ -2362,7 +2392,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_017",
@@ -2373,7 +2403,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 69.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_018",
@@ -2384,7 +2414,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_018",
@@ -2395,7 +2425,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_019",
@@ -2406,7 +2436,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_019",
@@ -2417,7 +2447,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_020",
@@ -2428,7 +2458,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 69.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_021",
@@ -2439,7 +2469,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_021",
@@ -2450,7 +2480,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_022",
@@ -2461,7 +2491,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_022",
@@ -2472,7 +2502,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_023",
@@ -2483,7 +2513,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_023",
@@ -2494,7 +2524,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_024",
@@ -2505,7 +2535,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_024",
@@ -2516,7 +2546,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_025",
@@ -2538,7 +2568,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_025",
@@ -2549,7 +2579,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_026",
@@ -2571,7 +2601,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 64.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_027",
@@ -2582,7 +2612,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_027",
@@ -2593,7 +2623,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_027",
@@ -2604,7 +2634,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_028",
@@ -2626,7 +2656,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 94.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_029",
@@ -2648,7 +2678,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_029",
@@ -2659,7 +2689,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_030",
@@ -2670,7 +2700,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_030",
@@ -2681,7 +2711,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_030",
@@ -2692,7 +2722,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_031",
@@ -2714,7 +2744,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 74.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_032",
@@ -2736,7 +2766,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_032",
@@ -2747,7 +2777,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_033",
@@ -2758,7 +2788,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_033",
@@ -2769,7 +2799,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_033",
@@ -2780,7 +2810,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_034",
@@ -2802,7 +2832,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 74.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_035",
@@ -2824,7 +2854,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_035",
@@ -2835,7 +2865,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_036",
@@ -2846,7 +2876,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_036",
@@ -2857,7 +2887,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_036",
@@ -2868,7 +2898,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_037",
@@ -2890,7 +2920,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_037",
@@ -2901,7 +2931,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_038",
@@ -2912,7 +2942,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_038",
@@ -2923,7 +2953,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_038",
@@ -2934,7 +2964,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_039",
@@ -2956,7 +2986,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 74.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_040",
@@ -2978,7 +3008,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_040",
@@ -2989,7 +3019,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_041",
@@ -3011,7 +3041,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 59.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_042",
@@ -3022,7 +3052,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_042",
@@ -3033,7 +3063,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_042",
@@ -3044,7 +3074,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_043",
@@ -3066,7 +3096,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 94.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_044",
@@ -3088,7 +3118,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_044",
@@ -3099,7 +3129,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_045",
@@ -3121,7 +3151,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 59.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_046",
@@ -3132,7 +3162,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_046",
@@ -3143,7 +3173,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_046",
@@ -3154,7 +3184,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_047",
@@ -3176,7 +3206,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 94.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_048",
@@ -3198,7 +3228,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 39.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_048",
@@ -3209,7 +3239,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_049",
@@ -3220,7 +3250,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_049",
@@ -3231,7 +3261,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_050",
@@ -3253,7 +3283,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 69.95,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_051",
@@ -3264,7 +3294,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_051",
@@ -3275,7 +3305,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_052",
@@ -3297,7 +3327,7 @@
       "DisplayLabel": "Months 2-5, 7-11",
       "Price": 60,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_053",
@@ -3308,7 +3338,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_054",
@@ -3319,7 +3349,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 70,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_055",
@@ -3330,7 +3360,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_055",
@@ -3341,7 +3371,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_055",
@@ -3352,7 +3382,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_056",
@@ -3363,7 +3393,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 100,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_057",
@@ -3374,7 +3404,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_058",
@@ -3385,7 +3415,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 70,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_059",
@@ -3396,7 +3426,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_059",
@@ -3407,7 +3437,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_059",
@@ -3418,7 +3448,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_060",
@@ -3429,7 +3459,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 100,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_061",
@@ -3440,7 +3470,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_062",
@@ -3451,7 +3481,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_062",
@@ -3462,7 +3492,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_062",
@@ -3473,7 +3503,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_063",
@@ -3484,7 +3514,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 80,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_064",
@@ -3495,7 +3525,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_065",
@@ -3506,7 +3536,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_065",
@@ -3517,7 +3547,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_065",
@@ -3528,7 +3558,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_066",
@@ -3539,7 +3569,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 80,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_067",
@@ -3550,7 +3580,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_068",
@@ -3561,7 +3591,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_068",
@@ -3572,7 +3602,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_068",
@@ -3583,7 +3613,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_069",
@@ -3594,7 +3624,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_070",
@@ -3605,7 +3635,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_070",
@@ -3616,7 +3646,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_070",
@@ -3627,7 +3657,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_071",
@@ -3638,7 +3668,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 80,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_072",
@@ -3649,7 +3679,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_073",
@@ -3660,7 +3690,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 65,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_074",
@@ -3671,7 +3701,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_074",
@@ -3682,7 +3712,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_074",
@@ -3693,7 +3723,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_075",
@@ -3704,7 +3734,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 100,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_076",
@@ -3715,7 +3745,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_077",
@@ -3726,7 +3756,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 65,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_078",
@@ -3737,7 +3767,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_078",
@@ -3748,7 +3778,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_078",
@@ -3759,7 +3789,7 @@
       "DisplayLabel": "Months 25-36",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_079",
@@ -3770,7 +3800,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 100,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_080",
@@ -3781,7 +3811,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_081",
@@ -3792,7 +3822,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_081",
@@ -3803,7 +3833,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_082",
@@ -3814,7 +3844,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_083",
@@ -3825,7 +3855,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_084",
@@ -3836,7 +3866,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_084",
@@ -3847,7 +3877,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_085",
@@ -3858,7 +3888,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 75,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_086",
@@ -3869,7 +3899,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_087",
@@ -3880,7 +3910,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_087",
@@ -3891,7 +3921,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_088",
@@ -3902,7 +3932,7 @@
       "DisplayLabel": "Months 36 Months",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_089",
@@ -3913,7 +3943,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_089",
@@ -3924,7 +3954,7 @@
       "DisplayLabel": "Months 13-24",
       "Price": 55,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_090",
@@ -3935,7 +3965,7 @@
       "DisplayLabel": "Months 1-12",
       "Price": 40,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_090",
@@ -3946,199 +3976,199 @@
       "DisplayLabel": "Months 13-24",
       "Price": 45,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     },
     {
       "ScheduleID": "SCH_091",
       "ReferenceID": "EdgeMax+-SO_2",
       "Sequence": 1,
-      "StartMonth": null,
-      "EndMonth": null,
-      "DisplayLabel": "Months with AutoPay, Paperless Billing",
+      "StartMonth": 1,
+      "EndMonth": 36,
+      "DisplayLabel": "Months 36 Months",
       "Price": 60,
       "DisplayAsFree": "FALSE",
-      "StrikeThroughPrice": null
+      "StrikeThroughPrice": ""
     }
   ],
   "08_Disclaimers": [
     {
       "DisclaimerID": "DISC_001",
       "Title": "Core-Standard",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 20 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 600 Mbps download x 30 Mbps upload Internet service: promotional rate is $64.95/mo. for 12 months; regular rate is $95/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $105/mo. 2000 Mbps download x 2000 Mbps upload Internet service: promotional rate is $94.95/mo. for 12 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 20 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 600 Mbps download x 30 Mbps upload Internet service: promotional rate is $64.95/mo. for 12 months; regular rate is $95/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $105/mo. 2000 Mbps download x 2000 Mbps upload Internet service: promotional rate is $94.95/mo. for 12 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_002",
       "Title": "CoreMax(ExpMkts)-Standard",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: promotional rate is $74.95/mo. for 12 months; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: promotional rate is $74.95/mo. for 12 months; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_003",
       "Title": "Enhanced-Standard",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 20 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: promotional rate is $59.95/mo. for 12 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $94.95/mo. for 12 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 20 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: promotional rate is $59.95/mo. for 12 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $94.95/mo. for 12 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_004",
       "Title": "Enhanced+-Standard",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 20 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: promotional rate is $59.95/mo. for 12 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $94.95/mo. for 12 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 20 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: promotional rate is $59.95/mo. for 12 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $94.95/mo. for 12 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_005",
       "Title": "EnhancedMax-Standard",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $69.95/mo. for 12 months; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $69.95/mo. for 12 months; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_006",
       "Title": "EnhancedMax+-Standard",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $69.95/mo. for 12 months; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $69.95/mo. for 12 months; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_007",
       "Title": "Edge-Standard",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $60/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. All services and promotions are not available in all areas. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $60/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. All services and promotions are not available in all areas. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_008",
       "Title": "Edge+-Standard",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $60/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $39.95/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $60/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_009",
       "Title": "Core-3 Months Free",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $39.95/mo. for months 2-5 and 7-11, and $55/mo. for Months 13-24; regular rate is $80/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $64.95/mo. for months 2-5 and 7-11; regular rate is $95/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $105/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $94.95/mo. for months 2-5 and 7-11; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $39.95/mo. for months 2-5 and 7-11, and $55/mo. for Months 13-24; regular rate is $80/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $64.95/mo. for months 2-5 and 7-11; regular rate is $95/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $105/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $94.95/mo. for months 2-5 and 7-11; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_010",
       "Title": "CoreMax(ExpMkts)-3 Months Free",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12; $39.95/mo. for months 2-5 and 7-11, and $55/mo. for months 13-24; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $74.95/mo. for months 2-5 and 7-11; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12; $39.95/mo. for months 2-5 and 7-11, and $55/mo. for months 13-24; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $74.95/mo. for months 2-5 and 7-11; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_011",
       "Title": "CoreMax+(HHI)SymSpds-3 Months Free",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12; $39.95/mo. for months 2-5 and 7-11, and $55/mo. for months 13-24; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $74.95/mo. for months 2-5 and 7-11; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12; $39.95/mo. for months 2-5 and 7-11, and $55/mo. for months 13-24; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $74.95/mo. for months 2-5 and 7-11; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_012",
       "Title": "CoreMax+(Upto1Gig)-3 Months Free",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12; $39.95/mo. for months 2-5 and 7-11, and $55/mo. for months 13-24; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12; $39.95/mo. for months 2-5 and 7-11, and $55/mo. for months 13-24; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_013",
       "Title": "CoreMax+(NrmlSpds)-3 Months Free",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12; $39.95/mo. for months 2-5 and 7-11, and $55/mo. for months 13-24; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $74.95/mo. for months 2-5 and 7-11; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12; $39.95/mo. for months 2-5 and 7-11, and $55/mo. for months 13-24; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $74.95/mo. for months 2-5 and 7-11; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_014",
       "Title": "Enhanced-3 Months Free",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $39.95/mo. for months 2-5 and 7-11, and $45/mo. for Months 13-24; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $59.95/mo. for months 2-5 and 7-11; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $94.95/mo. for months 2-5 and 7-11; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $39.95/mo. for months 2-5 and 7-11, and $45/mo. for Months 13-24; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $59.95/mo. for months 2-5 and 7-11; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $94.95/mo. for months 2-5 and 7-11; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_015",
       "Title": "Enhanced+-3 Months Free",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $39.95/mo. for months 2-5 and 7-11, and $45/mo. for Months 13-24; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $59.95/mo. for months 2-5 and 7-11; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $94.95/mo. for months 2-5 and 7-11; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $39.95/mo. for months 2-5 and 7-11, and $45/mo. for Months 13-24; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $59.95/mo. for months 2-5 and 7-11; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $94.95/mo. for months 2-5 and 7-11; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_016",
       "Title": "EnhancedMax-3 Months Free",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $39.95/mo. for months 2-5 and 7-11, and $45/mo. for Months 13-24; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $69.95/mo. for months 2-5 and 7-11; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $39.95/mo. for months 2-5 and 7-11, and $45/mo. for Months 13-24; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $0.00/mo. for months 1, 6, and 12, $69.95/mo. for months 2-5 and 7-11; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_017",
       "Title": "EdgeMax+-3 Months Free",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $60/mo. 2000 Mbps download x 50 Mbps upload Internet service: rate is $0.00/mo. for months 1, 6, and 12, $60/mo. for months 2-5 and 7-11; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $45/mo. for Months 13-24; regular rate is $60/mo. 2000 Mbps download x 50 Mbps upload Internet service: rate is $0.00/mo. for months 1, 6, and 12, $60/mo. for months 2-5 and 7-11; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_018",
       "Title": "Core-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $70/mo. for 36 months; regular rate is $95/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $105/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $100/mo. for 36 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $70/mo. for 36 months; regular rate is $95/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $105/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $100/mo. for 36 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_019",
       "Title": "Core+-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $70/mo. for 36 months; regular rate is $95/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $105/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $100/mo. for 36 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $70/mo. for 36 months; regular rate is $95/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $105/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $100/mo. for 36 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_020",
       "Title": "CoreMax(ExpMkts)-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: promotional rate is $80/mo. for 36 months; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: promotional rate is $80/mo. for 36 months; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_021",
       "Title": "CoreMax+(HHI)SymSpds-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: promotional rate is $80/mo. for 36 months; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 2000 Mbps upload Internet service: promotional rate is $80/mo. for 36 months; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_022",
       "Title": "CoreMax+(Upto1Gig)SymSpds-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 500 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 1000 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_023",
       "Title": "CoreMax+(NrmlSpds)-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 30 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $80/mo. for 36 months; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 30 Mbps upload Internet service: Promotional rate is $55/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $80/mo. for 36 months; regular rate is $105/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_024",
       "Title": "Enhanced-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $65/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $100/mo.for 36 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $65/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $100/mo.for 36 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_025",
       "Title": "Enhanced+-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $65/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $100/mo.for 36 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 300 Mbps download x 30 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $65/mo. 600 Mbps download x 30 Mbps upload Internet service: Promotional rate is $65/mo. for 36 months; regular rate is $80/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24, $75/mo. for Months 25-36; regular rate is $95/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $100/mo.for 36 months; regular rate is $120/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_026",
       "Title": "EnhancedMax-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $75/mo.for 36 months; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $75/mo.for 36 months; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_027",
       "Title": "EnhancedMax+-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $75/mo.for 36 months; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $65/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $80/mo. 2000 Mbps download x 50 Mbps upload Internet service: promotional rate is $75/mo.for 36 months; regular rate is $95/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_028",
       "Title": "Edge-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $60/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $60/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Equipment, taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero lease fee is $14.99/mo. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_029",
       "Title": "Edge+-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $60/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 500 Mbps download x 50 Mbps upload Internet service: Promotional rate is $45/mo. for 36 months; regular rate is $60/mo. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for Months 1-12; $55/mo. for Months 13-24; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to use an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     },
     {
       "DisclaimerID": "DISC_030",
       "Title": "EdgeMax+-3 Year Price Lock",
-      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for months 1-12; $45/mo. for Months 13-24; regular rate is $60/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $60/mo. with AutoPay and Paperless Billing; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight\u2019s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. \u00a92026 Cable One, Inc.",
+      "DisclaimerText": "*Promotional rates include AutoPay with checking/savings account or debit card plus paperless billing discount. 1000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $40/mo. for months 1-12; $45/mo. for Months 13-24; regular rate is $60/mo. 2000 Mbps download x 50 Mbps upload Internet service: Promotional rate is $60/mo. with AutoPay and Paperless Billing; regular rate is $70/mo. Regular rates are subject to change at anytime. Offer expires 9/30/26. Includes Unlimited data plan. Taxes, surcharges and fees are not included. Customers are required to lease or purchase an approved modem capable of DOCSIS 3.1 in order to receive the internet services listed. Modem with eero is included. Visit www.sparklight.com/legal/internet-aup for details of Sparklight’s Acceptable Use Policy. Sparklight Mobile requires Sparklight Internet. Offer is for one Sparklight Mobile line at no additional cost for 12 months; taxes and fees not included. Up to 6 mobile lines per customer. Includes unlimited talk and text messages. The Sparklight Mobile Unlimited plan may require network management after 30 GB to ensure overall service levels for all customers. Actual internet speeds may vary based on factors such as time of day, network congestion, and customer equipment. for more information, visit mobile.sparklight.com/network-management. Terms of use available at mobile.sparklight.com/terms. All offers and services not available in all areas. Offer available to new customers only. New customers are those who have not had service with Sparklight in the past 90 days. Cannot be combined with other promotional offers. Restrictions apply. Call for details. eero and all related marks are trademarks of Amazon.com, Inc., eero LLC or its affiliates. ©2026 Cable One, Inc.",
       "Active": "TRUE"
     }
   ],
@@ -4148,42 +4178,42 @@
       "IconName": "Standard",
       "FileName": "icon-Standard.png",
       "Category": "Pricing Set",
-      "Notes": null
+      "Notes": ""
     },
     {
       "IconID": "ICON_002",
       "IconName": "3 Months Free",
       "FileName": "icon-3MonthsFree.png",
       "Category": "Modifier",
-      "Notes": null
+      "Notes": ""
     },
     {
       "IconID": "ICON_003",
       "IconName": "1 Gig for $40",
       "FileName": "icon-Gig40.png",
       "Category": "Modifier",
-      "Notes": null
+      "Notes": ""
     },
     {
       "IconID": "ICON_004",
       "IconName": "Price Lock",
       "FileName": "icon-PriceLock.png",
       "Category": "Modifier",
-      "Notes": null
+      "Notes": ""
     },
     {
       "IconID": "ICON_005",
       "IconName": "Equip Inc",
       "FileName": "icon-Equipment.png",
       "Category": "Feature",
-      "Notes": null
+      "Notes": ""
     },
     {
       "IconID": "ICON_006",
       "IconName": "Sym Speed",
       "FileName": "icon-Symmetrical.png",
       "Category": "Feature",
-      "Notes": null
+      "Notes": ""
     }
   ],
   "10_PersonaModifiers": [
@@ -4501,245 +4531,385 @@
       "Check": "Personas loaded",
       "Status": "OK",
       "Count": 30,
-      "Details": "Rows in 05_Personas"
+      "Details": "Rows in 05_Personas",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Summary",
       "Check": "Speed options loaded",
       "Status": "OK",
       "Count": 91,
-      "Details": "Rows in 06_SpeedOptions"
+      "Details": "Rows in 06_SpeedOptions",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Summary",
       "Check": "Pricing schedule rows loaded",
       "Status": "OK",
       "Count": 174,
-      "Details": "Rows in 07_PricingSchedules"
+      "Details": "Rows in 07_PricingSchedules",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Summary",
       "Check": "Disclaimers loaded",
       "Status": "OK",
       "Count": 30,
-      "Details": "Rows in 08_Disclaimers"
+      "Details": "Rows in 08_Disclaimers",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Summary",
       "Check": "Intro Free schedules standardized",
       "Status": "OK",
       "Count": 19,
-      "Details": "Display label uses 'Months 1, 6, 12' / 'Months 2-5, 7-11'"
+      "Details": "Display label uses 'Months 1, 6, 12' / 'Months 2-5, 7-11'",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Keys",
       "Check": "Duplicate PersonaID",
       "Status": "OK",
       "Count": 0,
-      "Details": null
+      "Details": "",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Relationships",
       "Check": "Speed options missing schedule",
       "Status": "OK",
       "Count": 0,
-      "Details": null
+      "Details": "",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Relationships",
       "Check": "Pricing schedules without SpeedOption",
       "Status": "OK",
       "Count": 0,
-      "Details": null
+      "Details": "",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Relationships",
       "Check": "Personas missing disclaimer",
       "Status": "OK",
       "Count": 0,
-      "Details": null
+      "Details": "",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Relationships",
       "Check": "Personas missing FamilyGroupID lookup",
       "Status": "OK",
       "Count": 0,
-      "Details": null
+      "Details": "",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Relationships",
       "Check": "Personas missing PricingSetID lookup",
       "Status": "OK",
       "Count": 0,
-      "Details": null
+      "Details": "",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Assets",
       "Check": "Personas with PromoIcon missing from Icons table",
       "Status": "OK",
       "Count": 0,
-      "Details": null
+      "Details": "",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Keys",
       "Check": "Duplicate SpeedOption per Persona",
       "Status": "OK",
       "Count": 0,
-      "Details": "[]"
+      "Details": "[]",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Pricing",
       "Check": "Intro Free schedule pattern valid",
       "Status": "OK",
       "Count": 0,
-      "Details": null
+      "Details": "",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "Audit",
       "Check": "Personas missing ModifiedBy",
       "Status": "WARN",
       "Count": 30,
-      "Details": "Expected until real edits begin"
+      "Details": "Expected until real edits begin",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "IntroFreeScheduleID",
       "Check": "ReferenceID",
       "Status": "PersonaID",
       "Count": "SpeedOption",
-      "Details": "FirstPaidPrice"
+      "Details": "FirstPaidPrice",
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_025",
       "Check": "Core-SO_1",
       "Status": "PM_009",
       "Count": "SO_1",
-      "Details": 39.95
+      "Details": 39.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_026",
       "Check": "Core-SO_2",
       "Status": "PM_009",
       "Count": "SO_2",
-      "Details": 64.95
+      "Details": 64.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_028",
       "Check": "Core-SO_4",
       "Status": "PM_009",
       "Count": "SO_4",
-      "Details": 94.95
+      "Details": 94.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_029",
       "Check": "CoreMax(ExpMkts)-SO_1",
       "Status": "PM_010",
       "Count": "SO_1",
-      "Details": 39.95
+      "Details": 39.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_031",
       "Check": "CoreMax(ExpMkts)-SO_3",
       "Status": "PM_010",
       "Count": "SO_3",
-      "Details": 74.95
+      "Details": 74.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_032",
       "Check": "CoreMax+(HHI)SymSpds-SO_1",
       "Status": "PM_011",
       "Count": "SO_1",
-      "Details": 39.95
+      "Details": 39.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_034",
       "Check": "CoreMax+(HHI)SymSpds-SO_3",
       "Status": "PM_011",
       "Count": "SO_3",
-      "Details": 74.95
+      "Details": 74.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_035",
       "Check": "CoreMax+(Upto1Gig)-SO_1",
       "Status": "PM_012",
       "Count": "SO_1",
-      "Details": 39.95
+      "Details": 39.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_037",
       "Check": "CoreMax+(NrmlSpds)-SO_1",
       "Status": "PM_013",
       "Count": "SO_1",
-      "Details": 39.95
+      "Details": 39.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_039",
       "Check": "CoreMax+(NrmlSpds)-SO_3",
       "Status": "PM_013",
       "Count": "SO_3",
-      "Details": 74.95
+      "Details": 74.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_040",
       "Check": "Enhanced-SO_1",
       "Status": "PM_014",
       "Count": "SO_1",
-      "Details": 39.95
+      "Details": 39.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_041",
       "Check": "Enhanced-SO_2",
       "Status": "PM_014",
       "Count": "SO_2",
-      "Details": 59.95
+      "Details": 59.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_043",
       "Check": "Enhanced-SO_4",
       "Status": "PM_014",
       "Count": "SO_4",
-      "Details": 94.95
+      "Details": 94.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_044",
       "Check": "Enhanced+-SO_1",
       "Status": "PM_015",
       "Count": "SO_1",
-      "Details": 39.95
+      "Details": 39.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_045",
       "Check": "Enhanced+-SO_2",
       "Status": "PM_015",
       "Count": "SO_2",
-      "Details": 59.95
+      "Details": 59.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_047",
       "Check": "Enhanced+-SO_4",
       "Status": "PM_015",
       "Count": "SO_4",
-      "Details": 94.95
+      "Details": 94.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_048",
       "Check": "EnhancedMax-SO_1",
       "Status": "PM_016",
       "Count": "SO_1",
-      "Details": 39.95
+      "Details": 39.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_050",
       "Check": "EnhancedMax-SO_3",
       "Status": "PM_016",
       "Count": "SO_3",
-      "Details": 69.95
+      "Details": 69.95,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     },
     {
       "Section": "SCH_052",
       "Check": "EdgeMax+-SO_2",
       "Status": "PM_017",
       "Count": "SO_2",
-      "Details": 60
+      "Details": 60,
+      "__EMPTY": "",
+      "__EMPTY_1": "",
+      "__EMPTY_2": "",
+      "__EMPTY_3": ""
     }
   ],
   "99_Glossary": [
