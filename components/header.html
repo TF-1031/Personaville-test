@@ -1,20 +1,25 @@
-<header id="personaville-header" class="personaville-hero" aria-label="Personaville hero">
+<header id="personaville-header" class="personaville-hero">
   <img
     class="personaville-hero__image"
     src="assets/images/personaville-header.png"
-    alt="Welcome to Personaville. What's your dilemma?"
-  />
-  <div class="personaville-hero__controls">
-    <button
-      id="personavilleMusicToggle"
-      class="personaville-play"
-      type="button"
-      aria-label="Play Personaville music"
-      aria-pressed="false"
-    >Play</button>
-    <span id="personavilleMusicStatus" class="personaville-music-status" role="status" aria-live="polite"></span>
-  </div>
-  <audio id="personavilleMusic" loop preload="metadata">
-    <source src="audio/8bit-Personaville-loop.mp3" type="audio/mpeg" />
+    alt="Welcome to Personaville. What’s your dilemma?"
+  >
+
+  <button
+    id="playButton"
+    class="personaville-play"
+    type="button"
+    aria-label="Play Personaville music"
+    aria-pressed="false"
+    title="Play music"
+  >
+    Play
+  </button>
+
+  <audio id="bgMusic" loop preload="metadata">
+    <source
+      src="audio/8bit-Personaville-loop.mp3"
+      type="audio/mpeg"
+    >
   </audio>
 </header>
