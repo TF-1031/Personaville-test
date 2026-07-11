@@ -1,7 +1,5 @@
 .personaville-header-shell{
-  background:#fff;
-  border-bottom:1px solid var(--line, #d9e1e8);
-  padding:16px 22px 0;
+  margin:0 0 22px;
 }
 
 .personaville-header-shell[hidden]{
@@ -69,7 +67,6 @@
 }
 
 @media(max-width:900px){
-  .personaville-header-shell{padding:12px 12px 0}
   .personaville-hero{min-height:150px;aspect-ratio:4 / 1}
 }
 
@@ -78,6 +75,10 @@
   .personaville-hero__controls{right:12px;bottom:12px}
   .personaville-play{width:54px}
   .personaville-music-status{display:none}
+}
+
+@media print{
+  .personaville-header-shell{display:none!important}
 }
 
 @media(prefers-reduced-motion:reduce){
