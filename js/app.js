@@ -6,6 +6,10 @@ function setView(name, options = {}){
     n.setAttribute("aria-current", active ? "page" : "false");
   });
   document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active", v.id===name));
+  const headerContainer = document.getElementById("personaville-header-container");
+  if(headerContainer){
+    headerContainer.hidden = name !== "personas";
+  }
   const heading = document.getElementById(name)?.querySelector("h2");
   if(heading && options.focus !== false){
     heading.setAttribute("tabindex", "-1");
