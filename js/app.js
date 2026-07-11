@@ -1,5 +1,5 @@
 
-function setView(name){
+function setView(name, options = {}){
   document.querySelectorAll(".nav").forEach(n=>{
     const active = n.dataset.view===name;
     n.classList.toggle("active", active);
@@ -7,12 +7,33 @@ function setView(name){
   });
   document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active", v.id===name));
   const heading = document.getElementById(name)?.querySelector("h2");
-  if(heading){
+  if(heading && options.focus !== false){
     heading.setAttribute("tabindex", "-1");
     heading.focus({preventScroll:true});
   }
 }
+
+async function loadPersonavilleHeader(){
+  const container = document.getElementById("personaville-header-container");
+  if(!container || container.dataset.loaded === "true") return;
+
+  try{
+    const response = await fetch("components/header.html");
+    if(!response.ok) throw new Error(`HTTP ${response.status}`);
+    container.innerHTML = await response.text();
+    container.dataset.loaded = "true";
+    if(typeof window.initPersonavilleHeader === "function"){
+      window.initPersonavilleHeader(container);
+    }
+  }catch(err){
+    container.hidden = true;
+    console.warn("Personaville header could not be loaded; continuing without hero header.", err);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
+  loadPersonavilleHeader();
+  setView("personas", {focus:false});
   document.querySelectorAll(".nav").forEach(btn => btn.addEventListener("click", () => setView(btn.dataset.view)));
   document.getElementById("workbookUpload").addEventListener("change", async (e)=>{
     const file = e.target.files[0];
