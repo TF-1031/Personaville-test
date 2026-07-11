@@ -1,106 +1,85 @@
-* {
-  box-sizing: border-box;
+.personaville-header-shell{
+  background:#fff;
+  border-bottom:1px solid var(--line, #d9e1e8);
+  padding:16px 22px 0;
 }
 
-html,
-body {
-  margin: 0;
-  min-height: 100%;
-  background: #140b1b;
+.personaville-header-shell[hidden]{
+  display:none!important;
 }
 
-.personaville-hero {
-  position: relative;
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  overflow: hidden;
-  background: #21102c;
+.personaville-hero{
+  position:relative;
+  width:100%;
+  min-height:160px;
+  max-height:220px;
+  aspect-ratio:6 / 1;
+  overflow:hidden;
+  border:1px solid rgba(15,23,42,.12);
+  border-radius:18px;
+  background:#21102c;
+  box-shadow:0 10px 28px rgba(15,23,42,.14);
 }
 
-.personaville-hero__image {
-  display: block;
-  width: 100%;
-  height: auto;
+.personaville-hero__image{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
 }
 
-.personaville-play {
-  position: absolute;
-  right: clamp(14px, 2vw, 30px);
-  bottom: clamp(14px, 2vw, 30px);
-
-  width: clamp(56px, 5vw, 76px);
-  aspect-ratio: 1;
-  padding: 0;
-
-  border: 2px solid rgba(255, 255, 255, 0.38);
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 35% 28%,
-      #dfbce7 0%,
-      #ae62bd 28%,
-      #8d3b91 63%,
-      #57205f 100%
-    );
-
-  color: #24102f;
-  font: 800 clamp(11px, 1.1vw, 15px)/1 Arial, sans-serif;
-  letter-spacing: 0.08em;
-
-  cursor: pointer;
-  box-shadow:
-    0 8px 0 #35133c,
-    0 12px 20px rgba(0, 0, 0, 0.5),
-    inset 0 4px 5px rgba(255, 255, 255, 0.36);
-
-  transition:
-    transform 120ms ease,
-    box-shadow 120ms ease,
-    filter 120ms ease;
+.personaville-hero__controls{
+  position:absolute;
+  right:clamp(14px, 2vw, 28px);
+  bottom:clamp(14px, 2vw, 24px);
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.personaville-play:hover {
-  filter: brightness(1.12);
+.personaville-play{
+  width:clamp(58px, 6vw, 74px);
+  aspect-ratio:1;
+  padding:0;
+  border:2px solid rgba(255,255,255,.46);
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 28%, #f1d7f6 0%, #c779d4 30%, #8d3b91 64%, #57205f 100%);
+  color:#24102f;
+  font:800 clamp(11px, 1.1vw, 14px)/1 Arial, sans-serif;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  cursor:pointer;
+  box-shadow:0 7px 0 #35133c, 0 12px 20px rgba(0,0,0,.35), inset 0 4px 5px rgba(255,255,255,.36);
+  transition:transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
 }
 
-.personaville-play:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 4px;
+.personaville-play:hover{filter:brightness(1.1)}
+.personaville-play:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.personaville-play:active{transform:translateY(4px);box-shadow:0 3px 0 #35133c, 0 7px 14px rgba(0,0,0,.35), inset 0 3px 6px rgba(0,0,0,.2)}
+.personaville-play.is-playing{color:#fff;box-shadow:0 7px 0 #35133c, 0 0 14px rgba(203,117,221,.95), 0 0 30px rgba(141,59,145,.85), inset 0 4px 5px rgba(255,255,255,.45)}
+.personaville-play.has-error{opacity:.72}
+
+.personaville-music-status{
+  max-width:min(220px, 40vw);
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
 }
 
-.personaville-play:active {
-  transform: translateY(5px);
-  box-shadow:
-    0 3px 0 #35133c,
-    0 6px 12px rgba(0, 0, 0, 0.45),
-    inset 0 3px 6px rgba(0, 0, 0, 0.2);
+@media(max-width:900px){
+  .personaville-header-shell{padding:12px 12px 0}
+  .personaville-hero{min-height:150px;aspect-ratio:4 / 1}
 }
 
-.personaville-play.is-playing {
-  color: #fff;
-  box-shadow:
-    0 8px 0 #35133c,
-    0 0 12px rgba(203, 117, 221, 0.95),
-    0 0 30px rgba(141, 59, 145, 0.9),
-    inset 0 4px 5px rgba(255, 255, 255, 0.45);
+@media(max-width:560px){
+  .personaville-hero{min-height:140px;max-height:180px;aspect-ratio:2.4 / 1;border-radius:14px}
+  .personaville-hero__controls{right:12px;bottom:12px}
+  .personaville-play{width:54px}
+  .personaville-music-status{display:none}
 }
 
-.personaville-play.has-error {
-  opacity: 0.7;
-}
-
-@media (max-width: 600px) {
-  .personaville-play {
-    right: 12px;
-    bottom: 12px;
-    width: 52px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .personaville-play {
-    transition: none;
-  }
+@media(prefers-reduced-motion:reduce){
+  .personaville-play{transition:none}
 }

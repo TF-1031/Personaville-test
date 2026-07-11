@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Personaville</title>
   <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/header.css" />
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
@@ -15,10 +16,12 @@
     </div>
   </header>
 
+  <div id="personaville-header-container" class="personaville-header-shell"></div>
+
   <main class="app">
     <nav class="sidebar" aria-label="Primary navigation">
-      <button class="nav active" data-view="dashboard" type="button">Dashboard</button>
-      <button class="nav" data-view="personas" type="button">Personas</button>
+      <button class="nav" data-view="dashboard" type="button">Dashboard</button>
+      <button class="nav active" data-view="personas" type="button" aria-current="page">Personas</button>
       <button class="nav" data-view="modifiers" type="button">Modifiers</button>
       <button class="nav" data-view="health" type="button">Database Health</button>
       <button class="nav" data-view="publish" type="button">Publish</button>
@@ -27,7 +30,7 @@
     </nav>
 
     <section class="content">
-      <section id="dashboard" class="view active">
+      <section id="dashboard" class="view">
         <div class="section-head">
           <h2>Dashboard</h2>
           <span id="dbStatus" class="pill gray">No database loaded</span>
@@ -36,7 +39,7 @@
         <div id="kpis" class="kpis dashboard-overview" aria-label="Database summary metrics"></div>
       </section>
 
-      <section id="personas" class="view">
+      <section id="personas" class="view active">
         <div class="section-head">
           <h2>Persona Library</h2>
           <button id="clearSelection" class="btn small" type="button">Clear Detail</button>
@@ -157,6 +160,7 @@
 
   <script src="js/database.js"></script>
   <script src="js/render.js"></script>
+  <script src="js/header.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

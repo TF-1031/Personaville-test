@@ -31,6 +31,8 @@ Personaville is a static, workbook-driven offer database for reviewing, validati
 
 ## Project Overview
 
+Personas is the default landing view when the application opens. The Dashboard remains available in the sidebar. The reusable hero header and its audio element stay mounted outside individual app views so optional music continues uninterrupted across in-app navigation until the Play/Stop control changes playback.
+
 Personaville provides a browser-based interface for a market persona offer database. The app lets a maintainer:
 
 - Load the bundled JSON database immediately when the site opens.
@@ -65,8 +67,13 @@ Personaville v1.0 has three layers:
 
 ### 1. Static UI Shell
 
-- `index.html` defines the application layout, navigation, major views, and global actions.
+- `index.html` defines the application layout, navigation, major views, global actions, and the persistent shared header mount.
+- `components/header.html` contains the reusable Personaville hero header markup that is loaded once without an iframe.
+- `assets/images/personaville-header.png` provides the compact hero image for the shared header.
+- `audio/8bit-Personaville-loop.mp3` provides the optional looping music controlled from the shared header.
 - `css/app.css` controls responsive layout, tiles, detail panels, health rows, print cards, and print media behavior.
+- `css/header.css` controls the compact responsive hero/header presentation.
+- `js/header.js` initializes the Play/Stop music control after the shared header is inserted.
 - The app loads SheetJS from a CDN so workbook files can be parsed in-browser.
 
 ### 2. Client-Side Data Layer
@@ -80,7 +87,7 @@ Personaville v1.0 has three layers:
 ### 3. Client-Side Rendering Layer
 
 - `js/render.js` renders dashboards, persona tiles, detail panels, modifiers, health rows, export previews, and printable cards.
-- `js/app.js` wires navigation and top-level browser events, including Upload Workbook, Load Published Database, Download Updated JSON, print, and copy-summary actions.
+- `js/app.js` wires navigation and top-level browser events, including one-time header loading, Upload Workbook, Load Published Database, Download Updated JSON, print, and copy-summary actions.
 
 ### Data Flow
 
