@@ -8,7 +8,10 @@ function setView(name, options = {}){
   document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active", v.id===name));
   const headerContainer = document.getElementById("personaville-header-container");
   if(headerContainer){
-    headerContainer.hidden = name !== "personas";
+    headerContainer.hidden = false;
+  }
+  if(typeof window.setPersonavilleHeaderState === "function"){
+    window.setPersonavilleHeaderState(name === "personas" ? "full" : "compact");
   }
   const heading = document.getElementById(name)?.querySelector("h2");
   if(heading && options.focus !== false){
@@ -48,6 +51,10 @@ async function loadPersonavilleHeader(){
     container.dataset.loaded = "true";
     if(typeof window.initPersonavilleHeader === "function"){
       window.initPersonavilleHeader(container);
+    }
+    if(typeof window.setPersonavilleHeaderState === "function"){
+      const activeView = document.querySelector(".view.active")?.id || "personas";
+      window.setPersonavilleHeaderState(activeView === "personas" ? "full" : "compact");
     }
   }catch(err){
     container.hidden = true;
