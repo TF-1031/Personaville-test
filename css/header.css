@@ -1,5 +1,5 @@
 .personaville-header-shell{
-  margin:0 0 1.25rem;
+  margin:0 0 28px;
 }
 
 .personaville-header-shell[hidden]{
@@ -11,8 +11,6 @@
   --personaville-purple-bright:#a64cac;
   position:relative;
   width:100%;
-  max-width:1120px;
-  margin:0 auto 1.25rem;
   color:#fff;
   transition:box-shadow 160ms ease, border-color 160ms ease, background-color 160ms ease;
 }
@@ -20,17 +18,39 @@
 .personaville-hero{
   position:relative;
   overflow:hidden;
-  border:1px solid rgba(141, 59, 144, 0.25);
-  border-radius:14px;
-  background:#14081d;
-  box-shadow:0 8px 24px rgba(35, 38, 41, 0.14);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:clamp(260px, 33vw, 520px);
+  padding:clamp(28px, 5vw, 72px) clamp(16px, 4vw, 56px);
+  border:1px solid rgba(141, 59, 144, 0.34);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(141, 59, 144, .32), rgba(141, 59, 144, 0) 44%),
+    radial-gradient(circle at 84% 18%, rgba(111, 45, 114, .38), rgba(111, 45, 114, 0) 30%),
+    linear-gradient(135deg, #17151a 0%, #232126 56%, #17151a 100%);
+  box-shadow:0 18px 42px rgba(23,21,26,.20);
+}
+
+.personaville-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0) 36%);
 }
 
 .personaville-hero__image{
+  position:relative;
+  z-index:1;
   display:block;
-  width:100%;
+  width:min(100%, 1040px);
+  max-height:min(58vh, 520px);
   height:auto;
+  object-fit:contain;
   margin:0 auto;
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.24));
 }
 
 .personaville-hero__image.is-hidden{
@@ -39,14 +59,16 @@
 
 .personaville-mini{
   display:none;
-  min-height:58px;
+  min-height:60px;
   align-items:center;
   gap:.75rem;
   padding:.55rem 6.25rem .55rem 1rem;
   border:1px solid rgba(166, 76, 172, .46);
-  border-radius:12px;
-  background:linear-gradient(90deg, #111015, #1b1220);
-  box-shadow:0 6px 18px rgba(0,0,0,.18);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 14% 50%, rgba(141, 59, 144, .28), rgba(141, 59, 144, 0) 34%),
+    linear-gradient(90deg, #17151a, #232126);
+  box-shadow:0 8px 24px rgba(23,21,26,.16);
 }
 
 .personaville-mini__brand{
@@ -139,9 +161,30 @@
   color:#f0d5f2;
 }
 
+@media(max-width:900px){
+  .personaville-header-shell{
+    margin-bottom:22px;
+  }
+
+  .personaville-hero{
+    min-height:clamp(220px, 44vw, 420px);
+    border-radius:18px;
+  }
+}
+
 @media(max-width:560px){
-  .personaville-media{
-    margin-bottom:1rem;
+  .personaville-header-shell{
+    margin-bottom:18px;
+  }
+
+  .personaville-hero{
+    min-height:0;
+    padding:22px 12px;
+    border-radius:16px;
+  }
+
+  .personaville-hero__image{
+    max-height:360px;
   }
 
   .personaville-play{
