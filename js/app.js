@@ -17,6 +17,26 @@ function setView(name, options = {}){
   }
 }
 
+function setAdminSection(name, options = {}){
+  document.querySelectorAll(".admin-tab").forEach(tab=>{
+    const active = tab.dataset.adminSection === name;
+    tab.classList.toggle("active", active);
+    tab.setAttribute("aria-selected", String(active));
+    tab.tabIndex = active ? 0 : -1;
+  });
+  document.querySelectorAll(".admin-panel").forEach(panel=>{
+    const active = panel.id === `admin-${name}`;
+    panel.classList.toggle("active", active);
+    panel.hidden = !active;
+  });
+  if(options.focus){
+    const panel = document.getElementById(`admin-${name}`);
+    const heading = panel?.querySelector("h3") || panel;
+    heading?.setAttribute("tabindex", "-1");
+    heading?.focus({preventScroll:true});
+  }
+}
+
 async function loadPersonavilleHeader(){
   const container = document.getElementById("personaville-header-container");
   if(!container || container.dataset.loaded === "true") return;
@@ -39,6 +59,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   loadPersonavilleHeader();
   setView("personas", {focus:false});
   document.querySelectorAll(".nav").forEach(btn => btn.addEventListener("click", () => setView(btn.dataset.view)));
+  document.querySelectorAll(".admin-tab").forEach(tab => {
+    tab.addEventListener("click", () => setAdminSection(tab.dataset.adminSection, {focus:true}));
+    tab.addEventListener("keydown", event => {
+      if(!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      const tabs = [...document.querySelectorAll(".admin-tab")];
+      const index = tabs.indexOf(tab);
+      const nextIndex = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : event.key === "ArrowRight" ? (index + 1) % tabs.length : (index - 1 + tabs.length) % tabs.length;
+      tabs[nextIndex].focus();
+      setAdminSection(tabs[nextIndex].dataset.adminSection);
+    });
+  });
   document.getElementById("workbookUpload").addEventListener("change", async (e)=>{
     const file = e.target.files[0];
     if(!file) return;
@@ -47,7 +79,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       const instructions = document.getElementById("downloadInstructions");
       if(instructions) instructions.hidden = true;
       renderAll();
-      setView("publish");
+      setView("admin");
+      setAdminSection("publish");
     }catch(err){
       alert("Could not load database from workbook: " + err.message);
     }

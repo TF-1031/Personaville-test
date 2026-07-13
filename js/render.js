@@ -341,10 +341,7 @@ function pricingSummaryRow(row){
 function selectPersona(p){
   selectedPersona = p;
   renderDetail(p);
-  document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));
-  document.querySelector('.nav[data-view="personas"]').classList.add("active");
-  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
-  document.getElementById("personas").classList.add("active");
+  if(typeof setView === "function") setView("personas", {focus:false});
 }
 function renderDetail(p){
   const panel = document.getElementById("detailPanel");
