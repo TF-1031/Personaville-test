@@ -1,66 +1,52 @@
 # Personaville Roadmap
 
-This roadmap organizes the agreed Personaville work into documentation-only planning milestones. It is intended to guide future product, data, accessibility, and engineering changes without changing the current application behavior.
+Personaville v1 is now focused on stabilization: the static app loads the published JSON database, supports workbook-to-JSON publishing in the browser, validates database health, and exports selected personas through browser print/PDF workflows.
 
-## Goals
+## v1 release baseline — completed
 
-- Make the published Personaville site easier to understand, operate, and maintain.
-- Improve the reliability of persona data loading, validation, and publishing.
-- Strengthen accessibility, mobile usability, and export quality.
-- Add repeatable checks so future GitHub Pages updates are safer.
+- Primary navigation finalized: **Personas**, **Export Cart**, **Manage**, and **Admin**.
+- Full hero behavior on Personas and compact mini-player behavior on secondary views completed.
+- Export Cart selection, selected-count tray, removal, print/PDF, and copy-summary workflows completed.
+- Admin subsections completed: Overview, Database Health, Publish Database, Modifiers, and Settings.
+- Upload Workbook and Download Updated JSON workflow completed for static publishing.
+- Database Health details completed for workbook and browser-generated checks.
+- Icon path resolution and missing-icon fallback behavior completed.
+- Letter-oriented print/export CSS completed.
+- Responsive layout reviewed for the v1 static experience.
+- README updated as user guide and developer guide.
 
-## Milestone 1: Clarify the database loading experience
+## v1 maintenance principles
 
-- Show a visible loading state while the published database is being fetched.
-- Display a persistent, user-facing error if `database/persona-db.json` cannot be loaded.
-- Keep the existing manual `Upload Workbook` and `Load Published Database` actions.
-- Explain when users should rebuild from the workbook versus reload the bundled JSON.
-- Add helpful empty states for dashboard, library, modifier, health, and export views before data is available.
-- Add no-results messages when search or filters match no personas.
+- Keep Personaville static and GitHub Pages friendly.
+- Treat the workbook as the editable source of truth and `database/persona-db.json` as the deployable artifact.
+- Fix release-blocking health issues before publishing data updates.
+- Prefer documentation and validation improvements over new UI scope during v1 maintenance.
+- Do not remove code unless it is clearly unused and current behavior is covered.
 
-## Milestone 2: Improve persona presentation and health visibility
+## v2 roadmap
 
-- Render real promo, modifier, and feature icons from the `assets/icons/` folder.
-- Provide descriptive alt text for meaningful icons.
-- Keep graceful missing-image fallbacks so incomplete icon data does not break the UI.
-- Expand the health view so WARN and BAD rows include actionable details.
-- Surface the affected persona, reference ID, schedule, disclaimer, or relationship whenever health checks find an issue.
+The following items are intentionally deferred from v1 to v2:
 
-## Milestone 3: Strengthen accessibility and mobile usability
+1. **Future editing workspace**
+   - Edit personas, speed options, pricing schedules, modifiers, and disclaimers in the app.
+   - Add form validation and save flows.
 
-- Add semantic labels for filters and file-upload controls.
-- Make persona tiles keyboard-selectable through buttons or links instead of click-only cards.
-- Verify visible focus states across the main interaction points.
-- Review color contrast in the published experience.
-- Add screen-reader announcements for database load success and failure.
-- Confirm mobile layouts remain usable across dashboard, library, health, modifier, and export views.
+2. **Asset management**
+   - Upload, preview, replace, and audit icons/images from the app.
+   - Manage audio and hero assets without manual repository edits.
 
-## Milestone 4: Make data publishing repeatable
+3. **Direct database editing**
+   - Provide safe direct JSON/database editing tools if the project moves beyond workbook-first maintenance.
+   - Add stronger migration and rollback controls before enabling direct edits.
 
-- Add a repository build step that regenerates `database/persona-db.json` from `database/persona-db.xlsx`.
-- Document the expected non-developer workflow for editing the workbook, rebuilding JSON, reviewing health checks, and publishing GitHub Pages updates.
-- Add validation rules for duplicate `ReferenceID` values, missing disclaimers, missing schedules, missing icons, inactive rows that still display, and orphaned modifier relationships.
-- Decide whether workbook rebuilds may depend on the SheetJS CDN or whether the dependency should be vendored for offline use.
+4. **Email export**
+   - Convert the Export Cart into an email-ready workflow.
+   - Add recipient/template controls only after export content is approved.
 
-## Milestone 5: Add automated confidence checks
+5. **Version history**
+   - Show workbook/JSON version history, publish history, and previous release comparisons.
+   - Add restore/rollback guidance after governance requirements are defined.
 
-- Add smoke checks that verify `index.html`, CSS, JavaScript, JSON, workbook, and icon assets are present and fetchable.
-- Add a browser smoke test that loads the page, waits for the published database, and confirms the expected persona count appears.
-- Run validation checks as part of the documented publishing process.
-- Keep test output understandable for non-developer maintainers.
-
-## Milestone 6: Polish export and print workflows
-
-- Review the browser print/export layout for page breaks and readability.
-- Improve the printed persona summary naming and structure.
-- Confirm exported summaries include the most useful persona, modifier, schedule, disclaimer, and health information.
-
-## Suggested implementation order
-
-1. Loading, error, empty, and no-results states.
-2. Real icon rendering and missing-icon fallbacks.
-3. Health details expansion.
-4. Accessibility, keyboard, and mobile improvements.
-5. Workbook-to-JSON build and validation scripts.
-6. Browser smoke tests and README workflow documentation.
-7. Print and export polish.
+6. **Automated release tooling**
+   - Optional CI checks for browser smoke tests, asset path validation, JSON validation, and workbook-to-JSON regeneration.
+   - Optional vendoring strategy for SheetJS if offline rebuilds become required.

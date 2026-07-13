@@ -245,9 +245,8 @@ function renderTiles(){
   const count = document.getElementById("personaResultCount");
   if(count) count.textContent = personas.length ? `${personas.length} persona${personas.length === 1 ? "" : "s"} found` : "No personas found";
   updateFilterSummary();
-  const d1 = document.getElementById("dashboardTiles");
   const d2 = document.getElementById("personaTiles");
-  [d1,d2].forEach(box => {
+  [d2].forEach(box => {
     if(!box) return;
     box.innerHTML="";
     if(!active){
