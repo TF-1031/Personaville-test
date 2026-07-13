@@ -51,6 +51,7 @@ function renderAll(){
   renderSourceBanner();
   renderPublishPanel();
   fillExportPicker();
+  renderExportCartTray();
   document.getElementById("dbStatus").textContent = "Database loaded";
   document.getElementById("dbStatus").className = "pill gray";
   const download = document.getElementById("downloadUpdatedJson");
@@ -296,8 +297,8 @@ function personaTile(p){
   },[
     el("div",{class:"tile-select"},[
       el("label",{class:"select-persona", onclick:event=>event.stopPropagation()},[
-        el("input",{type:"checkbox", value:p.PersonaID, checked, "aria-label":`Select ${p.PersonaName || "persona"} for export`, onchange:event=>toggleExportPersona(p.PersonaID, event.currentTarget.checked)}),
-        el("span",{},["Export"])
+        el("input",{type:"checkbox", value:p.PersonaID, checked, "aria-label":`Add ${p.PersonaName || "persona"} to Export Cart`, onchange:event=>toggleExportPersona(p.PersonaID, event.currentTarget.checked)}),
+        el("span",{},["Add to Export Cart"])
       ])
     ]),
     el("div",{class:"tile-head"},[
@@ -492,6 +493,7 @@ function fillExportPicker(){
   DB.personas.forEach(p => sel.appendChild(el("option",{value:p.PersonaID},[p.PersonaName])));
   syncExportSelectionUI();
   renderPrintArea();
+  renderExportCartList();
 }
 function selectedExportPersonas(){
   return [...exportSelection]
@@ -503,34 +505,86 @@ function currentExportPersona(){
   return DB.personas.find(x=>x.PersonaID===sel?.value) || DB.personas[0];
 }
 function toggleExportPersona(personaID, checked){
+  if(!personaID) return;
   if(checked) exportSelection.add(personaID);
   else exportSelection.delete(personaID);
   syncExportSelectionUI();
   renderPrintArea();
+  renderExportCartTray();
+  renderTiles();
+}
+function removeExportPersona(personaID){
+  exportSelection.delete(personaID);
+  syncExportSelectionUI();
+  renderPrintArea();
+  renderExportCartTray();
   renderTiles();
 }
 function selectAllVisiblePersonas(){
-  visiblePersonas().forEach(p => exportSelection.add(p.PersonaID));
+  visiblePersonas().forEach(p => { if(p.PersonaID) exportSelection.add(p.PersonaID); });
   syncExportSelectionUI();
   renderPrintArea();
+  renderExportCartTray();
   renderTiles();
 }
 function clearExportSelection(){
   exportSelection.clear();
   syncExportSelectionUI();
   renderPrintArea();
+  renderExportCartTray();
   renderTiles();
 }
 function syncExportSelectionUI(){
   const count = exportSelection.size;
-  const label = count === 1 ? "1 selected" : `${count} selected`;
+  const label = count === 1 ? "1 persona in Export Cart" : `${count} personas in Export Cart`;
   const countEl = document.getElementById("selectedCount");
   if(countEl) countEl.textContent = label;
+  const pageCount = document.getElementById("exportCartCount");
+  if(pageCount) pageCount.textContent = label;
   document.querySelectorAll(".select-persona input[type='checkbox']").forEach(input => {
     input.checked = exportSelection.has(input.closest("article")?.dataset?.personaId || input.value);
   });
 }
+
+function renderExportCartTray(){
+  const tray = document.getElementById("exportCartTray");
+  if(!tray) return;
+  const count = exportSelection.size;
+  tray.hidden = count === 0;
+  document.body.classList.toggle("has-export-cart-tray", count > 0);
+  if(!count) return;
+  const countText = `${count} persona${count === 1 ? "" : "s"}`;
+  const message = `${countText} added to Export Cart`;
+  tray.innerHTML = "";
+  tray.appendChild(el("div",{class:"export-cart-tray-copy", role:"status", "aria-live":"polite"},[
+    el("strong",{},[countText]),
+    el("span",{},[message])
+  ]));
+  tray.appendChild(el("div",{class:"export-cart-tray-actions"},[
+    el("button",{class:"btn primary", type:"button", onclick:()=>{ if(typeof setView === "function") setView("export"); }},["Open Export Cart"]),
+    el("button",{class:"btn", type:"button", onclick:clearExportSelection},["Clear Selection"])
+  ]));
+}
+function renderExportCartList(){
+  const list = document.getElementById("exportCartList");
+  const empty = document.getElementById("exportCartEmpty");
+  const actions = document.getElementById("exportCartActions");
+  if(!list) return;
+  const personas = selectedExportPersonas();
+  list.innerHTML = "";
+  if(empty) empty.hidden = personas.length > 0;
+  if(actions) actions.hidden = personas.length === 0;
+  personas.forEach((p, index) => list.appendChild(el("li",{class:"export-cart-item"},[
+    el("div",{},[
+      el("strong",{},[p.PersonaName || "Untitled persona"]),
+      el("div",{class:"meta"},[`${index + 1}. ${p.FamilyGroup || "—"} • ${p.PricingSet || "—"}`])
+    ]),
+    el("button",{class:"btn small", type:"button", "aria-label":`Remove ${p.PersonaName || "persona"} from Export Cart`, onclick:()=>removeExportPersona(p.PersonaID)},["Remove"])
+  ])));
+}
+
 function renderPrintArea(){
+  renderExportCartList();
   const area = document.getElementById("printArea");
   if(!area) return;
   area.innerHTML="";
