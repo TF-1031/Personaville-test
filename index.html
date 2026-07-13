@@ -161,24 +161,38 @@
       </section>
 
       <section id="export" class="view">
-        <div class="section-head"><h2>Export Cart</h2></div>
-        <p class="muted">Select one or more personas and print/export from the browser. PDF export uses your browser print dialog.</p>
-        <div class="export-controls">
-          <label for="exportPersona">Single persona preview</label>
-          <select id="exportPersona"></select>
-          <span id="selectedCount" class="pill gray" aria-live="polite">0 selected</span>
+        <div class="section-head">
+          <h2>Export Cart</h2>
+          <span id="exportCartCount" class="pill gray" aria-live="polite">0 personas in Export Cart</span>
         </div>
-        <div class="export-actions">
-          <button id="selectAllVisible" class="btn" type="button">Select All Visible</button>
-          <button id="clearExportSelection" class="btn" type="button">Clear Selection</button>
-          <button id="printPersona" class="btn primary" type="button">Print Selected</button>
-          <button id="copySummary" class="btn" type="button">Copy Text Summary</button>
+        <p class="muted">Review selected personas and print or export from the browser. PDF export uses your browser print dialog.</p>
+        <div id="exportCartEmpty" class="empty-state-panel" hidden>
+          <strong>Your Export Cart is empty.</strong>
+          <p class="muted">Add personas from the Persona Library to build a multi-export set.</p>
+          <button class="btn primary empty-action" type="button" onclick="setView('personas')">Return to Personas</button>
         </div>
-        <div id="printArea" class="print-stack"></div>
+        <div id="exportCartActions">
+          <div class="export-controls">
+            <label for="exportPersona">Single persona preview</label>
+            <select id="exportPersona"></select>
+            <span id="selectedCount" class="pill gray" aria-live="polite">0 personas in Export Cart</span>
+          </div>
+          <ol id="exportCartList" class="export-cart-list" aria-label="Selected personas"></ol>
+          <div class="export-actions">
+            <button id="selectAllVisible" class="btn" type="button">Select All Visible</button>
+            <button id="clearExportSelection" class="btn" type="button">Clear Cart</button>
+            <button id="printPersona" class="btn primary" type="button">Print All</button>
+            <button id="copySummary" class="btn" type="button">Copy Summary</button>
+            <button class="btn" type="button" disabled title="Email sending is coming soon.">Email Set — Coming Soon</button>
+          </div>
+          <div id="printArea" class="print-stack"></div>
+        </div>
       </section>
 
     </section>
   </main>
+
+  <aside id="exportCartTray" class="export-cart-tray" aria-label="Export Cart selection tray" hidden></aside>
 
   <script src="js/database.js"></script>
   <script src="js/render.js"></script>
