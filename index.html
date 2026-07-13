@@ -18,26 +18,14 @@
 
   <main class="app">
     <nav class="sidebar" aria-label="Primary navigation">
-      <button class="nav" data-view="dashboard" type="button">Dashboard</button>
       <button class="nav active" data-view="personas" type="button" aria-current="page">Personas</button>
-      <button class="nav" data-view="modifiers" type="button">Modifiers</button>
-      <button class="nav" data-view="health" type="button">Database Health</button>
-      <button class="nav" data-view="publish" type="button">Publish</button>
-      <button class="nav" data-view="export" type="button">Export</button>
-      <button class="nav" data-view="settings" type="button">Settings</button>
+      <button class="nav" data-view="export" type="button">Export Cart</button>
+      <button class="nav" data-view="manage" type="button">Manage</button>
+      <button class="nav" data-view="admin" type="button">Admin</button>
     </nav>
 
     <section class="content">
       <div id="personaville-header-container" class="personaville-header-shell"></div>
-
-      <section id="dashboard" class="view">
-        <div class="section-head">
-          <h2>Dashboard</h2>
-          <span id="dbStatus" class="pill gray">No database loaded</span>
-        </div>
-        <div id="sourceBanner" class="source-banner" role="status" aria-live="polite"></div>
-        <div id="kpis" class="kpis dashboard-overview" aria-label="Database summary metrics"></div>
-      </section>
 
       <section id="personas" class="view active">
         <div class="section-head">
@@ -75,56 +63,105 @@
         </div>
       </section>
 
-      <section id="modifiers" class="view">
-        <div class="section-head"><h2>Modifier Library</h2></div>
-        <div id="modifierList" class="modifier-list" aria-live="polite"></div>
-      </section>
+      <section id="admin" class="view">
+        <div class="section-head">
+          <h2>Admin</h2>
+          <span id="dbStatus" class="pill gray">No database loaded</span>
+        </div>
+        <div class="admin-tabs" role="tablist" aria-label="Admin sections">
+          <button id="admin-tab-overview" class="admin-tab active" role="tab" type="button" aria-selected="true" aria-controls="admin-overview" data-admin-section="overview">Overview</button>
+          <button id="admin-tab-health" class="admin-tab" role="tab" type="button" aria-selected="false" aria-controls="admin-health" data-admin-section="health">Database Health</button>
+          <button id="admin-tab-publish" class="admin-tab" role="tab" type="button" aria-selected="false" aria-controls="admin-publish" data-admin-section="publish">Publish Database</button>
+          <button id="admin-tab-modifiers" class="admin-tab" role="tab" type="button" aria-selected="false" aria-controls="admin-modifiers" data-admin-section="modifiers">Modifiers</button>
+          <button id="admin-tab-settings" class="admin-tab" role="tab" type="button" aria-selected="false" aria-controls="admin-settings" data-admin-section="settings">Settings</button>
+        </div>
 
-      <section id="health" class="view">
-        <div class="section-head"><h2>Database Health</h2></div>
-        <div id="healthList" class="health-list" aria-live="polite"></div>
-      </section>
+        <section id="admin-overview" class="admin-panel active" role="tabpanel" aria-labelledby="admin-tab-overview" tabindex="0">
+          <div id="sourceBanner" class="source-banner" role="status" aria-live="polite"></div>
+          <div id="kpis" class="kpis dashboard-overview" aria-label="Database summary metrics"></div>
+        </section>
 
+        <section id="admin-health" class="admin-panel" role="tabpanel" aria-labelledby="admin-tab-health" tabindex="0" hidden>
+          <div class="section-head"><h3>Database Health</h3></div>
+          <div id="healthList" class="health-list" aria-live="polite"></div>
+        </section>
 
-      <section id="publish" class="view">
-        <div class="section-head"><h2>Publish</h2></div>
-        <div class="publish-controls" aria-labelledby="publishControlsHeading">
-          <h3 id="publishControlsHeading">Publishing Controls</h3>
-          <div class="publish-action-grid">
-            <div class="publish-action-card">
-              <label class="btn primary" title="Upload the edited Excel workbook into browser memory.">
-                Upload Workbook
-                <input id="workbookUpload" type="file" accept=".xlsx,.xls" hidden aria-label="Upload workbook into browser memory">
-              </label>
-              <p class="muted">Upload an .xlsx or .xls persona database workbook.</p>
-              <p class="sr-only">The selected workbook is loaded into browser memory only; it is not uploaded to a server or written back to the repository.</p>
-            </div>
-            <div class="publish-action-card">
-              <button id="loadBundled" class="btn" type="button" title="Reload database/persona-db.json from the published site.">Load Published Database</button>
-              <p class="muted">Reload database/persona-db.json from the published site.</p>
-            </div>
-            <div class="publish-action-card">
-              <button id="downloadUpdatedJson" class="btn" type="button" disabled title="Available after Upload Workbook loads a workbook.">Download Updated JSON</button>
-              <p class="muted">Available after an uploaded workbook loads successfully.</p>
+        <section id="admin-publish" class="admin-panel" role="tabpanel" aria-labelledby="admin-tab-publish" tabindex="0" hidden>
+          <div class="section-head"><h3>Publish Database</h3></div>
+          <div class="publish-controls" aria-labelledby="publishControlsHeading">
+            <h3 id="publishControlsHeading">Publishing Controls</h3>
+            <div class="publish-action-grid">
+              <div class="publish-action-card">
+                <label class="btn primary" title="Upload the edited Excel workbook into browser memory.">
+                  Upload Workbook
+                  <input id="workbookUpload" type="file" accept=".xlsx,.xls" hidden aria-label="Upload workbook into browser memory">
+                </label>
+                <p class="muted">Upload an .xlsx or .xls persona database workbook.</p>
+                <p class="sr-only">The selected workbook is loaded into browser memory only; it is not uploaded to a server or written back to the repository.</p>
+              </div>
+              <div class="publish-action-card">
+                <button id="loadBundled" class="btn" type="button" title="Reload database/persona-db.json from the published site.">Load Published Database</button>
+                <p class="muted">Reload database/persona-db.json from the published site.</p>
+              </div>
+              <div class="publish-action-card">
+                <button id="downloadUpdatedJson" class="btn" type="button" disabled title="Available after Upload Workbook loads a workbook.">Download Updated JSON</button>
+                <p class="muted">Available after an uploaded workbook loads successfully.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div id="publishPanel" class="publish-panel"></div>
-        <div id="buildSummary" class="build-summary" hidden></div>
-        <div id="downloadInstructions" class="download-instructions" hidden>Replace database/persona-db.json in GitHub with this downloaded file.</div>
-        <div class="publishing-tips">
-          <h3>Publishing Tips</h3>
-          <ul>
-            <li>Upload Workbook only loads data into browser memory.</li>
-            <li>Download Updated JSON creates the file to upload.</li>
-            <li>Replace <code>database/persona-db.json</code> in GitHub.</li>
-            <li>GitHub Pages will publish the updated site.</li>
+          <div id="publishPanel" class="publish-panel"></div>
+          <div id="buildSummary" class="build-summary" hidden></div>
+          <div id="downloadInstructions" class="download-instructions" hidden>Replace database/persona-db.json in GitHub with this downloaded file.</div>
+          <div class="publishing-tips">
+            <h3>Publishing Tips</h3>
+            <ul>
+              <li>Upload Workbook only loads data into browser memory.</li>
+              <li>Download Updated JSON creates the file to upload.</li>
+              <li>Replace <code>database/persona-db.json</code> in GitHub.</li>
+              <li>GitHub Pages will publish the updated site.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="admin-modifiers" class="admin-panel" role="tabpanel" aria-labelledby="admin-tab-modifiers" tabindex="0" hidden>
+          <div class="section-head"><h3>Modifiers</h3></div>
+          <div id="modifierList" class="modifier-list" aria-live="polite"></div>
+        </section>
+
+        <section id="admin-settings" class="admin-panel" role="tabpanel" aria-labelledby="admin-tab-settings" tabindex="0" hidden>
+          <div class="section-head"><h3>Settings</h3></div>
+          <div class="settings-card">
+            <h3>Folder Setup</h3>
+            <pre>Personaville/
+├── index.html
+├── database/persona-db.xlsx
+├── database/persona-db.json
+├── assets/icons/
+├── assets/images/
+├── exports/
+└── backups/</pre>
+            <p>The bundled JSON lets the site open immediately. Upload <code>database/persona-db.xlsx</code> with Upload Workbook in Publish Database after edits.</p>
+          </div>
+        </section>
+      </section>
+
+      <section id="manage" class="view">
+        <div class="manage-card" aria-labelledby="manageHeading">
+          <p class="eyebrow">Personaville Manager</p>
+          <h2 id="manageHeading">Coming Soon</h2>
+          <p class="muted">A polished workspace for managing the Personaville database is planned for a future release.</p>
+          <ul class="coming-soon-list">
+            <li>Edit personas</li>
+            <li>Edit speed options and pricing</li>
+            <li>Manage modifiers and disclaimers</li>
+            <li>Upload icons and images</li>
+            <li>Version history and publishing tools</li>
           </ul>
         </div>
       </section>
 
       <section id="export" class="view">
-        <div class="section-head"><h2>Export Center</h2></div>
+        <div class="section-head"><h2>Export Cart</h2></div>
         <p class="muted">Select one or more personas and print/export from the browser. PDF export uses your browser print dialog.</p>
         <div class="export-controls">
           <label for="exportPersona">Single persona preview</label>
@@ -140,21 +177,6 @@
         <div id="printArea" class="print-stack"></div>
       </section>
 
-      <section id="settings" class="view">
-        <div class="section-head"><h2>Settings</h2></div>
-        <div class="settings-card">
-          <h3>Folder Setup</h3>
-          <pre>Personaville/
-├── index.html
-├── database/persona-db.xlsx
-├── database/persona-db.json
-├── assets/icons/
-├── assets/images/
-├── exports/
-└── backups/</pre>
-          <p>The bundled JSON lets the site open immediately. Upload <code>database/persona-db.xlsx</code> with Upload Workbook on the Publish page after edits.</p>
-        </div>
-      </section>
     </section>
   </main>
 
