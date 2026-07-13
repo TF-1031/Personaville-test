@@ -606,28 +606,21 @@ function renderPrintArea(){
 }
 function printablePersonaCard(p){
   const card = el("section",{class:"print-card"},[]);
-  card.appendChild(el("div",{class:"print-title"},[
+  const inner = el("div",{class:"print-card-inner"},[]);
+  card.appendChild(inner);
+  inner.appendChild(el("div",{class:"print-title"},[
     iconSlot(p.IconPath, `${p.PersonaName || "Persona"} icon`, {type:"Persona", id:p.PersonaID, name:p.PersonaName, file:p.PromoIcon}),
     el("h2",{},[p.PersonaName])
   ]));
-  card.appendChild(el("div",{class:"meta"},[`Family Group: ${p.FamilyGroup} • Pricing Set: ${p.PricingSet}`]));
+  inner.appendChild(el("div",{class:"meta"},[`Family Group: ${p.FamilyGroup} • Pricing Set: ${p.PricingSet}`]));
   const chips = el("div",{class:"chips"},[]);
   if(truthy(p.EquipInc)) chips.appendChild(el("span",{class:"chip feature"},["✓ Equip Inc"]));
   if(truthy(p.SymSpeed)) chips.appendChild(el("span",{class:"chip feature"},["✓ Sym Speed"]));
   (p.modifiers||[]).forEach(m=>chips.appendChild(modifierChip(m)));
-  card.appendChild(chips);
-  p.speeds.forEach(s => card.appendChild(speedDetail(s)));
-  card.appendChild(healthSummaryNode(p));
-  card.appendChild(el("div",{class:"detail-section disclaimer"},[p.disclaimer?.DisclaimerText || ""]));
+  inner.appendChild(chips);
+  p.speeds.forEach(s => inner.appendChild(speedDetail(s)));
+  inner.appendChild(el("div",{class:"detail-section disclaimer"},[p.disclaimer?.DisclaimerText || ""]));
   return card;
-}
-function healthSummaryNode(p){
-  const personaRecords = buildHealth().flatMap(row => row.Records || []).filter(record => record.Fields?.PersonaID === p.PersonaID);
-  const message = personaRecords.length ? `${personaRecords.length} health note${personaRecords.length===1?"":"s"} reference this persona.` : "No persona-specific health notes.";
-  return el("div",{class:"detail-section"},[
-    el("strong",{},["Health summary"]),
-    el("p",{class:"muted"},[message])
-  ]);
 }
 function copySelectedSummary(){
   const personas = selectedExportPersonas();
@@ -642,4 +635,25 @@ function copySelectedSummary(){
   navigator.clipboard.writeText(lines.join("\n"));
   const countEl = document.getElementById("selectedCount");
   if(countEl) countEl.textContent = "Summary copied";
+}
+
+function resetPrintScaling(){
+  document.querySelectorAll(".print-card").forEach(card => {
+    card.style.removeProperty("--print-scale");
+  });
+}
+function fitPrintCardsToLetter(){
+  resetPrintScaling();
+  const maxScale = 1;
+  const minScale = 0.82;
+  document.querySelectorAll(".print-card").forEach(card => {
+    const inner = card.querySelector(".print-card-inner");
+    if(!inner) return;
+    const availableHeight = card.clientHeight || 0;
+    const availableWidth = card.clientWidth || 0;
+    const heightScale = availableHeight ? availableHeight / inner.scrollHeight : maxScale;
+    const widthScale = availableWidth ? availableWidth / inner.scrollWidth : maxScale;
+    const scale = Math.max(minScale, Math.min(maxScale, heightScale, widthScale));
+    card.style.setProperty("--print-scale", String(scale));
+  });
 }
