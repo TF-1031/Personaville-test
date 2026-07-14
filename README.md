@@ -1,5 +1,7 @@
 # Personaville v1.0
 
+Personaville v1.0.0 is the current stable release. Personaville v1.1 is in development and is tracked in `ROADMAP.md`.
+
 Personaville is a stable, static, workbook-driven offer database for reviewing market personas, checking database health, and exporting selected persona summaries. It runs directly from GitHub Pages or any static web server with no backend service.
 
 ## Quick start
