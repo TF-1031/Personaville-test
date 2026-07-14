@@ -110,11 +110,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("exportPersona").addEventListener("change", renderPrintArea);
   document.getElementById("selectAllVisible").addEventListener("click", selectAllVisiblePersonas);
   document.getElementById("clearExportSelection").addEventListener("click", clearExportSelection);
-  document.getElementById("printPersona").addEventListener("click", ()=>window.print());
-  document.getElementById("savePdf").addEventListener("click", ()=>window.print());
+  document.getElementById("printPersona").addEventListener("click", printCombinedExportPdf);
+  document.getElementById("savePdf").addEventListener("click", printCombinedExportPdf);
   document.getElementById("copySummary").addEventListener("click", copySelectedSummary);
   window.addEventListener("beforeprint", fitPrintCardsToLetter);
-  window.addEventListener("afterprint", resetPrintScaling);
+  window.addEventListener("afterprint", () => {
+    resetPrintScaling();
+    restorePrintDocumentTitle();
+  });
 
   // Try published database on load. If local browser blocks fetch, user can still upload workbook.
   try{
