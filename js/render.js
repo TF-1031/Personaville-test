@@ -639,19 +639,41 @@ function printablePersonaCard(p, index=0, total=1){
   inner.appendChild(el("div",{class:"detail-section disclaimer"},[p.disclaimer?.DisclaimerText || ""]));
   return card;
 }
-function copySelectedSummary(){
+
+function selectedSummaryText(){
   const personas = selectedExportPersonas();
   const list = personas.length ? personas : [currentExportPersona()].filter(Boolean);
-  if(!list.length) return;
+  if(!list.length) return "";
   const lines=[];
   list.forEach((p, index)=>{
     if(index) lines.push("", "---", "");
     lines.push(p.PersonaName,`Family Group: ${p.FamilyGroup}`,`Pricing Set: ${p.PricingSet}`,"");
     p.speeds.forEach(s=>lines.push(`${s.SpeedOption} ${s.DisplaySpeed} - ${money(s.FirstPaidPrice)} - Reg. ${money(s.RegularRate)}`));
   });
-  navigator.clipboard.writeText(lines.join("\n"));
+  return lines.join("\n");
+}
+function copySelectedSummary(){
+  const summary = selectedSummaryText();
+  if(!summary) return;
+  navigator.clipboard.writeText(summary);
   const countEl = document.getElementById("selectedCount");
   if(countEl) countEl.textContent = "Summary copied";
+}
+
+function downloadSelectedSummary(){
+  const summary = selectedSummaryText();
+  if(!summary) return;
+  const blob = new Blob([summary], {type:"text/plain"});
+  const link = document.createElement("a");
+  const url = URL.createObjectURL(blob);
+  link.href = url;
+  link.download = `${exportPdfDocumentTitle()}-Summary.txt`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  const countEl = document.getElementById("selectedCount");
+  if(countEl) countEl.textContent = "Summary downloaded";
 }
 
 function filenameSafeText(value){
